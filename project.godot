@@ -15,6 +15,11 @@ run/main_scene="uid://dlr1yhmdr3wkh"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Texturen/icon.svg"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [input]
 
 P0_links={
@@ -87,6 +92,46 @@ P1_shoot={
 P1_dash={
 "deadzone": 0.2,
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":5,"axis_value":1.0,"script":null)
+]
+}
+P0_links_rechts={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":2,"axis_value":-1.0,"script":null)
+]
+}
+P0_rechts_rechts={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":2,"axis_value":1.0,"script":null)
+]
+}
+P0_oben_rechts={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":3,"axis_value":-1.0,"script":null)
+]
+}
+P0_unten_rechts={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":3,"axis_value":1.0,"script":null)
+]
+}
+P1_links_rechts={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":2,"axis_value":-1.0,"script":null)
+]
+}
+P1_rechts_rechts={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":2,"axis_value":1.0,"script":null)
+]
+}
+P1_oben_rechts={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":3,"axis_value":-1.0,"script":null)
+]
+}
+P1_unten_rechts={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":3,"axis_value":1.0,"script":null)
 ]
 }
 

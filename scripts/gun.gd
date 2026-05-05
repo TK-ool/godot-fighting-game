@@ -16,12 +16,12 @@ var rotation_speed: float = 5.0
 
 var target_angle: float
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	var input_vec: Vector2 = Vector2(
-		Input.get_joy_axis(player_ID, JOY_AXIS_RIGHT_X),
-		Input.get_joy_axis(player_ID, JOY_AXIS_RIGHT_Y)
-	)
+		Input.get_axis("P%d_links_rechts" % player_ID, "P%d_rechts_rechts" % player_ID),
+		Input.get_axis("P%d_oben_rechts" % player_ID, "P%d_unten_rechts" % player_ID)
+		)
 	
 	if input_vec.length() >= deadzone:
 		target_angle = input_vec.angle()
@@ -34,8 +34,8 @@ func _process(delta: float) -> void:
 		#var rotation_lerp_weight: float = 1.0 - exp(-rotation_speed * delta)
 		#rotation = lerp_angle(	rotation, target_angle, rotation_lerp_weight)
 		
-		flip_rotation()
-		Shoot()
+	flip_rotation()
+	Shoot()
 		
 func flip_rotation():
 	rotation_degrees = wrap(rotation_degrees, 0, 360)
