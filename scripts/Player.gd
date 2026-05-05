@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+signal device_id(player_id:int)
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @export var device : int = 0
+var deadzone : int = 0.2
 
 
 func _physics_process(delta: float) -> void:
@@ -12,8 +14,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_joy_button_pressed(device,0) or Input.is_action_just_pressed("P0_jump") and is_on_floor() :
-		print("player jump",device)
+	if Input.is_action_just_pressed("P%d_jump" % [device]) and is_on_floor() :
+		print("player %d jump" % device)
 		velocity.y = JUMP_VELOCITY
 
 	
@@ -23,4 +25,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+	
+func _ready() -> void:
+	device_id.emit(device)
 	
