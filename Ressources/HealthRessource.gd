@@ -7,6 +7,7 @@ signal hit
 @export var max_health: int = 100
 @export var current_health: int = 100
 
+#This handles the Health Data for a player
 func _init() -> void:
 	current_health = max_health
 
