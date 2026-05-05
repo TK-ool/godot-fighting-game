@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	
 func _ready() -> void:
 	device_id.emit(device)
-	
+	health_data = health_data.duplicate()
 func dash() :
 	if Input.is_action_just_pressed("P%d_dash" % device) and can_dash == true:
 		can_dash = false
