@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal device_id(player_id:int)
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -600.0
 @export var device : int = 0
 var deadzone : int = 0.2
 

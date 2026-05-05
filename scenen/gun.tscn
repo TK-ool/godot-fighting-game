@@ -10,3 +10,13 @@ script = ExtResource("1_dk5gl")
 position = Vector2(9, 2.9999995)
 scale = Vector2(1.35, 1.2666667)
 texture = ExtResource("1_vk1bi")
+flip_v = true
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D" unique_id=1712222138]
+show_behind_parent = true
+position = Vector2(16.296297, -5.5263147)
+scale = Vector2(0.7407407, 0.7894736)
+
+[node name="Marker2D2" type="Marker2D" parent="Sprite2D" unique_id=1193412261]
+position = Vector2(16.296297, 5.5263166)
+scale = Vector2(0.7407407, 0.7894736)

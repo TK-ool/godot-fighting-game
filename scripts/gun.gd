@@ -2,6 +2,13 @@ extends Node2D
 
 var player_ID : int = 0
 
+var face_right
+
+const Bullet = preload("res://scenen/bullet.tscn")
+
+
+@onready var gunpoint_links: Marker2D = $Sprite2D/Marker2D2
+@onready var gunpoint: Marker2D = $Sprite2D/Marker2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 var deadzone: float = 0.2
@@ -28,14 +35,28 @@ func _process(delta: float) -> void:
 		#rotation = lerp_angle(	rotation, target_angle, rotation_lerp_weight)
 		
 		flip_rotation()
+		Shoot()
 		
 func flip_rotation():
 	rotation_degrees = wrap(rotation_degrees, 0, 360)
 	if rotation_degrees > 90 and rotation_degrees	< 270:
 		sprite_2d.flip_v = true
+		face_right = false
+		
 	else:
 		sprite_2d.flip_v = false
-
+		face_right = true
+		
+func Shoot():
+	if Input.is_action_just_pressed("P%d_shoot" % player_ID):
+		var bullet_instance = Bullet.instantiate()
+		get_tree().root.add_child(bullet_instance)
+		if face_right == true:
+			bullet_instance.global_position = gunpoint.global_position
+		else:
+			bullet_instance.global_position = gunpoint_links.global_position
+		bullet_instance.rotation = rotation
+	
 
 func _on_character_body_2d_device_id(player_id: int) -> void:
 	print("Signal erhalten", player_id)
