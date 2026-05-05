@@ -48,7 +48,7 @@ func flip_rotation():
 		face_right = true
 		
 func Shoot():
-	if Input.is_action_just_pressed("P%d_shoot" % player_ID):
+	if Input.is_action_pressed("P%d_shoot" % player_ID):
 		var bullet_instance = Bullet.instantiate()
 		get_tree().root.add_child(bullet_instance)
 		if face_right == true:
