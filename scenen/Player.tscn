@@ -26,12 +26,6 @@ shape = SubResource("RectangleShape2D_e80uo")
 
 [node name="Gun" parent="." unique_id=418450671 instance=ExtResource("3_kne1u")]
 
-[node name="Dash_Timer" type="Timer" parent="." unique_id=526300928]
-wait_time = 0.2
-
-[node name="Dash_cooldown" type="Timer" parent="." unique_id=1585200515]
-wait_time = 2.0
-
 [node name="HitArea" type="Area2D" parent="." unique_id=1335338859]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=1342490862]
@@ -39,6 +33,4 @@ position = Vector2(-1.5, 1)
 shape = SubResource("RectangleShape2D_rratb")
 
 [connection signal="device_id" from="." to="Gun" method="_on_character_body_2d_device_id"]
-[connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="Dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]
