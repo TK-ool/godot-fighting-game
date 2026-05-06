@@ -11,12 +11,17 @@ const Bullet = preload("res://scenen/bullet.tscn")
 @onready var gunpoint: Marker2D = $Sprite2D/Marker2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+@export var fire_rate: float = 0.5 #The amount of Time between Shots in Seconds
+var _cooldown_timer = 0.0
+
 var deadzone: float = 0.2
 var rotation_speed: float = 5.0
 
 var target_angle: float
 
 func _process(_delta: float) -> void:
+	
+	decrease_cooldown(_delta)
 	
 	var input_vec: Vector2 = Vector2(
 		Input.get_axis("P%d_links_rechts" % player_ID, "P%d_rechts_rechts" % player_ID),
@@ -36,7 +41,14 @@ func _process(_delta: float) -> void:
 		
 	flip_rotation()
 	Shoot()
-		
+
+func decrease_cooldown(_delta: float):
+	if _cooldown_timer > 0:
+		_cooldown_timer -= _delta
+
+func can_fire() -> bool:
+	return _cooldown_timer <= 0.0
+
 func flip_rotation():
 	rotation_degrees = wrap(rotation_degrees, 0, 360)
 	if rotation_degrees > 90 and rotation_degrees	< 270:
@@ -48,7 +60,8 @@ func flip_rotation():
 		face_right = true
 		
 func Shoot():
-	if Input.is_action_pressed("P%d_shoot" % player_ID):
+	if Input.is_action_pressed("P%d_shoot" % player_ID) and can_fire():
+		_cooldown_timer = fire_rate
 		var bullet_instance = Bullet.instantiate()
 		get_tree().root.add_child(bullet_instance)
 		if face_right == true:
