@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bvxsg7v8yfy1s" path="res://scenen/Player.tscn" id="2_b17pj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4ie4"]
-size = Vector2(1981.5, 27.5)
+size = Vector2(1981.5, 197.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qs5kr"]
 size = Vector2(592, 20)
@@ -12,18 +12,21 @@ size = Vector2(592, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b17pj"]
 size = Vector2(386.87476, 21.999512)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpce8"]
+size = Vector2(1038.9999, 70)
+
 [node name="Level" type="Node2D" unique_id=1338423698]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1313331464]
 position = Vector2(927, 861)
 
 [node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D" unique_id=346858997]
-position = Vector2(19.369995, 198.5)
-scale = Vector2(15.5078125, 0.21093729)
+position = Vector2(19.369995, 285)
+scale = Vector2(15.5078125, 1.5624998)
 texture = ExtResource("1_1c8xf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1980955907]
-position = Vector2(20.25, 200.25)
+position = Vector2(20.25, 285.25)
 shape = SubResource("RectangleShape2D_j4ie4")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=140286704]
@@ -57,3 +60,16 @@ position = Vector2(382, 904)
 [node name="CharacterBody2D2" parent="." unique_id=945483878 instance=ExtResource("2_b17pj")]
 position = Vector2(1708, 996)
 device = 1
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1811994358]
+position = Vector2(1900, 519)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=365091686]
+position = Vector2(8, -4.999939)
+shape = SubResource("RectangleShape2D_rpce8")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4" unique_id=363847116]
+position = Vector2(6.6550446, -16.637512)
+scale = Vector2(8.112532, 0.7400389)
+texture = ExtResource("1_1c8xf")

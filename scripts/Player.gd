@@ -5,7 +5,7 @@ signal device_id(player_id:int)
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 
-
+#Dash values
 const Dashspeed = 1200
 var is_dashing: bool = false
 var can_dash: bool = true
@@ -13,6 +13,18 @@ var dash_direction: Vector2 = Vector2.RIGHT
 var dash_timer: float = 0.0
 var DASH_TIME: float = 0.4
 var airdash: bool = false
+
+#Walljump values
+const gravity_wall: float = 80
+const wall_jump_push_force: float = 800
+#coyote time ist zeit nachdem der spieler die Wand verlassen hat, das er den wandspung noch ausführen kann
+var wall_contact_coyote: float = 0.0
+const wall_contact_coyote_time: float = 0.02
+#lock horizontal movement zeit
+var wall_jump_lock:float = 0.0
+const Wall_jump_locktime: float = 0.2
+var look_direction_x: int = 1
+
 
 @export var health_data: HealthResource
 @export var device : int = 0
@@ -22,24 +34,42 @@ var deadzone : float = 0.2
 func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
-	if not is_on_floor() and is_dashing == false:
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if is_dashing == false:
-		if Input.is_action_pressed("P%d_jump" % [device]) and is_on_floor() :
-			print("player %d jump" % device)
-			velocity.y = JUMP_VELOCITY
-			
 	
+	
+
+	if is_dashing == false:
+		
 		var direction := Input.get_axis("P%d_links" % device,"P%d_rechts" % device)
-		if direction :
+		
+		
+		if wall_jump_lock > 0.0:
+			wall_jump_lock -= delta
+			velocity.x = move_toward(velocity.x, 0, SPEED *  0.3) # geschwindigkeit bei dem das movement wiederaufgenommen wird
+			
+		elif direction :
 			velocity.x = direction * SPEED
+		
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			
+	#Walljump, stored die richtung des walljumps und ohne velocity > 0
+	if velocity.x != 0 and is_on_wall()  and !is_on_floor():
+		look_direction_x = sign(velocity.x)
+		wall_contact_coyote = wall_contact_coyote_time
+		
+		#velocity.y  muss >0 sein sonst würde er vor dem slide die gravity hinzufügen, deswegn doppeltes if
+	if !is_on_floor() and velocity.y > 0 and is_on_wall() and velocity.x != 0:
+		velocity.y = gravity_wall
+	
+		# normale Gravity funktion drüber wallslide gravity
+	elif not is_on_floor() and is_dashing == false:
+		velocity += get_gravity() * delta
+		wall_contact_coyote -= delta
+
+		
 	move_and_slide()
 	dash(delta)
-	
+	jumps()
 func _ready() -> void:
 	device_id.emit(device)
 	health_data = health_data.duplicate()
@@ -80,11 +110,19 @@ func dash(delta: float) -> void:
 	if is_on_floor():
 		can_dash = true
 		
-	if airdash == true and is_on_floor():
+	if airdash == true and is_on_floor() or is_on_wall() or is_on_ceiling():
 		is_dashing = false
 		airdash = false
 		
-	
+
+func jumps():
+	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0):
+		if Input.is_action_just_pressed("P%d_jump" % device):
+			velocity.y = JUMP_VELOCITY
+			if wall_contact_coyote > 0.0:
+				velocity.x = -look_direction_x * wall_jump_push_force
+				velocity.y = JUMP_VELOCITY * 1.2
+				wall_jump_lock = Wall_jump_locktime
 
 func _on_hit_area_area_entered(area: Area2D) -> void:
 	print(device, " got hit")
