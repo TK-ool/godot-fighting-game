@@ -15,6 +15,10 @@ run/main_scene="uid://dlr1yhmdr3wkh"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Texturen/icon.svg"
 
+[autoload]
+
+NetworkManager="*uid://d0fcx7wfpwuaj"
+
 [display]
 
 window/size/viewport_width=1920
