@@ -17,3 +17,7 @@ func _send_test_message(message:String):
 	[message,
 	get_tree().get_multiplayer().get_unique_id(),
 	get_tree().get_multiplayer().get_remote_sender_id()])
+
+
+func _on_disconnect_pressed() -> void:
+	NetworkManager.terminate_connection()

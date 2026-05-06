@@ -49,6 +49,11 @@ text = "Join Game"
 layout_mode = 2
 text = "Send Test Message"
 
+[node name="Disconnect" type="Button" parent="VBoxContainer" unique_id=368137309]
+layout_mode = 2
+text = "Disconnect"
+
 [connection signal="pressed" from="VBoxContainer/HostGame" to="." method="_on_host_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/JoinGame" to="." method="_on_join_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/TestMessage" to="." method="_on_test_message_pressed"]
+[connection signal="pressed" from="VBoxContainer/Disconnect" to="." method="_on_disconnect_pressed"]
