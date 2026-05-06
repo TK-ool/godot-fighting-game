@@ -43,3 +43,8 @@ func calculateSpreadModfier():
 
 func calculateDuratonModfier():
 	pass
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is TileMapLayer:
+		queue_free()
