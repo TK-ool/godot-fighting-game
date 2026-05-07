@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 signal device_id(player_id:int)
 
 const SPEED = 300.0
@@ -11,7 +12,7 @@ var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: Vector2 = Vector2.RIGHT
 var dash_timer: float = 0.0
-var DASH_TIME: float = 0.4
+var DASH_TIME: float = 0.2
 var airdash: bool = false
 
 #Walljump values
@@ -34,7 +35,6 @@ var deadzone : float = 0.2
 func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
-	
 	
 
 	if is_dashing == false:
@@ -107,7 +107,7 @@ func dash(delta: float) -> void:
 			airdash = false
 			velocity = input_direction
 		
-	if is_on_floor():
+	if is_on_floor() or is_on_wall():
 		can_dash = true
 		
 	if airdash == true and is_on_floor() or is_on_wall() or is_on_ceiling():
@@ -127,5 +127,5 @@ func jumps():
 func _on_hit_area_area_entered(area: Area2D) -> void:
 	print(device, " got hit")
 	if area.is_in_group("bullet"):
-		health_data.take_damage(1)
+		health_data.take_damage(area.damage)
 		area.queue_free()

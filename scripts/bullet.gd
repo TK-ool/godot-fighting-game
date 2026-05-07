@@ -33,7 +33,7 @@ func calc_size_modifier():
 	self.scale = Vector2(size, size)
 	
 func calc_damage_modfier():
-	damage = damage + bullet_type.damage_modifier
+	damage = bullet_type.damage_modifier
 	
 func calculateAmountModfier():
 	pass

@@ -5,8 +5,10 @@
 
 [node name="Gun" type="Node2D" unique_id=418450671]
 script = ExtResource("1_dk5gl")
+fire_rate = 0.05
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=757308342]
+z_index = 2
 position = Vector2(9, 2.9999995)
 scale = Vector2(1.35, 1.2666667)
 texture = ExtResource("1_vk1bi")

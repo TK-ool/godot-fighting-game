@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BulletRessource" format=3 uid="uid://5ewklll8saq8"]
+[gd_resource type="Resource" script_class="BulletResource" format=3 uid="uid://5ewklll8saq8"]
 
 [ext_resource type="Script" uid="uid://byrndrnxeypm6" path="res://Ressources/BulletResource.gd" id="1_lhlp1"]
 
