@@ -2,16 +2,13 @@ extends Node2D
 
 var player_scene = preload("res://scenen/Player.tscn")
 
-@export var player_name_: String
+
 @export var device:int
 
 func _ready() -> void:
-	playerrespawn(player_name_)
+	playerrespawn()
 
-
-
-
-func playerrespawn(_player_name: String):
+func playerrespawn():
 		var new_player = player_scene.instantiate()
 		new_player.device = device
 		new_player.position = position

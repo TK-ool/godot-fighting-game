@@ -138,11 +138,11 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 func died_():
 	if self.is_in_group("Player_0"):
 		Global.Score_P1 += 1
-		player_respawn.emit("Player_0")
+		player_respawn.emit()
 		
 	if self.is_in_group("Player_1"):
 		Global.Score_P2 += 1
-		player_respawn.emit("Player_1")
+		player_respawn.emit()
 		
 		
 	self.queue_free()	
