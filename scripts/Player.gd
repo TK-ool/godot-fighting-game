@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 signal device_id(player_id:int)
+signal player_respawn (player_name: String)
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
@@ -28,7 +29,7 @@ var look_direction_x: int = 1
 
 
 @export var health_data: HealthResource
-@export var device : int = 0
+var device : int
 var deadzone : float = 0.2
 
 
@@ -70,9 +71,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	dash(delta)
 	jumps()
+	
 func _ready() -> void:
 	device_id.emit(device)
 	health_data = health_data.duplicate()
+	health_data.died.connect(died_)
+	add_to_group("Player_%d" % device)
+	
 	
 	
 func dash(delta: float) -> void:
@@ -129,3 +134,15 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
 		health_data.take_damage(area.damage)
 		area.queue_free()
+		
+func died_():
+	if self.is_in_group("Player_0"):
+		Global.Score_P1 += 1
+		player_respawn.emit("Player_0")
+		
+	if self.is_in_group("Player_1"):
+		Global.Score_P2 += 1
+		player_respawn.emit("Player_1")
+		
+		
+	self.queue_free()	

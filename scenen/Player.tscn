@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://bvxsg7v8yfy1s"]
 
 [ext_resource type="Script" uid="uid://cw6rbeb0qe85y" path="res://scripts/Player.gd" id="1_kpjcp"]
+[ext_resource type="Script" uid="uid://bnuilhtjbnplk" path="res://Ressources/HealthRessource.gd" id="2_a36lp"]
 [ext_resource type="Texture2D" uid="uid://2pbnskmf7qj7" path="res://Texturen/icon.svg" id="2_kne1u"]
 [ext_resource type="PackedScene" uid="uid://g64rmryrtbx8" path="res://scenen/gun.tscn" id="3_kne1u"]
+
+[sub_resource type="Resource" id="Resource_a36lp"]
+script = ExtResource("2_a36lp")
+metadata/_custom_type_script = "uid://bnuilhtjbnplk"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(55, 51)
@@ -10,8 +15,9 @@ size = Vector2(55, 51)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rratb"]
 size = Vector2(39, 36)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1404308864]
+[node name="Player" type="CharacterBody2D" unique_id=1404308864]
 script = ExtResource("1_kpjcp")
+health_data = SubResource("Resource_a36lp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=500274965]
 z_index = 1

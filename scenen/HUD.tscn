@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ckdfglkmtwi0o"]
+
+[ext_resource type="Script" uid="uid://cdhntnen0l5i8" path="res://scripts/HUD.gd" id="1_vmfms"]
+
+[node name="Score" type="Control" unique_id=1181961140]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vmfms")
+
+[node name="Score_P1" type="Label" parent="." unique_id=1645693211]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 76.0
+offset_right = 202.0
+offset_bottom = 99.0
+text = "Score 999"
+
+[node name="Score_P2" type="Label" parent="." unique_id=1270059123]
+layout_mode = 0
+offset_left = 1795.0
+offset_top = 76.0
+offset_right = 1870.0
+offset_bottom = 99.0
+text = "Score 999"

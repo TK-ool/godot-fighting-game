@@ -15,10 +15,19 @@ run/main_scene="uid://dlr1yhmdr3wkh"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Texturen/icon.svg"
 
+[autoload]
+
+Global="*uid://xaet4fo6udxo"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[global_group]
+
+Player_0="Spieler Nr.1"
+Player_1="Spieler Nr.2"
 
 [input]
 

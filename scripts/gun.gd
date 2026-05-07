@@ -21,6 +21,7 @@ var target_angle: float
 
 func _process(_delta: float) -> void:
 	
+	
 	decrease_cooldown(_delta)
 	
 	var input_vec: Vector2 = Vector2(
@@ -74,3 +75,6 @@ func Shoot():
 func _on_character_body_2d_device_id(player_id: int) -> void:
 	print("Signal erhalten", player_id)
 	player_ID = player_id
+	
+func signal_erhalten():
+	print("signal in gun erhalten")

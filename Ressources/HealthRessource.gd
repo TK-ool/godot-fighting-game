@@ -4,8 +4,8 @@ class_name HealthResource
 signal died
 signal hit
 
-@export var max_health: int = 100
-@export var current_health: int = 100
+@export var max_health: int = 10
+@export var current_health: int = 10
 
 #This handles the Health Data for a player
 func _init() -> void:
