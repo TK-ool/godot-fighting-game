@@ -129,20 +129,21 @@ func jumps():
 				velocity.y = JUMP_VELOCITY * 1.2
 				wall_jump_lock = Wall_jump_locktime
 
-func _on_hit_area_area_entered(area: Area2D) -> void:
-	print(device, " got hit")
-	if area.is_in_group("bullet"):
-		health_data.take_damage(area.damage)
-		area.queue_free()
+func _on_hit_area_area_entered(bullet: Area2D) -> void:
+	
+	if !bullet.is_in_group("Player_%d" % device) and bullet.is_in_group("bullet"):
+		health_data.take_damage(bullet.damage)
+		print(device, " got hit")
+		bullet.queue_free()
 		
 func died_():
 	if self.is_in_group("Player_0"):
-		Global.Score_P1 += 1
-		player_respawn.emit()
-		
-	if self.is_in_group("Player_1"):
 		Global.Score_P2 += 1
 		player_respawn.emit()
 		
+	if self.is_in_group("Player_1"):
+		Global.Score_P1 += 1
+		player_respawn.emit()
 		
-	self.queue_free()	
+		
+	self.queue_free()

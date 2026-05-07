@@ -1,12 +1,13 @@
 extends Node2D
 
 @export var bullet_type: BulletResource
-var speed: int = 600
+var speed: float = 600
 var size: float = 1.0
 var damage: int = 1
 
+var device: int
+
 func _ready():
-	add_to_group("bullet")
 	calc_speed_modifier()
 	calc_size_modifier()
 	calc_damage_modfier()
@@ -48,3 +49,7 @@ func calculateDuratonModfier():
 func _on_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
 		queue_free()
+		
+func set_group():
+	add_to_group("bullet")
+	add_to_group("Player_%d" % device)

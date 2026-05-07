@@ -5,5 +5,5 @@ extends Control
 
 func _process(_delta: float) -> void:
 	
-	score_p_1.text = "Score " + str(Global.Score_P1)
-	score_p_2.text = "Score " + str(Global.Score_P2)
+	score_p_1.text = "Player 1 Score " + str(Global.Score_P1)
+	score_p_2.text = "Player 2 Score " + str(Global.Score_P2)

@@ -65,6 +65,8 @@ func Shoot():
 		_cooldown_timer = fire_rate
 		var bullet_instance = Bullet.instantiate()
 		get_tree().root.add_child(bullet_instance)
+		bullet_instance.device = player_ID
+		bullet_instance.set_group()
 		if face_right == true:
 			bullet_instance.global_position = gunpoint.global_position
 		else:

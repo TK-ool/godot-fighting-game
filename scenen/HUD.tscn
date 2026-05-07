@@ -14,16 +14,16 @@ script = ExtResource("1_vmfms")
 
 [node name="Score_P1" type="Label" parent="." unique_id=1645693211]
 layout_mode = 0
-offset_left = 127.0
+offset_left = 100.0
 offset_top = 76.0
-offset_right = 202.0
+offset_right = 175.0
 offset_bottom = 99.0
 text = "Score 999"
 
 [node name="Score_P2" type="Label" parent="." unique_id=1270059123]
 layout_mode = 0
-offset_left = 1795.0
+offset_left = 1703.0
 offset_top = 76.0
-offset_right = 1870.0
+offset_right = 1778.0
 offset_bottom = 99.0
 text = "Score 999"

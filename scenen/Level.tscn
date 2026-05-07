@@ -28,9 +28,9 @@ tile_set = SubResource("TileSet_rpce8")
 
 [node name="Score" parent="." unique_id=1181961140 instance=ExtResource("4_j4ie4")]
 
-[node name="PlayerSpawner" parent="." unique_id=1409022632 instance=ExtResource("5_rpce8")]
+[node name="Player_1 Spawner" parent="." unique_id=1409022632 instance=ExtResource("5_rpce8")]
 position = Vector2(253, 663)
 
-[node name="PlayerSpawner2" parent="." unique_id=1010258943 instance=ExtResource("5_rpce8")]
+[node name="Player_2 Spawner" parent="." unique_id=1010258943 instance=ExtResource("5_rpce8")]
 position = Vector2(1695, 267)
 device = 1
