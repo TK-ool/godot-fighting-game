@@ -11,9 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot-Fighting-Game"
-run/main_scene="uid://dlr1yhmdr3wkh"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://Texturen/icon.svg"
 
 [autoload]
 
