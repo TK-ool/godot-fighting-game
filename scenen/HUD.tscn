@@ -20,7 +20,7 @@ offset_left = 100.0
 offset_top = 76.0
 offset_right = 175.0
 offset_bottom = 99.0
-text = "Score 999"
+text = "Score 9999"
 
 [node name="Score_P2" type="Label" parent="." unique_id=1270059123]
 layout_mode = 0
