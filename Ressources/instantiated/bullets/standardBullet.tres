@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="BulletResource" format=3 uid="uid://d11t1bpu0s18v"]
-
-[ext_resource type="Script" uid="uid://byrndrnxeypm6" path="res://Ressources/BulletResource.gd" id="1_x4qax"]
-
-[resource]
-script = ExtResource("1_x4qax")
-metadata/_custom_type_script = "uid://byrndrnxeypm6"

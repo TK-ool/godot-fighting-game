@@ -15,10 +15,6 @@ run/main_scene="uid://dlr1yhmdr3wkh"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Texturen/icon.svg"
 
-[audio]
-
-buses/default_bus_layout="uid://cisbdtpyco7lx"
-
 [autoload]
 
 Global="*uid://xaet4fo6udxo"
@@ -156,5 +152,4 @@ P1_unten_rechts={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

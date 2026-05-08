@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://ckdfglkmtwi0o"]
 
 [ext_resource type="Script" uid="uid://cdhntnen0l5i8" path="res://scripts/HUD.gd" id="1_vmfms"]
-[ext_resource type="Texture2D" uid="uid://dmbar6bpjhr8a" path="res://Texturen/Empty Progress Bar fertig.png" id="2_x5jof"]
-[ext_resource type="Texture2D" uid="uid://ocbskeii5ugg" path="res://Texturen/Full Progress Bar fertig.png" id="3_8cexo"]
 
 [node name="Score" type="Control" unique_id=1181961140]
 z_index = 5
@@ -29,29 +27,3 @@ offset_top = 76.0
 offset_right = 1778.0
 offset_bottom = 99.0
 text = "Score 999"
-
-[node name="Health_P1" type="TextureProgressBar" parent="." unique_id=1412551810]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 100.0
-offset_right = 291.0
-offset_bottom = 140.0
-max_value = 10.0
-step = 0.1
-value = 5.0
-nine_patch_stretch = true
-texture_under = ExtResource("2_x5jof")
-texture_progress = ExtResource("3_8cexo")
-
-[node name="Health_P2" type="TextureProgressBar" parent="." unique_id=383990046]
-layout_mode = 0
-offset_left = 1662.0
-offset_top = 100.0
-offset_right = 1878.0
-offset_bottom = 140.0
-max_value = 10.0
-step = 0.1
-value = 5.0
-nine_patch_stretch = true
-texture_under = ExtResource("2_x5jof")
-texture_progress = ExtResource("3_8cexo")
