@@ -1,21 +1,14 @@
 extends Node2D
 
-@export var bullet_type: BulletResource
+@onready var bullet: Area2D = $"."
+
+var behaviours: Array = []
+
 var speed: float = 600
 var size: float = 1.0
 var damage: int = 1
 
 var device: int
-
-func _ready():
-	calc_speed_modifier()
-	calc_size_modifier()
-	calc_damage_modfier()
-	calculateAmountModfier()
-	calculateSpreadModfier()
-	calculateDuratonModfier()
-
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,29 +19,14 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	self.queue_free()
 
 
-func calc_speed_modifier():
-	speed = speed * bullet_type.speed_modifier
-	
-func calc_size_modifier():
-	size = size * bullet_type.size_modifier
-	self.scale = Vector2(size, size)
-	
-func calc_damage_modfier():
-	damage = bullet_type.damage_modifier
-	
-func calculateAmountModfier():
-	pass
-	
-func calculateSpreadModfier():
-	pass
-
-func calculateDuratonModfier():
-	pass
-
-
 func _on_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
-		queue_free()
+		var hit_behaviour = false
+		for b in behaviours:
+			b.on_wall_hit(bullet)
+			hit_behaviour = true
+		if not hit_behaviour:
+			queue_free()
 		
 func set_group():
 	add_to_group("bullet")
