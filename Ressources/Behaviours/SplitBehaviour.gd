@@ -14,6 +14,6 @@ func on_wall_hit(bullet: Area2D):
 		b.rotation = angle
 		b.speed = sub_bullet_speed
 		b.behaviours = [] # Keine Rekursion
-		bullet.get_parent().add_child(b)
+		bullet.get_parent().add_child.call_deferred(b)
 	bullet.queue_free()
 	return true
