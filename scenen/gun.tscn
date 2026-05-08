@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://g64rmryrtbx8"]
 
-[ext_resource type="Script" uid="uid://c3bp221mvqn6t" path="res://scripts/gun.gd" id="1_dk5gl"]
+[ext_resource type="Script" uid="uid://c3bp221mvqn6t" path="res://scripts/gunHandler.gd" id="1_dk5gl"]
 [ext_resource type="Texture2D" uid="uid://dvr8884q0gv02" path="res://Texturen/Test_gun.png" id="1_vk1bi"]
+[ext_resource type="Resource" uid="uid://3fv3h2n8jwi0" path="res://Ressources/Weapons/gun_that_duplicates_bullets.tres" id="2_l5qxt"]
 
 [node name="Gun" type="Node2D" unique_id=418450671]
 script = ExtResource("1_dk5gl")
-fire_rate = 0.05
+current_weapon = ExtResource("2_l5qxt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=757308342]
 z_index = 2

@@ -133,6 +133,8 @@ func _on_hit_area_area_entered(bullet: Area2D) -> void:
 	
 	if !bullet.is_in_group("Player_%d" % device) and bullet.is_in_group("bullet"):
 		health_data.take_damage(bullet.damage)
+		for b in bullet.behaviours:
+			b.on_hit(bullet)
 		print(device, " got hit")
 		bullet.queue_free()
 		
