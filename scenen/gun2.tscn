@@ -1,24 +1,24 @@
-[gd_scene format=3 uid="uid://g64rmryrtbx8"]
+[gd_scene format=3 uid="uid://cjytg7wt6grik"]
 
-[ext_resource type="Script" uid="uid://c3bp221mvqn6t" path="res://scripts/gun.gd" id="1_dk5gl"]
-[ext_resource type="Texture2D" uid="uid://dvr8884q0gv02" path="res://Texturen/Test_gun.png" id="1_vk1bi"]
-[ext_resource type="Texture2D" uid="uid://brxovixxnsc6y" path="res://Texturen/muzzle flash for test.png" id="3_l5qxt"]
-[ext_resource type="AudioStream" uid="uid://bpnphwupe501l" path="res://Sounds/pistol-gunshot.mp3" id="4_0lpn5"]
+[ext_resource type="Script" uid="uid://bhmdvojrpyb5u" path="res://scenen/gun.tscn.gd" id="1_rnsia"]
+[ext_resource type="Texture2D" uid="uid://dvr8884q0gv02" path="res://Texturen/Test_gun.png" id="2_5wm7l"]
+[ext_resource type="Texture2D" uid="uid://brxovixxnsc6y" path="res://Texturen/muzzle flash for test.png" id="3_gr470"]
+[ext_resource type="AudioStream" uid="uid://bpnphwupe501l" path="res://Sounds/pistol-gunshot.mp3" id="4_6orli"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5qxt"]
-atlas = ExtResource("3_l5qxt")
+atlas = ExtResource("3_gr470")
 region = Rect2(0, 0, 30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lpn5"]
-atlas = ExtResource("3_l5qxt")
+atlas = ExtResource("3_gr470")
 region = Rect2(30, 0, 30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7w0ho"]
-atlas = ExtResource("3_l5qxt")
+atlas = ExtResource("3_gr470")
 region = Rect2(60, 0, 30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sajfk"]
-atlas = ExtResource("3_l5qxt")
+atlas = ExtResource("3_gr470")
 region = Rect2(90, 0, 30, 30)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0lpn5"]
@@ -131,17 +131,17 @@ _data = {
 playback_mode = 2
 random_pitch = 1.2599211
 streams_count = 1
-stream_0/stream = ExtResource("4_0lpn5")
+stream_0/stream = ExtResource("4_6orli")
 
 [node name="Gun" type="Node2D" unique_id=418450671]
-script = ExtResource("1_dk5gl")
+script = ExtResource("1_rnsia")
 fire_rate = 0.7
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=757308342]
 z_index = 2
 position = Vector2(9, 2.9999995)
 scale = Vector2(1.35, 1.2666667)
-texture = ExtResource("1_vk1bi")
+texture = ExtResource("2_5wm7l")
 
 [node name="Marker2D" type="Marker2D" parent="Sprite2D" unique_id=1712222138]
 show_behind_parent = true
