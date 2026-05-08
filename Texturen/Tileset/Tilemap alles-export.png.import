@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rlsv0r8tvxc6"
-path="res://.godot/imported/Tilemap right-Sheet.png-4893b00653e6f6304adfde6468101b96.ctex"
+uid="uid://hbboio45rx15"
+path="res://.godot/imported/Tilemap alles-export.png-77c29d29ab1222ef7ce2ffa7a81bbd79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texturen/Tileset/Tilemap right-Sheet.png"
-dest_files=["res://.godot/imported/Tilemap right-Sheet.png-4893b00653e6f6304adfde6468101b96.ctex"]
+source_file="res://Texturen/Tileset/Tilemap alles-export.png"
+dest_files=["res://.godot/imported/Tilemap alles-export.png-77c29d29ab1222ef7ce2ffa7a81bbd79.ctex"]
 
 [params]
 

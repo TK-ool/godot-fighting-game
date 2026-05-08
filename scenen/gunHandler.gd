@@ -78,11 +78,11 @@ func flip_rotation():
 	if rotation_degrees > 90 and rotation_degrees	< 270:
 		sprite_2d.flip_v = true
 		face_right = false
-		muzzleflash2d.global_position = gunpoint_links.global_position
+		muzzleflash2d.global_position = gunpoint_rechts.global_position
 	else:
 		sprite_2d.flip_v = false
 		face_right = true
-		muzzleflash2d.global_position = gunpoint_rechts.global_position
+		muzzleflash2d.global_position = gunpoint_links.global_position
 		
 		
 func Shoot():
@@ -97,9 +97,9 @@ func Shoot():
 		muzzleflash.play("muzzleflash")
 		gunshot.play(0.0)
 		if face_right == true:
-			bullet_instance.global_position = gunpoint_rechts.global_position
-		else:
 			bullet_instance.global_position = gunpoint_links.global_position
+		else:
+			bullet_instance.global_position = gunpoint_rechts.global_position
 		bullet_instance.rotation = rotation
 	
 

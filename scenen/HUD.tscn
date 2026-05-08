@@ -24,9 +24,9 @@ text = "Score 999"
 
 [node name="Score_P2" type="Label" parent="." unique_id=1270059123]
 layout_mode = 0
-offset_left = 1703.0
+offset_left = 1669.0
 offset_top = 76.0
-offset_right = 1778.0
+offset_right = 1744.0
 offset_bottom = 99.0
 text = "Score 999"
 
@@ -45,9 +45,9 @@ texture_progress = ExtResource("3_8cexo")
 
 [node name="Health_P2" type="TextureProgressBar" parent="." unique_id=383990046]
 layout_mode = 0
-offset_left = 1662.0
+offset_left = 1598.0
 offset_top = 100.0
-offset_right = 1878.0
+offset_right = 1814.0
 offset_bottom = 140.0
 max_value = 10.0
 step = 0.1

@@ -167,5 +167,4 @@ libraries/ = SubResource("AnimationLibrary_7w0ho")
 stream = SubResource("AudioStreamRandomizer_0lpn5")
 volume_db = -48.899
 pitch_scale = 1.81
-max_polyphony = 5
 bus = &"SFX"

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://cu3cv5885ctqs"]
 
-[ext_resource type="Script" path="res://Ressources/BulletBehaviour.gd" id="1_5vjt1"]
-[ext_resource type="Script" path="res://Ressources/WeaponResource.gd" id="2_cc1tp"]
+[ext_resource type="Script" uid="uid://bwlf0khqffv21" path="res://Ressources/BulletBehaviour.gd" id="1_5vjt1"]
+[ext_resource type="Script" uid="uid://br3khvcvjx3px" path="res://Ressources/WeaponResource.gd" id="2_cc1tp"]
 [ext_resource type="Texture2D" uid="uid://6jqr72tpedm5" path="res://Texturen/Test_bullet.png" id="2_ksl73"]
 [ext_resource type="Script" uid="uid://b1ow1tv21l4jx" path="res://Ressources/Behaviours/SplitBehaviour.gd" id="2_ou8xb"]
 [ext_resource type="Texture2D" uid="uid://cj2ri5w6jjek2" path="res://Texturen/TileMapTesting.png" id="3_ou8xb"]
@@ -18,7 +18,7 @@ weapon_sprite = ExtResource("5_gelf1")
 card_sprite = ExtResource("3_ou8xb")
 bullet_sprite = ExtResource("2_ksl73")
 damage = 1
-fire_rate = 2.5
+fire_rate = 0.5
 bullet_speed = 1.0
 bullet_amount = 1
 gunpoint_offset_left = Vector2(16, -5)
