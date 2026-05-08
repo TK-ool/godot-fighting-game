@@ -6,6 +6,9 @@ var face_right
 
 const Bullet = preload("res://scenen/bullet.tscn")
 
+@onready var gunshot: AudioStreamPlayer = $gunshot_sound
+@onready var muzzleflash2d: AnimatedSprite2D = $Muzzleflash
+@onready var muzzleflash: AnimationPlayer = $Muzzleflash/AnimationPlayer
 
 @onready var gunpoint_links: Marker2D = $Sprite2D/Marker2D2
 @onready var gunpoint: Marker2D = $Sprite2D/Marker2D
@@ -55,7 +58,6 @@ func flip_rotation():
 	if rotation_degrees > 90 and rotation_degrees	< 270:
 		sprite_2d.flip_v = true
 		face_right = false
-		
 	else:
 		sprite_2d.flip_v = false
 		face_right = true
@@ -67,10 +69,14 @@ func Shoot():
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.device = player_ID
 		bullet_instance.set_group()
+		muzzleflash.play("muzzleflash")
+		gunshot.play(0.0)
 		if face_right == true:
 			bullet_instance.global_position = gunpoint.global_position
+			muzzleflash2d.global_position = gunpoint.global_position
 		else:
 			bullet_instance.global_position = gunpoint_links.global_position
+			muzzleflash2d.global_position = gunpoint_links.global_position
 		bullet_instance.rotation = rotation
 	
 
