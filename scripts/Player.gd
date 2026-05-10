@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 
@@ -6,6 +7,7 @@ signal player_respawn (player_name: String)
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
+@onready var gun: Gun = $Gun
 
 #Dash values
 const Dashspeed = 1200

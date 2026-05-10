@@ -1,3 +1,4 @@
+class_name Gun
 extends Node2D
 
 var player_ID : int = 0
@@ -20,6 +21,7 @@ var bullet
 
 var fire_rate: float #The amount of Time between Shots in Seconds
 var bullet_amount: int #ammo
+var magazine_size: int
 var reload_timer: float = 0.0
 var is_reloading: bool = false
 var _cooldown_timer = 0.0
@@ -66,7 +68,8 @@ func equip_weapon(weapon: WeaponResource):
 	gunpoint_rechts.position = weapon.gunpoint_offset_right
 	
 	fire_rate = current_weapon.fire_rate
-	bullet_amount = current_weapon.bullet_amount
+	bullet_amount = current_weapon.magazine_size
+	magazine_size = current_weapon.magazine_size
 	reload_bar.max_value = current_weapon.reload_time
 	bullet = current_weapon.Bullet_scene
 	# set attributes
@@ -124,7 +127,7 @@ func reload():
 		is_reloading = true
 	if is_reloading and reload_timer <= 0.0:
 		print("reloaded")
-		bullet_amount = current_weapon.bullet_amount
+		bullet_amount = current_weapon.magazine_size
 		is_reloading = false
 
 func reload_progress():

@@ -20,3 +20,4 @@ func take_damage(amount: float):
 	set_health(current_health-amount)
 	print(current_health)
 	hit.emit()
+	

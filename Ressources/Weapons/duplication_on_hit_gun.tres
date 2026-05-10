@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cj2ri5w6jjek2" path="res://Texturen/TileMapTesting.png" id="3_ou8xb"]
 [ext_resource type="Texture2D" uid="uid://dvr8884q0gv02" path="res://Texturen/Weapon/Test_gun.png" id="6_gelf1"]
 
-[sub_resource type="Resource" id="Resource_gelf1"]
+[sub_resource type="Resource" id="Resource_ou8xb"]
 script = ExtResource("2_ou8xb")
 metadata/_custom_type_script = "uid://b1ow1tv21l4jx"
 
@@ -20,9 +20,9 @@ Bullet_scene = ExtResource("1_ou8xb")
 damage = 1
 fire_rate = 0.1
 bullet_speed = 1.0
-bullet_amount = 10
+magazine_size = 10
 reload_time = 1.0
 gunpoint_offset_left = Vector2(16, -5)
 gunpoint_offset_right = Vector2(16, 5)
-behaviours = Array[ExtResource("1_5vjt1")]([SubResource("Resource_gelf1")])
+behaviours = Array[ExtResource("1_5vjt1")]([SubResource("Resource_ou8xb")])
 metadata/_custom_type_script = "uid://br3khvcvjx3px"

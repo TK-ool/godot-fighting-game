@@ -55,3 +55,19 @@ value = 5.0
 nine_patch_stretch = true
 texture_under = ExtResource("2_x5jof")
 texture_progress = ExtResource("3_8cexo")
+
+[node name="Ammo_P1" type="Label" parent="." unique_id=953698113]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 151.0
+offset_right = 137.0
+offset_bottom = 174.0
+text = "Ammo"
+
+[node name="Ammo_P2" type="Label" parent="." unique_id=688124327]
+layout_mode = 0
+offset_left = 1631.0
+offset_top = 149.0
+offset_right = 1671.0
+offset_bottom = 172.0
+text = "Ammo"
