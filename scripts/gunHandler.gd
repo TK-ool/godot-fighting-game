@@ -4,7 +4,7 @@ var player_ID : int = 0
 
 var face_right
 
-const Bullet = preload("res://scenen/bullet.tscn")
+var bullet
 
 @onready var reload_bar: ProgressBar = $"../Reload_bar"
 
@@ -16,7 +16,7 @@ const Bullet = preload("res://scenen/bullet.tscn")
 
 @onready var gunpoint_links: Marker2D = $Sprite2D/Marker2D2
 @onready var gunpoint_rechts: Marker2D = $Sprite2D/Marker2D
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var gunsprite_2d: Sprite2D = $Sprite2D
 
 var fire_rate: float #The amount of Time between Shots in Seconds
 var bullet_amount: int #ammo
@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 
 func equip_weapon(weapon: WeaponResource):
 	current_weapon = weapon # set weapon from Resource
-	sprite_2d.texture = current_weapon.weapon_sprite
+	gunsprite_2d.texture = current_weapon.weapon_sprite
 	# set weapon offset for gunpoint
 	gunpoint_links.position = weapon.gunpoint_offset_left
 	gunpoint_rechts.position = weapon.gunpoint_offset_right
@@ -68,6 +68,7 @@ func equip_weapon(weapon: WeaponResource):
 	fire_rate = current_weapon.fire_rate
 	bullet_amount = current_weapon.bullet_amount
 	reload_bar.max_value = current_weapon.reload_time
+	bullet = current_weapon.Bullet_scene
 	# set attributes
 	#current_weapon.damage = Bullet.damage
 	#current_weapon.fire_rate = 
@@ -89,11 +90,11 @@ func can_fire() -> bool:
 func flip_rotation():
 	rotation_degrees = wrap(rotation_degrees, 0, 360)
 	if rotation_degrees > 90 and rotation_degrees	< 270:
-		sprite_2d.flip_v = true
+		gunsprite_2d.flip_v = true
 		face_right = false
 		muzzleflash2d.global_position = gunpoint_rechts.global_position
 	else:
-		sprite_2d.flip_v = false
+		gunsprite_2d.flip_v = false
 		face_right = true
 		muzzleflash2d.global_position = gunpoint_links.global_position
 		
@@ -101,7 +102,7 @@ func flip_rotation():
 func Shoot():
 	if Input.is_action_pressed("P%d_shoot" % player_ID) and can_fire() and bullet_amount > 0 and !is_reloading:
 		_cooldown_timer = fire_rate
-		var bullet_instance = Bullet.instantiate()
+		var bullet_instance = bullet.instantiate()
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.device = player_ID
 		bullet_instance.set_group()
@@ -130,7 +131,6 @@ func reload_progress():
 	if is_reloading:
 		reload_bar.visible = true
 		reload_bar.value = reload_timer
-		
 	else:
 		reload_bar.visible = false
 	

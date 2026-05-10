@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://bxwi8dex18vm8"]
+
+[ext_resource type="Script" uid="uid://bwlf0khqffv21" path="res://Ressources/BulletBehaviour.gd" id="1_37gfm"]
+[ext_resource type="Texture2D" uid="uid://dho8ew74bndc4" path="res://Texturen/Bullets/ball test.png" id="2_hkirm"]
+[ext_resource type="Script" uid="uid://br3khvcvjx3px" path="res://Ressources/WeaponResource.gd" id="2_nlvwq"]
+[ext_resource type="Texture2D" uid="uid://dvr8884q0gv02" path="res://Texturen/Weapon/Test_gun.png" id="3_nlvwq"]
+
+[resource]
+script = ExtResource("2_nlvwq")
+weapon_name = "Bounce_weapon"
+weapon_sprite = ExtResource("3_nlvwq")
+card_sprite = ExtResource("2_hkirm")
+bullet_sprite = ExtResource("2_hkirm")
+damage = 2
+fire_rate = 0.5
+bullet_speed = 20.0
+bullet_amount = 10
+reload_time = 1.0
+gunpoint_offset_left = Vector2(16, -5)
+gunpoint_offset_right = Vector2(16, 5)
+behaviours = Array[ExtResource("1_37gfm")]([null])
+metadata/_custom_type_script = "uid://bwlf0khqffv21"

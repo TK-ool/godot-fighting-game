@@ -5,7 +5,7 @@ extends Resource
 
 @export var weapon_sprite: Texture2D # The Sprite of the Weapon on the Character
 @export var card_sprite: Texture2D # The Sprite Of the Card in inventory
-@export var bullet_sprite: Texture2D # The texture of the bullet
+@export var Bullet_scene: PackedScene # the bullet scene
 
 @export var damage: int # the amount of damage per bulet
 @export var fire_rate: float # the fire rate of the weapon

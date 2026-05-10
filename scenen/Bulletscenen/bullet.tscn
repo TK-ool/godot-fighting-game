@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bpbgsyrbrpjm"]
 
-[ext_resource type="Script" uid="uid://bhoq4nu3buqpx" path="res://scripts/bullet.gd" id="1_v2j1n"]
-[ext_resource type="Texture2D" uid="uid://6jqr72tpedm5" path="res://Texturen/Test_bullet.png" id="1_vxpgi"]
+[ext_resource type="Script" uid="uid://bhoq4nu3buqpx" path="res://scripts/bullet.gd" id="1_o5iau"]
+[ext_resource type="Texture2D" uid="uid://6jqr72tpedm5" path="res://Texturen/Bullets/Test_bullet.png" id="2_6m63l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2j1n"]
 size = Vector2(17, 11)
 
 [node name="Area2D" type="Area2D" unique_id=516728236]
-script = ExtResource("1_v2j1n")
+script = ExtResource("1_o5iau")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1065275330]
 position = Vector2(1.5, -1.5)
@@ -17,7 +17,7 @@ shape = SubResource("RectangleShape2D_v2j1n")
 rect = Rect2(-66, -35, 140, 69)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1736693349]
-texture = ExtResource("1_vxpgi")
+texture = ExtResource("2_6m63l")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
