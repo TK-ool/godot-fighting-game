@@ -21,8 +21,6 @@ func _process(_delta: float) -> void:
 	ammo_p_2.text = str(player_2.gun.bullet_amount) + "/" + str(player_2.gun.magazine_size)
 func player_1_spawned(new_player: Player):
 	player_1 = new_player
-	print(new_player.health_data.current_health)
 	
 func player_2_spawned(new_player: Player):
 	player_2 = new_player
-	print(new_player.health_data.current_health)

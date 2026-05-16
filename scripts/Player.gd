@@ -9,6 +9,10 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 @onready var gun: Gun = $Gun
 
+#Knockback Values
+var knockback: Vector2 = Vector2.ZERO
+var knockback_duration: float = 0.0
+
 #Dash values
 const Dashspeed = 1200
 var is_dashing: bool = false
@@ -37,39 +41,8 @@ var deadzone : float = 0.2
 
 func _physics_process(delta: float) -> void:
 	
-	# Add the gravity.
 	
-
-	if is_dashing == false:
-		
-		var direction := Input.get_axis("P%d_links" % device,"P%d_rechts" % device)
-		
-		
-		if wall_jump_lock > 0.0:
-			wall_jump_lock -= delta
-			velocity.x = move_toward(velocity.x, 0, SPEED *  0.3) # geschwindigkeit bei dem das movement wiederaufgenommen wird
-			
-		elif direction :
-			velocity.x = direction * SPEED
-		
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			
-	#Walljump, stored die richtung des walljumps und ohne velocity > 0
-	if velocity.x != 0 and is_on_wall()  and !is_on_floor():
-		look_direction_x = sign(velocity.x)
-		wall_contact_coyote = wall_contact_coyote_time
-		
-		#velocity.y  muss >0 sein sonst würde er vor dem slide die gravity hinzufügen, deswegn doppeltes if
-	if !is_on_floor() and velocity.y > 0 and is_on_wall() and velocity.x != 0:
-		velocity.y = gravity_wall
-	
-		# normale Gravity funktion drüber wallslide gravity
-	elif not is_on_floor() and is_dashing == false:
-		velocity += get_gravity() * delta
-		wall_contact_coyote -= delta
-
-		
+	overall_movement(delta)
 	move_and_slide()
 	dash(delta)
 	jumps()
@@ -80,7 +53,40 @@ func _ready() -> void:
 	health_data.died.connect(died_)
 	add_to_group("Player_%d" % device)
 	
-	
+func overall_movement(delta):
+	if knockback_duration <= 0.0:
+
+		if is_dashing == false:
+			
+			var direction := Input.get_axis("P%d_links" % device,"P%d_rechts" % device)
+			
+			
+			if wall_jump_lock > 0.0:
+				wall_jump_lock -= delta
+				velocity.x = move_toward(velocity.x, 0, SPEED *  0.3) # geschwindigkeit bei dem das movement wiederaufgenommen wird
+				
+			elif direction :
+				velocity.x = direction * SPEED
+			
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				
+		#Walljump, stored die richtung des walljumps und ohne velocity > 0
+		if velocity.x != 0 and is_on_wall()  and !is_on_floor():
+			look_direction_x = sign(velocity.x)
+			wall_contact_coyote = wall_contact_coyote_time
+			
+			#velocity.y  muss >0 sein sonst würde er vor dem slide die gravity hinzufügen, deswegn doppeltes if
+		if !is_on_floor() and velocity.y > 0 and is_on_wall() and velocity.x != 0:
+			velocity.y = gravity_wall
+		
+			# normale Gravity funktion drüber wallslide gravity
+		elif not is_on_floor() and is_dashing == false:
+			velocity += get_gravity() * delta
+			wall_contact_coyote -= delta
+	else:
+		velocity = knockback
+		knockback_duration -= delta
 	
 func dash(delta: float) -> void:
 	
@@ -149,3 +155,12 @@ func died_():
 		
 		
 	self.queue_free()
+	
+func get_dmg(damage:int):
+	health_data.take_damage(damage)
+	
+	
+func apply_knockback(knockback_direction: Vector2, knockback_force:int, knockback_time: float):
+	knockback = knockback_force * knockback_direction
+	knockback_duration = knockback_time
+	
