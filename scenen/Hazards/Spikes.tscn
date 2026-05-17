@@ -3,14 +3,23 @@
 [ext_resource type="Texture2D" uid="uid://4cfqucbytio5" path="res://Texturen/test spikes.png" id="1_4nh30"]
 [ext_resource type="Script" uid="uid://x3n4fjmulocl" path="res://scripts/hazards.gd" id="1_hqxlf"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqxlf"]
+size = Vector2(64, 18)
+
 [node name="Spikes" type="Area2D" unique_id=1073313274]
 script = ExtResource("1_hqxlf")
 damage = 1
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1721413351]
-polygon = PackedVector2Array(8, 0, 0, 16, -8, 0, -16, 16, 16, 16)
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=768164043]
+position = Vector2(-16, -147)
 texture = ExtResource("1_4nh30")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=772131465]
+position = Vector2(16, -147)
+texture = ExtResource("1_4nh30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1067269771]
+position = Vector2(0, -140)
+shape = SubResource("RectangleShape2D_hqxlf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

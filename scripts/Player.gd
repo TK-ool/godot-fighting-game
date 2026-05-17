@@ -12,6 +12,7 @@ const JUMP_VELOCITY = -600.0
 #Knockback Values
 var knockback: Vector2 = Vector2.ZERO
 var knockback_duration: float = 0.0
+var is_knocked_back : bool = false
 
 #Dash values
 const Dashspeed = 1200
@@ -33,6 +34,8 @@ var wall_jump_lock:float = 0.0
 const Wall_jump_locktime: float = 0.2
 var look_direction_x: int = 1
 
+#flash effect on hit
+@onready var hitflash: AnimationPlayer = $Hitflash
 
 @export var health_data: HealthResource
 var device : int
@@ -46,6 +49,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	dash(delta)
 	jumps()
+	knocked_back()
+
 	
 func _ready() -> void:
 	device_id.emit(device)
@@ -54,39 +59,39 @@ func _ready() -> void:
 	add_to_group("Player_%d" % device)
 	
 func overall_movement(delta):
-	if knockback_duration <= 0.0:
-
-		if is_dashing == false:
-			
-			var direction := Input.get_axis("P%d_links" % device,"P%d_rechts" % device)
-			
-			
-			if wall_jump_lock > 0.0:
-				wall_jump_lock -= delta
-				velocity.x = move_toward(velocity.x, 0, SPEED *  0.3) # geschwindigkeit bei dem das movement wiederaufgenommen wird
+		if knockback_duration <= 0.0:
+			if is_dashing == false:
 				
-			elif direction :
-				velocity.x = direction * SPEED
-			
-			else:
-				velocity.x = move_toward(velocity.x, 0, SPEED)
+				var direction := Input.get_axis("P%d_links" % device,"P%d_rechts" % device)
 				
-		#Walljump, stored die richtung des walljumps und ohne velocity > 0
-		if velocity.x != 0 and is_on_wall()  and !is_on_floor():
-			look_direction_x = sign(velocity.x)
-			wall_contact_coyote = wall_contact_coyote_time
+				
+				if wall_jump_lock > 0.0:
+					wall_jump_lock -= delta
+					velocity.x = move_toward(velocity.x, 0, SPEED *  0.3) # geschwindigkeit bei dem das movement wiederaufgenommen wird
+					
+				elif direction :
+					velocity.x = direction * SPEED
+				
+				else:
+					velocity.x = move_toward(velocity.x, 0, SPEED)
+					
+			#Walljump, stored die richtung des walljumps und ohne velocity > 0
+			if velocity.x != 0 and is_on_wall()  and !is_on_floor():
+				look_direction_x = sign(velocity.x)
+				wall_contact_coyote = wall_contact_coyote_time
+				
+				#velocity.y  muss >0 sein sonst würde er vor dem slide die gravity hinzufügen, deswegn doppeltes if
+			if !is_on_floor() and velocity.y > 0 and is_on_wall() and velocity.x != 0:
+				velocity.y = gravity_wall
 			
-			#velocity.y  muss >0 sein sonst würde er vor dem slide die gravity hinzufügen, deswegn doppeltes if
-		if !is_on_floor() and velocity.y > 0 and is_on_wall() and velocity.x != 0:
-			velocity.y = gravity_wall
-		
-			# normale Gravity funktion drüber wallslide gravity
-		elif not is_on_floor() and is_dashing == false:
-			velocity += get_gravity() * delta
-			wall_contact_coyote -= delta
-	else:
-		velocity = knockback
-		knockback_duration -= delta
+				# normale Gravity funktion drüber wallslide gravity
+			elif not is_on_floor() and is_dashing == false:
+				velocity += get_gravity() * delta
+				wall_contact_coyote -= delta
+		else:
+				velocity = knockback
+				knockback_duration -= delta
+				
 	
 func dash(delta: float) -> void:
 	
@@ -141,6 +146,7 @@ func _on_hit_area_area_entered(bullet: Area2D) -> void:
 	
 	if !bullet.is_in_group("Player_%d" % device) and bullet.is_in_group("bullet"):
 		health_data.take_damage(bullet.damage)
+		hitflash.play("Hit_flash")
 		print(device, " got hit")
 		bullet.queue_free()
 		
@@ -157,10 +163,18 @@ func died_():
 	self.queue_free()
 	
 func get_dmg(damage:int):
-	health_data.take_damage(damage)
+	if is_knocked_back == false:
+		health_data.take_damage(damage)
+		hitflash.play("Hit_flash")
 	
 	
 func apply_knockback(knockback_direction: Vector2, knockback_force:int, knockback_time: float):
-	knockback = knockback_force * knockback_direction
-	knockback_duration = knockback_time
-	
+	if is_knocked_back == false:
+		knockback = knockback_force * knockback_direction
+		knockback_duration = knockback_time
+		
+func knocked_back():
+	if knockback_duration > 0:
+		is_knocked_back = true
+	else:
+		is_knocked_back = false

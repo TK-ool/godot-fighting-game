@@ -53,13 +53,34 @@ tile_map_data = PackedByteArray("AAAAAAAAAgAIAAAAAAABAAAAAgAIAAAAAAACAAAAAgAIAAA
 tile_set = SubResource("TileSet_rpce8")
 
 [node name="Spikes" parent="TileMapLayer" unique_id=1073313274 instance=ExtResource("3_rpce8")]
-position = Vector2(656, 912)
+position = Vector2(494, 1059)
+disable_mode = 1
 
-[node name="Spikes2" parent="TileMapLayer" unique_id=1448860723 instance=ExtResource("3_rpce8")]
-position = Vector2(624, 912)
+[node name="Spikes5" parent="TileMapLayer" unique_id=1520775005 instance=ExtResource("3_rpce8")]
+position = Vector2(430, 1059)
+disable_mode = 1
 
-[node name="Spikes3" parent="TileMapLayer" unique_id=1131765095 instance=ExtResource("3_rpce8")]
-position = Vector2(592, 912)
+[node name="Spikes2" parent="TileMapLayer" unique_id=1534843407 instance=ExtResource("3_rpce8")]
+position = Vector2(978, 317)
+rotation = 3.1415927
+
+[node name="Spikes3" parent="TileMapLayer" unique_id=2036237072 instance=ExtResource("3_rpce8")]
+position = Vector2(1042, 317)
+rotation = 3.1415927
+
+[node name="Spikes4" parent="TileMapLayer" unique_id=1929861681 instance=ExtResource("3_rpce8")]
+position = Vector2(1106, 317)
+rotation = 3.1415927
+
+[node name="Spikes6" parent="TileMapLayer" unique_id=1036887579 instance=ExtResource("3_rpce8")]
+position = Vector2(803, 872)
+rotation = -1.5707964
+disable_mode = 1
+
+[node name="Spikes7" parent="TileMapLayer" unique_id=655886475 instance=ExtResource("3_rpce8")]
+position = Vector2(803, 808)
+rotation = -1.5707964
+disable_mode = 1
 
 [node name="HUD" parent="." unique_id=1181961140 instance=ExtResource("4_j4ie4")]
 
