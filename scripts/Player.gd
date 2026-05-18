@@ -14,6 +14,10 @@ var knockback: Vector2 = Vector2.ZERO
 var knockback_duration: float = 0.0
 var is_knocked_back : bool = false
 
+#jumpbufferS
+var jumpbuffer: float = 0.0
+var jumpbuffer_max_time: float = 0.12
+
 #Dash values
 const Dashspeed = 1200
 var is_dashing: bool = false
@@ -44,11 +48,10 @@ var deadzone : float = 0.2
 
 func _physics_process(delta: float) -> void:
 	
-	
 	overall_movement(delta)
 	move_and_slide()
 	dash(delta)
-	jumps()
+	jumps(delta)
 	knocked_back()
 
 	
@@ -133,14 +136,24 @@ func dash(delta: float) -> void:
 		airdash = false
 		
 
-func jumps():
+func jumps(delta):
+	if Input.is_action_just_pressed("P%d_jump" % device):
+		jumpbuffer = jumpbuffer_max_time
+		
+	if jumpbuffer >0:
+		jumpbuffer -= delta
+	
 	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0):
-		if Input.is_action_just_pressed("P%d_jump" % device):
+		if jumpbuffer >0:
 			velocity.y = JUMP_VELOCITY
+			jumpbuffer = 0.0
 			if wall_contact_coyote > 0.0:
 				velocity.x = -look_direction_x * wall_jump_push_force
 				velocity.y = JUMP_VELOCITY * 1.2
 				wall_jump_lock = Wall_jump_locktime
+	# variable jumphöhe / verträgt sich aber nicht so gut mit walljump und jumpbuffer maybe anpassen oder entfernen
+	elif  Input.is_action_just_released("P%d_jump" % device) and velocity.y <= -0:
+			velocity.y = velocity.y / 2
 
 func _on_hit_area_area_entered(bullet: Area2D) -> void:
 	
@@ -173,7 +186,7 @@ func apply_knockback(knockback_direction: Vector2, knockback_force:int, knockbac
 		knockback = knockback_force * knockback_direction
 		knockback_duration = knockback_time
 		
-func knocked_back():
+func knocked_back(): # um doppel knockback bei 2 überlappenden hazards zu verhindern
 	if knockback_duration > 0:
 		is_knocked_back = true
 	else:
