@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://blx8houeac2kg"]
+
+[ext_resource type="Texture2D" uid="uid://dvr8884q0gv02" path="res://Texturen/Weapon/Test_gun.png" id="1_byt62"]
+
+[node name="WeaponCard" type="Control" unique_id=2023858573]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=652550719]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 256.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1913800812]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WeaponName" type="Label" parent="Panel/VBoxContainer" unique_id=609904027]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+text = "Weapon Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="WeaponTexture" type="TextureRect" parent="Panel/VBoxContainer" unique_id=1698834489]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("1_byt62")
+
+[node name="WeaponDescription" type="Label" parent="Panel/VBoxContainer" unique_id=941842314]
+custom_minimum_size = Vector2(128, 96)
+layout_mode = 2
+text = "Weapon Description"
+autowrap_mode = 2
