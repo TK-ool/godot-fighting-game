@@ -121,7 +121,7 @@ func Shoot():
 		bullet_instance.rotation = rotation
 		
 func reload():
-	if Input.is_action_just_pressed("P%d_reload" % player_ID) and !is_reloading or Input.is_action_just_pressed("P%d_shoot" % player_ID) and bullet_amount <= 0 and !is_reloading:
+	if Input.is_action_just_pressed("P%d_reload" % player_ID) and !is_reloading and bullet_amount != current_weapon.magazine_size or Input.is_action_just_pressed("P%d_shoot" % player_ID) and bullet_amount <= 0 and !is_reloading:
 		reload_timer = current_weapon.reload_time
 		print(	"reload pressed")
 		is_reloading = true

@@ -152,7 +152,7 @@ func jumps(delta):
 				velocity.y = JUMP_VELOCITY * 1.2
 				wall_jump_lock = Wall_jump_locktime
 	# variable jumphöhe / verträgt sich aber nicht so gut mit walljump und jumpbuffer maybe anpassen oder entfernen
-	elif  Input.is_action_just_released("P%d_jump" % device) and velocity.y <= -0:
+	elif  Input.is_action_just_released("P%d_jump" % device) and velocity.y <= -0 and !is_dashing:
 			velocity.y = velocity.y / 2
 
 func _on_hit_area_area_entered(bullet: Area2D) -> void:
