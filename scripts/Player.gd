@@ -5,9 +5,13 @@ extends CharacterBody2D
 signal device_id(player_id:int)
 signal player_respawn (player_name: String)
 
-const SPEED = 300.0
+const SPEED = 400.0
 const JUMP_VELOCITY = -600.0
 @onready var gun: Gun = $Gun
+# acceleration wie schnell die höchstgeschwindigkeit erreicht wird
+var acceleration : float = 12		# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
+# friction beim anhalten hochstellen für schnellstopp
+var friction : float = 15
 
 #Knockback Values
 var knockback: Vector2 = Vector2.ZERO
@@ -53,6 +57,7 @@ func _physics_process(delta: float) -> void:
 	dash(delta)
 	jumps(delta)
 	knocked_back()
+	print(velocity.x)
 
 	
 func _ready() -> void:
@@ -64,19 +69,21 @@ func _ready() -> void:
 func overall_movement(delta):
 		if knockback_duration <= 0.0:
 			if is_dashing == false:
-				
+				# normales movement
 				var direction := Input.get_axis("P%d_links" % device,"P%d_rechts" % device)
+				var movement_weight: float = delta * (acceleration if direction else friction)
 				
-				
-				if wall_jump_lock > 0.0:
-					wall_jump_lock -= delta
-					velocity.x = move_toward(velocity.x, 0, SPEED *  0.3) # geschwindigkeit bei dem das movement wiederaufgenommen wird
+				#if wall_jump_lock > 0.0:
+					#wall_jump_lock -= delta
+					#velocity.x = move_toward(velocity.x, 0, SPEED *  0.3) # geschwindigkeit bei dem das movement wiederaufgenommen wird
 					
-				elif direction :
-					velocity.x = direction * SPEED
+				if direction :
+					velocity.x = lerp(velocity.x,direction * SPEED, movement_weight)
+					# alter code velocity.x = direction * SPEED
 				
 				else:
-					velocity.x = move_toward(velocity.x, 0, SPEED)
+					velocity.x = lerp(velocity.x, 0.0, movement_weight)
+					# alter code velocity.x = move_toward(velocity.x, 0, SPEED)
 					
 			#Walljump, stored die richtung des walljumps und ohne velocity > 0
 			if velocity.x != 0 and is_on_wall()  and !is_on_floor():
