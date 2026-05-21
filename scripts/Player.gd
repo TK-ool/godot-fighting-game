@@ -20,7 +20,7 @@ const max_gravity: float = 1800
 # acceleration wie schnell die höchstgeschwindigkeit erreicht wird
 var acceleration : float = 12		# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
 # friction beim anhalten hochstellen für schnellstopp
-var friction : float = 15
+var deceleration : float = 15
 
 #Knockback Values
 var knockback: Vector2 = Vector2.ZERO
@@ -90,7 +90,7 @@ func overall_movement(delta):
 			if is_dashing == false:
 				# normales movement
 				var direction := Input.get_axis("P%d_links" % device,"P%d_rechts" % device)
-				var movement_weight: float = delta * (acceleration if direction else friction)
+				var movement_weight: float = delta * (acceleration if direction else deceleration)
 				
 				if wall_jump_lock > 0.0:
 					wall_jump_lock -= delta
@@ -222,9 +222,9 @@ func knocked_back(): # um doppel knockback bei 2 überlappenden hazards zu verhi
 		
 func drop_down(): # setzt es noch für beide spieler 
 	if Input.is_action_just_pressed("P%d_drop_down" % device):
-		self.set_collision_mask_value(7, false)
+		set_collision_mask_value(7, false)
 	elif Input.is_action_just_released("P%d_drop_down" % device):
-		self.set_collision_mask_value(7, true)
+		set_collision_mask_value(7, true)
 		
 func scaling():
 

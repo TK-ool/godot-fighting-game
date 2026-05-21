@@ -17,3 +17,7 @@ func on_wall_hit(bullet: Area2D):
 		bullet.get_parent().add_child.call_deferred(b)
 	bullet.queue_free()
 	return true
+
+		
+func on_tick(bullet: Node, delta: float):
+	bullet.position += bullet.transform.x * bullet.speed * delta
