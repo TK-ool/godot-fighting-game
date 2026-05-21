@@ -6,6 +6,8 @@ signal device_id(player_id:int)
 signal player_respawn (player_name: String)
 
 @onready var gun: Gun = $Gun
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 
 
 
@@ -49,6 +51,9 @@ var wall_jump_lock:float = 0.0
 const Wall_jump_locktime: float = 0.1
 var look_direction_x: int = 1
 
+#for sprite squash
+var is_in_the_air: bool = false
+
 #flash effect on hit
 @onready var hitflash: AnimationPlayer = $Hitflash
 
@@ -65,7 +70,8 @@ func _physics_process(delta: float) -> void:
 	dash(delta)
 	jumps(delta)
 	knocked_back()
-	print(gravity)
+	drop_down()
+	scaling()
 	
 func _ready() -> void:
 	device_id.emit(device)
@@ -166,6 +172,8 @@ func jumps(delta):
 	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0):
 		if jumpbuffer >0:
 			velocity.y = JUMP_VELOCITY
+			#squish for jump
+			sprite_2d.scale =  Vector2(0.3,0.6)
 			jumpbuffer = 0.0
 			if wall_contact_coyote > 0.0:
 				velocity.x = -look_direction_x * wall_jump_push_force
@@ -211,3 +219,20 @@ func knocked_back(): # um doppel knockback bei 2 überlappenden hazards zu verhi
 		is_knocked_back = true
 	else:
 		is_knocked_back = false
+		
+func drop_down(): # setzt es noch für beide spieler 
+	if Input.is_action_just_pressed("P%d_drop_down" % device):
+		self.set_collision_mask_value(7, false)
+	elif Input.is_action_just_released("P%d_drop_down" % device):
+		self.set_collision_mask_value(7, true)
+		
+func scaling():
+
+	sprite_2d.scale.x = move_toward(sprite_2d.scale.x,0.433, 0.01)
+	sprite_2d.scale.y = move_toward(sprite_2d.scale.y,0.398, 0.01)
+	if !is_on_floor():
+		is_in_the_air = true
+	if is_in_the_air == true and is_on_floor():
+		sprite_2d.scale = Vector2(0.6,0.28)
+		is_in_the_air = false
+		
