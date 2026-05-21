@@ -13,12 +13,12 @@ var player_2: Player
 
 func _process(_delta: float) -> void:
 	
-	score_p_1.text = "Player 1 Score " + str(Global.Score_P1)
-	score_p_2.text = "Player 2 Score " + str(Global.Score_P2)
+	score_p_1.text = "Player 1 kills " + str(Global.Score_P1)
+	score_p_2.text = "Player 2 kills " + str(Global.Score_P2)
 	health_p_1.value = player_1.health_data.current_health
 	health_p_2.value = player_2.health_data.current_health
-	ammo_p_1.text = str(player_1.gun.bullet_amount) + "/" + str(player_1.gun.magazine_size)
-	ammo_p_2.text = str(player_2.gun.bullet_amount) + "/" + str(player_2.gun.magazine_size)
+	ammo_p_1.text = "Ammo : " + str(player_1.gun.bullet_amount) + "/" + str(player_1.gun.magazine_size)
+	ammo_p_2.text = "Ammo : " + str(player_2.gun.bullet_amount) + "/" + str(player_2.gun.magazine_size)
 func player_1_spawned(new_player: Player):
 	player_1 = new_player
 	
