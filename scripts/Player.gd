@@ -5,9 +5,16 @@ extends CharacterBody2D
 signal device_id(player_id:int)
 signal player_respawn (player_name: String)
 
-const SPEED = 400.0
-const JUMP_VELOCITY = -600.0
 @onready var gun: Gun = $Gun
+
+
+
+const SPEED = 400.0
+const JUMP_VELOCITY = -700.0
+var gravity: float = 1200
+const normal_gravity : float = 1200
+const max_gravity: float = 1800
+
 # acceleration wie schnell die höchstgeschwindigkeit erreicht wird
 var acceleration : float = 12		# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
 # friction beim anhalten hochstellen für schnellstopp
@@ -20,7 +27,7 @@ var is_knocked_back : bool = false
 
 #jumpbufferS
 var jumpbuffer: float = 0.0
-var jumpbuffer_max_time: float = 0.12
+const jumpbuffer_max_time: float = 0.12
 
 #Dash values
 const Dashspeed = 1200
@@ -28,18 +35,18 @@ var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: Vector2 = Vector2.RIGHT
 var dash_timer: float = 0.0
-var DASH_TIME: float = 0.2
+const DASH_TIME: float = 0.2
 var airdash: bool = false
 
 #Walljump values
 const gravity_wall: float = 80
-const wall_jump_push_force: float = 800
+const wall_jump_push_force: float = 1200
 #coyote time ist zeit nachdem der spieler die Wand verlassen hat, das er den wandspung noch ausführen kann
 var wall_contact_coyote: float = 0.0
 const wall_contact_coyote_time: float = 0.02
 #lock horizontal movement zeit
 var wall_jump_lock:float = 0.0
-const Wall_jump_locktime: float = 0.2
+const Wall_jump_locktime: float = 0.1
 var look_direction_x: int = 1
 
 #flash effect on hit
@@ -52,19 +59,25 @@ var deadzone : float = 0.2
 
 func _physics_process(delta: float) -> void:
 	
+	gravity_var(delta)
 	overall_movement(delta)
 	move_and_slide()
 	dash(delta)
 	jumps(delta)
 	knocked_back()
-	print(velocity.x)
-
+	print(gravity)
 	
 func _ready() -> void:
 	device_id.emit(device)
 	health_data = health_data.duplicate()
 	health_data.died.connect(died_)
 	add_to_group("Player_%d" % device)
+	
+func gravity_var(delta):
+	if is_on_floor() or is_on_wall():
+		gravity = lerp(gravity, normal_gravity, 20 * delta)
+	elif velocity.y >= 0:
+		gravity = lerp(gravity, max_gravity, 1 * delta)
 	
 func overall_movement(delta):
 		if knockback_duration <= 0.0:
@@ -73,9 +86,9 @@ func overall_movement(delta):
 				var direction := Input.get_axis("P%d_links" % device,"P%d_rechts" % device)
 				var movement_weight: float = delta * (acceleration if direction else friction)
 				
-				#if wall_jump_lock > 0.0:
-					#wall_jump_lock -= delta
-					#velocity.x = move_toward(velocity.x, 0, SPEED *  0.3) # geschwindigkeit bei dem das movement wiederaufgenommen wird
+				if wall_jump_lock > 0.0:
+					wall_jump_lock -= delta
+					velocity.x = move_toward(velocity.x, 0, SPEED *  0.3) # geschwindigkeit bei dem das movement wiederaufgenommen wird
 					
 				if direction :
 					velocity.x = lerp(velocity.x,direction * SPEED, movement_weight)
@@ -94,9 +107,9 @@ func overall_movement(delta):
 			if !is_on_floor() and velocity.y > 0 and is_on_wall() and velocity.x != 0:
 				velocity.y = gravity_wall
 			
-				# normale Gravity funktion drüber wallslide gravity
+				# normale Gravity funktion, drüber ist die  wallslide gravity
 			elif not is_on_floor() and is_dashing == false:
-				velocity += get_gravity() * delta
+				velocity.y += gravity * delta
 				wall_contact_coyote -= delta
 		else:
 				velocity = knockback
