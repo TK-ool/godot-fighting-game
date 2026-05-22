@@ -14,22 +14,27 @@ signal player_respawn (player_name: String)
 const SPEED = 400.0
 const JUMP_VELOCITY = -700.0
 var gravity: float = 1200
-const normal_gravity : float = 1200
+const normal_gravity: float = 1200
 const max_gravity: float = 1800
 
 # acceleration wie schnell die höchstgeschwindigkeit erreicht wird
-var acceleration : float = 12		# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
+var acceleration: float = 12		# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
 # friction beim anhalten hochstellen für schnellstopp
-var deceleration : float = 15
+var deceleration: float = 15
 
 #Knockback Values
 var knockback: Vector2 = Vector2.ZERO
 var knockback_duration: float = 0.0
-var is_knocked_back : bool = false
+var is_knocked_back: bool = false
 
-#jumpbufferS
+#jumpbuffers
 var jumpbuffer: float = 0.0
 const jumpbuffer_max_time: float = 0.12
+
+#doublejump
+var jumps_left : int = 0
+const max_jumps: int = 1
+var is_in_the_air: bool = false
 
 #Dash values
 const Dashspeed = 1200
@@ -52,7 +57,7 @@ const Wall_jump_locktime: float = 0.1
 var look_direction_x: int = 1
 
 #for sprite squash
-var is_in_the_air: bool = false
+var air_sprite: bool = false
 
 #flash effect on hit
 @onready var hitflash: AnimationPlayer = $Hitflash
@@ -72,6 +77,7 @@ func _physics_process(delta: float) -> void:
 	knocked_back()
 	drop_down()
 	scaling()
+	print(is_in_the_air)
 	
 func _ready() -> void:
 	device_id.emit(device)
@@ -168,13 +174,24 @@ func jumps(delta):
 		
 	if jumpbuffer >0:
 		jumpbuffer -= delta
-	
+		
+	if is_on_floor() or is_on_wall():
+		is_in_the_air = false
+		jumps_left = max_jumps
+	else:
+		is_in_the_air = true
+	#doublejump
+	if is_in_the_air and Input.is_action_just_pressed("P%d_jump" % device) and jumps_left > 0:
+		velocity.y = JUMP_VELOCITY
+		jumps_left -= 1
+		
 	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0):
 		if jumpbuffer >0:
 			velocity.y = JUMP_VELOCITY
 			#squish for jump
 			sprite_2d.scale =  Vector2(0.3,0.6)
 			jumpbuffer = 0.0
+			#walljump
 			if wall_contact_coyote > 0.0:
 				velocity.x = -look_direction_x * wall_jump_push_force
 				velocity.y = JUMP_VELOCITY * 1.2
@@ -231,8 +248,8 @@ func scaling():
 	sprite_2d.scale.x = move_toward(sprite_2d.scale.x,0.433, 0.01)
 	sprite_2d.scale.y = move_toward(sprite_2d.scale.y,0.398, 0.01)
 	if !is_on_floor():
-		is_in_the_air = true
-	if is_in_the_air == true and is_on_floor():
+		air_sprite = true
+	if air_sprite == true and is_on_floor():
 		sprite_2d.scale = Vector2(0.6,0.28)
-		is_in_the_air = false
+		air_sprite = false
 		
