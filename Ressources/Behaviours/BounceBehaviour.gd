@@ -9,6 +9,3 @@ func on_wall_hit(bullet: Area2D):
 	if bullet_bounces <= 0:
 		bullet.queue_free()
 	return true
-
-func on_tick(bullet: Node, delta: float):
-	pass

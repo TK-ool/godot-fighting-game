@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 	knocked_back()
 	drop_down()
 	scaling()
-	print(is_in_the_air)
+
 	
 func _ready() -> void:
 	device_id.emit(device)
@@ -183,6 +183,7 @@ func jumps(delta):
 	#doublejump
 	if is_in_the_air and Input.is_action_just_pressed("P%d_jump" % device) and jumps_left > 0:
 		velocity.y = JUMP_VELOCITY
+		sprite_2d.scale =  Vector2(0.3,0.6)
 		jumps_left -= 1
 		
 	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0):
@@ -200,8 +201,8 @@ func jumps(delta):
 	elif  Input.is_action_just_released("P%d_jump" % device) and velocity.y <= -0 and !is_dashing:
 			velocity.y = velocity.y / 2
 
-func _on_hit_area_area_entered(bullet: Area2D) -> void:
-	
+func _on_hit_area_area_entered(bullet: Node2D) -> void:
+	print("enter adsfhfhui")
 	if !bullet.is_in_group("Player_%d" % device) and bullet.is_in_group("bullet"):
 		health_data.take_damage(bullet.damage)
 		hitflash.play("Hit_flash")

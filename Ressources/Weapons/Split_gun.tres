@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cj2ri5w6jjek2" path="res://Texturen/TileMapTesting.png" id="3_ou8xb"]
 [ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="6_ou8xb"]
 
-[sub_resource type="Resource" id="Resource_ou8xb"]
+[sub_resource type="Resource" id="Resource_ta4om"]
 script = ExtResource("2_ou8xb")
 metadata/_custom_type_script = "uid://b1ow1tv21l4jx"
 
@@ -24,5 +24,5 @@ magazine_size = 10
 reload_time = 1.0
 gunpoint_offset_left = Vector2(29.63, 0)
 gunpoint_offset_right = Vector2(29.63, 0)
-behaviours = Array[ExtResource("1_5vjt1")]([SubResource("Resource_ou8xb")])
+behaviours = Array[ExtResource("1_5vjt1")]([SubResource("Resource_ta4om")])
 metadata/_custom_type_script = "uid://br3khvcvjx3px"
