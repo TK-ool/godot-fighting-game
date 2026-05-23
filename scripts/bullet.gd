@@ -45,3 +45,6 @@ func _on_body_entered(body: Node2D) -> void:
 		if not hit_behaviour:
 			queue_free()
 		
+#func set_group():
+	#bullet.add_to_group("bullet")
+	#bullet.add_to_group("Player_%d" % device)

@@ -108,7 +108,6 @@ func Shoot():
 		var bullet_instance = bullet.instantiate()
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.device = player_ID
-		bullet_instance.set_group()
 		bullet_instance.behaviours = current_weapon.behaviours
 		bullet_instance.damage = current_weapon.damage
 		muzzleflash.play("muzzleflash")
