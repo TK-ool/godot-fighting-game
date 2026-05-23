@@ -106,7 +106,6 @@ func Shoot():
 	if Input.is_action_pressed("P%d_shoot" % player_ID) and can_fire() and bullet_amount > 0 and !is_reloading:
 		_cooldown_timer = fire_rate
 		var bullet_instance = bullet.instantiate()
-		get_tree().root.add_child(bullet_instance)
 		bullet_instance.device = player_ID
 		bullet_instance.behaviours = current_weapon.behaviours
 		bullet_instance.damage = current_weapon.damage
@@ -117,7 +116,8 @@ func Shoot():
 			bullet_instance.global_position = gunpoint_links.global_position
 		else:
 			bullet_instance.global_position = gunpoint_rechts.global_position
-		bullet_instance.rotation = rotation
+		bullet_instance.global_rotation = global_rotation
+		get_tree().root.add_child(bullet_instance)
 		
 func reload():
 	if Input.is_action_just_pressed("P%d_reload" % player_ID) and !is_reloading and bullet_amount != current_weapon.magazine_size or Input.is_action_just_pressed("P%d_shoot" % player_ID) and bullet_amount <= 0 and !is_reloading:

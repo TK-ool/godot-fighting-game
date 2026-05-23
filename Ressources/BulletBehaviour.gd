@@ -12,3 +12,6 @@ func on_wall_hit(bullet: Node2D):
 # What happens to the Bullet each tick
 func on_tick(bullet: Node, delta: float):
 	pass
+
+func on_ready(bullet: Node):
+	pass

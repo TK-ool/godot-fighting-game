@@ -18,6 +18,9 @@ var device: int
 func _ready() -> void:
 	bullet.add_to_group("bullet")
 	bullet.add_to_group("Player_%d" % device)
+	if behaviours:
+		for b in behaviours:
+			b.on_ready(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
