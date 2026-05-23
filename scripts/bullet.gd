@@ -15,6 +15,10 @@ var direction :Vector2 = Vector2.ZERO
 var device: int
 
 
+func _ready() -> void:
+	bullet.add_to_group("bullet")
+	bullet.add_to_group("Player_%d" % device)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta: float) -> void:
@@ -41,6 +45,3 @@ func _on_body_entered(body: Node2D) -> void:
 		if not hit_behaviour:
 			queue_free()
 		
-func set_group():
-	bullet.add_to_group("bullet")
-	bullet.add_to_group("Player_%d" % device)

@@ -202,7 +202,6 @@ func jumps(delta):
 			velocity.y = velocity.y / 2
 
 func _on_hit_area_area_entered(bullet: Node2D) -> void:
-	print("enter adsfhfhui")
 	if !bullet.is_in_group("Player_%d" % device) and bullet.is_in_group("bullet"):
 		health_data.take_damage(bullet.damage)
 		hitflash.play("Hit_flash")

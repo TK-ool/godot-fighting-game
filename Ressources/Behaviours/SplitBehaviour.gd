@@ -4,6 +4,7 @@ extends BulletBehaviour
 @export var sub_bullet_count: int = 15
 @export var sub_bullet_speed: float = 200.0
 
+
 func on_wall_hit(bullet: Node2D):
 	for i in sub_bullet_count:
 		var angle = (TAU / sub_bullet_count) * i
