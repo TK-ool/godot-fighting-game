@@ -22,6 +22,7 @@ var bullet
 var fire_rate: float #The amount of Time between Shots in Seconds
 var bullet_amount: int #ammo
 var bullet_spread: float
+var bullet_speed: float
 var magazine_size: int
 var reload_timer: float = 0.0
 var is_reloading: bool = false
@@ -74,6 +75,7 @@ func equip_weapon(weapon: WeaponResource):
 	reload_bar.max_value = current_weapon.reload_time
 	bullet = current_weapon.Bullet_scene
 	bullet_spread = current_weapon.bullet_spread
+	bullet_speed = current_weapon.bullet_speed
 	# set attributes
 	#current_weapon.damage = Bullet.damage
 	#current_weapon.fire_rate = 
@@ -111,6 +113,7 @@ func Shoot():
 		bullet_instance.device = player_ID
 		bullet_instance.behaviours = current_weapon.behaviours
 		bullet_instance.damage = current_weapon.damage
+		bullet_instance.speed = bullet_speed
 		muzzleflash.play("muzzleflash")
 		gunshot.play(0.0)
 		bullet_amount -= 1
