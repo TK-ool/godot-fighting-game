@@ -205,8 +205,8 @@ func _on_hit_area_area_entered(bullet: Node2D) -> void:
 	if !bullet.is_in_group("Player_%d" % device) and bullet.is_in_group("bullet"):
 		health_data.take_damage(bullet.damage)
 		hitflash.play("Hit_flash")
-		print(device, " got hit")
-		bullet.queue_free()
+		print(device, "got hit")
+		bullet.get_parent().queue_free()
 		
 func died_():
 	if self.is_in_group("Player_0"):
