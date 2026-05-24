@@ -10,6 +10,7 @@ extends Resource
 @export var damage: int # the amount of damage per bulet
 @export var fire_rate: float # the fire rate of the weapon
 @export var bullet_speed: float # the speed of the bullet
+@export var bullet_spread: float # bullet spread amount
 @export var magazine_size : int # the amount of bullets in the weapon
 @export var reload_time: float # the time the reload need
 

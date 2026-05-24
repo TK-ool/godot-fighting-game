@@ -12,6 +12,7 @@ func on_wall_hit(bullet: Node2D):
 		var b = bullet.duplicate()
 		b.position = bullet.position + direction * 20.0
 		b.rotation = angle
+		b.device = bullet.device # sonst defaultet er zu spieler 0
 		#b.speed = sub_bullet_speed
 		#b.behaviours = [] # Keine Rekursion
 		bullet.get_parent().add_child.call_deferred(b)

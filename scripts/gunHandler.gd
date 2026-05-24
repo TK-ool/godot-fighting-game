@@ -21,6 +21,7 @@ var bullet
 
 var fire_rate: float #The amount of Time between Shots in Seconds
 var bullet_amount: int #ammo
+var bullet_spread: float
 var magazine_size: int
 var reload_timer: float = 0.0
 var is_reloading: bool = false
@@ -72,6 +73,7 @@ func equip_weapon(weapon: WeaponResource):
 	magazine_size = current_weapon.magazine_size
 	reload_bar.max_value = current_weapon.reload_time
 	bullet = current_weapon.Bullet_scene
+	bullet_spread = current_weapon.bullet_spread
 	# set attributes
 	#current_weapon.damage = Bullet.damage
 	#current_weapon.fire_rate = 
@@ -116,7 +118,8 @@ func Shoot():
 			bullet_instance.global_position = gunpoint_links.global_position
 		else:
 			bullet_instance.global_position = gunpoint_rechts.global_position
-		bullet_instance.global_rotation = global_rotation
+		var final_bullet_spread = randf_range(bullet_spread, -bullet_spread)
+		bullet_instance.global_rotation = global_rotation + final_bullet_spread
 		get_tree().root.add_child(bullet_instance)
 		
 func reload():

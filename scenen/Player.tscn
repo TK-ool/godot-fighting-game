@@ -101,5 +101,9 @@ shape = SubResource("RectangleShape2D_e80uo")
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_rratb")
 
+[node name="Death_off_screen" type="VisibleOnScreenNotifier2D" parent="." unique_id=1349299244]
+rect = Rect2(-33, -29, 65, 57)
+
 [connection signal="device_id" from="." to="Gun" method="_on_character_body_2d_device_id"]
 [connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]
+[connection signal="screen_exited" from="Death_off_screen" to="." method="_on_death_off_screen_screen_exited"]

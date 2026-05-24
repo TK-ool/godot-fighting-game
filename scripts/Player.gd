@@ -253,3 +253,7 @@ func scaling():
 		sprite_2d.scale = Vector2(0.6,0.28)
 		air_sprite = false
 		
+
+
+func _on_death_off_screen_screen_exited() -> void:
+	died_()
