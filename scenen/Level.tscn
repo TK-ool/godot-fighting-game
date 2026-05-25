@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://h7pws40hayex" path="res://scenen/Hazards/Spikes.tscn" id="3_rpce8"]
 [ext_resource type="PackedScene" uid="uid://ckdfglkmtwi0o" path="res://scenen/HUD.tscn" id="4_j4ie4"]
 [ext_resource type="PackedScene" uid="uid://cwnre3mgoorog" path="res://scenen/Player_Spawner.tscn" id="5_rpce8"]
+[ext_resource type="PackedScene" uid="uid://c322eifxdgnmt" path="res://scenen/camera.tscn" id="7_4l5pk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j4ie4"]
 texture = ExtResource("3_qs5kr")
@@ -96,14 +97,22 @@ position = Vector2(803, 808)
 rotation = -1.5707964
 disable_mode = 1
 
-[node name="HUD" parent="." unique_id=1181961140 instance=ExtResource("4_j4ie4")]
-
-[node name="Player_1 Spawner" parent="." unique_id=1409022632 instance=ExtResource("5_rpce8")]
-position = Vector2(253, 663)
-
 [node name="Player_2 Spawner" parent="." unique_id=1010258943 instance=ExtResource("5_rpce8")]
 position = Vector2(1695, 267)
 device = 1
 
-[connection signal="player_spawned" from="Player_1 Spawner" to="HUD" method="player_1_spawned"]
-[connection signal="player_spawned" from="Player_2 Spawner" to="HUD" method="player_2_spawned"]
+[node name="Player_1 Spawner" parent="." unique_id=191869252 instance=ExtResource("5_rpce8")]
+position = Vector2(253, 663)
+
+[node name="Camera2D" parent="." unique_id=117337770 instance=ExtResource("7_4l5pk")]
+limit_left = 0
+limit_top = 0
+position_smoothing_enabled = true
+debug_mode = false
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=608524436]
+
+[node name="Score" parent="HUD" unique_id=1181961140 instance=ExtResource("4_j4ie4")]
+
+[connection signal="player_spawned" from="Player_2 Spawner" to="HUD/Score" method="player_2_spawned"]
+[connection signal="player_spawned" from="Player_1 Spawner" to="HUD/Score" method="player_1_spawned"]

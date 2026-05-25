@@ -2,6 +2,8 @@ extends Node2D
 
 var player_scene = preload("res://scenen/Player.tscn")
 
+
+
 signal player_spawned(new_player: Player)
 
 @export var device:int

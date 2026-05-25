@@ -84,6 +84,7 @@ func _ready() -> void:
 	health_data = health_data.duplicate()
 	health_data.died.connect(died_)
 	add_to_group("Player_%d" % device)
+	add_to_group("Players")# alle spieler für camer/ und mehr als 2
 	
 func gravity_var(delta):
 	if is_on_floor() or is_on_wall():
