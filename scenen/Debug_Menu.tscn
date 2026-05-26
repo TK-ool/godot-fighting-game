@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bn4umywct83su"]
 
 [ext_resource type="Texture2D" uid="uid://ckqbm8oiub1vu" path="res://Texturen/Weapon/Handgun.png" id="1_1jfcq"]
-[ext_resource type="Script" uid="uid://t5av7u05x8ck" path="res://scenen/debug_menu.gd" id="1_b4dly"]
+[ext_resource type="Script" uid="uid://t5av7u05x8ck" path="res://scripts/debug_menu.gd" id="1_b4dly"]
 [ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="2_b4dly"]
 
 [node name="DebugMenu" type="CanvasLayer" unique_id=1068167939]
