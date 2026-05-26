@@ -58,7 +58,6 @@ text = "
 [wave][center]  fighting game"
 
 [node name="Main Buttons" type="PanelContainer" parent="." unique_id=1780740465]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -201,6 +200,7 @@ text = "[center][wave]Exit"
 fit_content = true
 
 [node name="Options" type="Panel" parent="." unique_id=425879159]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

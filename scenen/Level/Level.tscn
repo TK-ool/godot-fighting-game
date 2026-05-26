@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cwnre3mgoorog" path="res://scenen/Player_Spawner.tscn" id="5_rpce8"]
 [ext_resource type="PackedScene" uid="uid://c322eifxdgnmt" path="res://scenen/camera.tscn" id="7_4l5pk"]
 [ext_resource type="PackedScene" uid="uid://301q2ctfs1j4" path="res://scenen/Menu_Scenes/Ingame_Menu.tscn" id="7_umxam"]
+[ext_resource type="PackedScene" uid="uid://bn4umywct83su" path="res://scenen/Debug_Menu.tscn" id="9_igm3w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j4ie4"]
 texture = ExtResource("3_qs5kr")
@@ -119,6 +120,8 @@ visible = false
 
 [node name="Score" parent="HUD" unique_id=1181961140 instance=ExtResource("4_j4ie4")]
 mouse_filter = 2
+
+[node name="DebugMenu" parent="." unique_id=1068167939 instance=ExtResource("9_igm3w")]
 
 [connection signal="player_spawned" from="Player_2 Spawner" to="HUD/Score" method="player_2_spawned"]
 [connection signal="player_spawned" from="Player_1 Spawner" to="HUD/Score" method="player_1_spawned"]

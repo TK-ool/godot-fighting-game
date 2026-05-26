@@ -9,15 +9,16 @@
 [resource]
 script = ExtResource("2_lfau1")
 weapon_name = "Handgun"
-weapon_sprite = ExtResource("5_4cy4q")
 card_sprite = ExtResource("3_l3qd3")
+weapon_description = "Basic Handgun"
 Bullet_scene = ExtResource("1_4cy4q")
+weapon_sprite = ExtResource("5_4cy4q")
+gunpoint_offset_left = Vector2(19, -1)
+gunpoint_offset_right = Vector2(19, 2)
 damage = 1
 fire_rate = 0.35
 bullet_speed = 1200.0
 bullet_spread = 0.02
 magazine_size = 7
 reload_time = 1.0
-gunpoint_offset_left = Vector2(19, -1)
-gunpoint_offset_right = Vector2(19, 2)
 metadata/_custom_type_script = "uid://br3khvcvjx3px"

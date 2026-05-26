@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bn4umywct83su"]
+
+[ext_resource type="Texture2D" uid="uid://ckqbm8oiub1vu" path="res://Texturen/Weapon/Handgun.png" id="1_1jfcq"]
+[ext_resource type="Script" uid="uid://t5av7u05x8ck" path="res://scenen/debug_menu.gd" id="1_b4dly"]
+[ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="2_b4dly"]
+
+[node name="DebugMenu" type="CanvasLayer" unique_id=1068167939]
+script = ExtResource("1_b4dly")
+
+[node name="CheckBox" type="CheckBox" parent="." unique_id=772210409]
+offset_left = 5.0
+offset_top = -19.0
+offset_right = 132.0
+offset_bottom = 72.0
+text = "Debug Menu"
+
+[node name="Weapon change" type="CanvasGroup" parent="." unique_id=2109129047]
+
+[node name="OptionButton" type="OptionButton" parent="Weapon change" unique_id=1131992660]
+offset_left = 2.0
+offset_top = 187.0
+offset_right = 262.0
+offset_bottom = 259.0
+item_count = 3
+popup/item_0/text = "Bouncegun"
+popup/item_0/icon = ExtResource("2_b4dly")
+popup/item_0/id = 2
+popup/item_1/text = "Handgun"
+popup/item_1/icon = ExtResource("1_1jfcq")
+popup/item_1/id = 0
+popup/item_2/text = "Split_gun"
+popup/item_2/icon = ExtResource("2_b4dly")
+popup/item_2/id = 1
+
+[node name="OptionButton2" type="OptionButton" parent="Weapon change" unique_id=691977845]
+offset_left = 1655.0
+offset_top = 187.0
+offset_right = 1915.0
+offset_bottom = 259.0
+item_count = 3
+popup/item_0/text = "Bouncegun"
+popup/item_0/icon = ExtResource("2_b4dly")
+popup/item_0/id = 2
+popup/item_1/text = "Handgun"
+popup/item_1/icon = ExtResource("1_1jfcq")
+popup/item_1/id = 0
+popup/item_2/text = "Split_gun"
+popup/item_2/icon = ExtResource("2_b4dly")
+popup/item_2/id = 1
+
+[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="item_selected" from="Weapon change/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="Weapon change/OptionButton2" to="." method="_on_option_button_2_item_selected"]

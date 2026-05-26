@@ -7,6 +7,12 @@ var face_right
 
 var bullet
 
+var all_guns: = [
+preload("uid://bxwi8dex18vm8"), #Bouncegun
+preload("uid://bohtx51vyqg3j"), #Handgun
+preload("uid://cu3cv5885ctqs") #splitgun
+]
+
 @onready var reload_bar: ProgressBar = $"../Reload_bar"
 
 @export var current_weapon: WeaponResource
@@ -141,14 +147,25 @@ func reload_progress():
 		reload_bar.value = reload_timer
 	else:
 		reload_bar.visible = false
-	
+		
 
+func new_weapon(weapon_selected: int):
+	current_weapon = all_guns[weapon_selected]
+	equip_weapon(current_weapon)
+	
+func debug():
+	var debug_menu = get_parent().get_parent().get_node("DebugMenu")
+	if player_ID == 0:
+		debug_menu.weapon_equiped_P1.connect(new_weapon)
+	else:
+		debug_menu.weapon_equiped_P2.connect(new_weapon)
 
 
 
 func _on_character_body_2d_device_id(player_id: int) -> void:
 	print("Signal erhalten", player_id)
 	player_ID = player_id
+	debug() # zuweisung des menüs nach Player ID zuweisung
 	
 func signal_erhalten():
 	print("signal in gun erhalten")
