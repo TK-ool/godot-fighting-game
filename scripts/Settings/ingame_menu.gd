@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var camera_2d: Camera2D = $"../Camera2D"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,7 +11,7 @@ func _ready() -> void:
 	$Options/MasterControl.value = Settings.masterVolume
 	$Options/SFXControl.value = Settings.sfxVolume
 	$Options/FullscreenControl.button_pressed = Settings.fullscreen
-	
+	$Options/CameraControl.button_pressed = Settings.follow_camera
 	Settings.changed.connect(settingsChanged)
 
 
@@ -18,7 +20,7 @@ func settingsChanged():
 	$Options/MasterControl.value = Settings.masterVolume
 	$Options/SFXControl.value = Settings.sfxVolume
 	$Options/FullscreenControl.button_pressed = Settings.fullscreen
-
+	$Options/CameraControl.button_pressed = Settings.follow_camera
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Pause Menu"):
@@ -54,3 +56,11 @@ func _on_music_control_value_changed(value: float) -> void:
 
 func _on_fullscreen_control_toggled(toggled_on: bool) -> void:
 	Settings.fullscreen = toggled_on
+
+
+func _on_camera_control_toggled(toggled_on: bool) -> void:
+	Settings.follow_camera = toggled_on
+	if toggled_on:
+		camera_2d.enabled = true
+	else:
+		camera_2d.enabled = false

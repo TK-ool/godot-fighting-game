@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bdituen0rh8fa" path="res://scripts/Settings/main_menu.gd" id="1_77m4q"]
 [ext_resource type="Script" uid="uid://b5l743c0dlfon" path="res://scripts/Settings/audio_control.gd" id="4_je6qg"]
-[ext_resource type="Script" uid="uid://brx3itngj4pf4" path="res://scripts/Settings/fullscreen_control.gd" id="5_sipl8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eg507"]
 bg_color = Color(0.39215687, 0.45490196, 0.78431374, 0)
@@ -56,9 +55,10 @@ theme_override_font_sizes/italics_font_size = 90
 theme_override_font_sizes/mono_font_size = 90
 bbcode_enabled = true
 text = "
-[wave][center] Godot fighting game"
+[wave][center]  fighting game"
 
 [node name="Main Buttons" type="PanelContainer" parent="." unique_id=1780740465]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -111,6 +111,35 @@ theme_override_font_sizes/italics_font_size = 30
 theme_override_font_sizes/mono_font_size = 30
 bbcode_enabled = true
 text = "[center][wave]Start"
+fit_content = true
+
+[node name="Test_Area" type="Button" parent="Main Buttons/MarginContainer/VBoxContainer" unique_id=1859585614]
+custom_minimum_size = Vector2(0, 72.545)
+layout_mode = 2
+text = "
+"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Main Buttons/MarginContainer/VBoxContainer/Test_Area" unique_id=44466938]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = -26.5
+offset_right = 132.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
+text = "[center][wave]Test_Area"
 fit_content = true
 
 [node name="options" type="Button" parent="Main Buttons/MarginContainer/VBoxContainer" unique_id=639809644]
@@ -172,7 +201,6 @@ text = "[center][wave]Exit"
 fit_content = true
 
 [node name="Options" type="Panel" parent="." unique_id=425879159]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -198,14 +226,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Back" type="Button" parent="Options" unique_id=2043353192]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -96.0
-offset_right = 140.0
-offset_bottom = 24.0
+offset_left = 15.25
+offset_top = -66.0
+offset_right = 155.25
+offset_bottom = -16.0
 grow_vertical = 0
 text = "
 
@@ -221,9 +249,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -69.75
-offset_top = -39.0
+offset_top = -23.5
 offset_right = 69.75
-offset_bottom = 39.0
+offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -233,10 +261,7 @@ theme_override_font_sizes/bold_italics_font_size = 30
 theme_override_font_sizes/italics_font_size = 30
 theme_override_font_sizes/mono_font_size = 30
 bbcode_enabled = true
-text = "
-[center][wave]<- Back
-
-"
+text = "[center][wave]<- Back"
 fit_content = true
 
 [node name="MusicControl" type="HSlider" parent="Options" unique_id=989485081]
@@ -331,7 +356,6 @@ offset_right = 121.714264
 offset_bottom = 370.00006
 grow_horizontal = 2
 scale = Vector2(1.4, 1.4)
-script = ExtResource("5_sipl8")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Options/FullscreenControl" unique_id=143939645]
 layout_mode = 1
@@ -353,6 +377,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [connection signal="pressed" from="Main Buttons/MarginContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main Buttons/MarginContainer/VBoxContainer/Test_Area" to="." method="_on_test_area_pressed"]
 [connection signal="pressed" from="Main Buttons/MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Main Buttons/MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]

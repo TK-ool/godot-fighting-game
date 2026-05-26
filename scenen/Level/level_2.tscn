@@ -98,7 +98,6 @@ layer = 2
 visible = false
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=608524436]
-visible = false
 
 [node name="Score" parent="HUD" unique_id=1181961140 instance=ExtResource("8_opo84")]
 mouse_filter = 2

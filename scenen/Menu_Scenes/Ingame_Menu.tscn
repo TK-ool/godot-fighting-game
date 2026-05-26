@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://f43yv5y6x47o" path="res://scripts/Settings/ingame_menu.gd" id="1_sot23"]
 [ext_resource type="Script" uid="uid://b5l743c0dlfon" path="res://scripts/Settings/audio_control.gd" id="2_sot23"]
-[ext_resource type="Script" uid="uid://brx3itngj4pf4" path="res://scripts/Settings/fullscreen_control.gd" id="3_c0ri2"]
 
 [sub_resource type="FontFile" id="FontFile_mwdv7"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -26,6 +28,9 @@ cache/0/30/0/underline_thickness = 0.0
 cache/0/30/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_vxlxy"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -87,13 +92,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Main Menu" type="Button" parent="Options" unique_id=2002134353]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -118.0
-offset_right = 317.0
+offset_left = 51.25
+offset_top = -121.5
+offset_right = 310.25
+offset_bottom = -34.0
 grow_vertical = 0
 text = "
 
@@ -108,10 +114,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -69.75
-offset_top = -39.0
-offset_right = 69.75
-offset_bottom = 39.0
+offset_left = -95.0
+offset_top = -61.5
+offset_right = 95.0
+offset_bottom = 61.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -129,15 +135,16 @@ text = "
 fit_content = true
 
 [node name="Resume" type="Button" parent="Options" unique_id=816203305]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -305.0
-offset_top = -118.0
+offset_left = -280.25
+offset_top = -118.5
+offset_right = -61.5
+offset_bottom = -31.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "
@@ -265,7 +272,6 @@ offset_right = 121.714264
 offset_bottom = 370.00006
 grow_horizontal = 2
 scale = Vector2(1.4, 1.4)
-script = ExtResource("3_c0ri2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Options/FullscreenControl" unique_id=1622917569]
 layout_mode = 1
@@ -280,6 +286,32 @@ grow_vertical = 2
 scale = Vector2(0.6, 0.6)
 theme_override_font_sizes/normal_font_size = 25
 text = "Fullscreen"
+
+[node name="CameraControl" type="CheckButton" parent="Options" unique_id=793723382]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -289.0
+offset_top = 389.5
+offset_right = 121.714264
+offset_bottom = 413.5
+grow_horizontal = 2
+scale = Vector2(1.4, 1.4)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/CameraControl" unique_id=1918148851]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 7.857166
+offset_top = -12.000049
+offset_right = 232.8571
+offset_bottom = 29.666637
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+theme_override_font_sizes/normal_font_size = 25
+text = "Follower_camera"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=1131929805]
 layout_mode = 0
@@ -296,3 +328,4 @@ offset_bottom = 40.0
 [connection signal="value_changed" from="Options/SFXControl" to="Options/SFXControl" method="_on_value_changed"]
 [connection signal="toggled" from="Options/FullscreenControl" to="." method="_on_fullscreen_control_toggled"]
 [connection signal="toggled" from="Options/FullscreenControl" to="Options/FullscreenControl" method="_on_toggled"]
+[connection signal="toggled" from="Options/CameraControl" to="." method="_on_camera_control_toggled"]

@@ -73,3 +73,7 @@ func _on_sfx_control_value_changed(value: float) -> void:
 
 func _on_fullscreen_control_toggled(toggled_on: bool) -> void:
 	Settings.fullscreen = toggled_on
+
+
+func _on_test_area_pressed() -> void:
+	get_tree().change_scene_to_file("uid://vk0kxs4fulii") # Test_Area level
