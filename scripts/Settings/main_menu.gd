@@ -9,7 +9,6 @@ var all_level = [
 	preload("uid://cnieqsgkay365")
 ]
 
-
 @onready var options: Panel = $Options
 @onready var main_menu: Control = $"."
 @onready var start: Button = $"Main Buttons/MarginContainer/VBoxContainer/start"
@@ -36,12 +35,11 @@ func settingsChanged():
 
 
 func _on_start_pressed() -> void:
-	# random level select
+	ScreenTransition.transition()
+	await ScreenTransition.on_transition_finished
 	var x = randi() % all_level.size()
 	var selected_scene = all_level[x]
-	
 	get_tree().change_scene_to_packed(selected_scene)
-
 
 
 func _on_options_pressed() -> void:
@@ -76,4 +74,6 @@ func _on_fullscreen_control_toggled(toggled_on: bool) -> void:
 
 
 func _on_test_area_pressed() -> void:
+	ScreenTransition.transition()
+	await ScreenTransition.on_transition_finished
 	get_tree().change_scene_to_file("uid://vk0kxs4fulii") # Test_Area level

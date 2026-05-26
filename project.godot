@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://cisbdtpyco7lx"
 
 Global="*uid://xaet4fo6udxo"
 Settings="*uid://u77rhgnw6m5a"
+ScreenTransition="*uid://b4irlpsbrvr4g"
 
 [display]
 

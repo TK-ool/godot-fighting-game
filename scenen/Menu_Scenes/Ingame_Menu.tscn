@@ -63,8 +63,11 @@ process_mode = 3
 script = ExtResource("1_sot23")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1922689007]
-offset_right = 1980.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.16862746, 0.16862746, 0.16862746, 0.6784314)
 
 [node name="Options" type="Panel" parent="." unique_id=123431039]
