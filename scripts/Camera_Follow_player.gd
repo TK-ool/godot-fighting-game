@@ -10,9 +10,6 @@ var viewport_rect : Rect2
 func _ready() -> void:
 	viewport_rect = get_viewport_rect()
 	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	
 	var players = get_tree().get_nodes_in_group("Players")
@@ -27,8 +24,6 @@ func _process(_delta: float) -> void:
 		queue_redraw()
 	
 	
-	
-	
 func calculate_center (rect: Rect2) -> Vector2:
 	return Vector2(
 		rect.position.x + rect.size.x / 2,
@@ -39,7 +34,7 @@ func calculate_center (rect: Rect2) -> Vector2:
 func calculate_zoom(rect: Rect2, viewport_size: Vector2) -> Vector2:
 	
 		var cam_zoom:float = min(clamp((viewport_size.x / rect.size.x +zoom_offset)/ 2, 1, 1.5),clamp((viewport_size.y /rect.size.y +zoom_offset)  / 2, 1, 1.5))
-		var final_zoom = lerp(max(zoom.y,zoom.x), cam_zoom, 0.009)
+		var final_zoom = lerp(max(zoom.y,zoom.x), cam_zoom, 0.009) # geschwindigkeit der camera anpassen letzter wert vom lerp
 		return Vector2(final_zoom, final_zoom)
 
 	

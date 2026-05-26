@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c322eifxdgnmt"]
 
-[ext_resource type="Script" uid="uid://bjl7yoelwc5ab" path="res://scenen/Follow_player.gd" id="1_kjgqe"]
+[ext_resource type="Script" uid="uid://bjl7yoelwc5ab" path="res://scripts/Camera_Follow_player.gd" id="1_kjgqe"]
 
 [node name="Camera2D" type="Camera2D" unique_id=117337770]
 limit_left = -1920
@@ -9,4 +9,5 @@ limit_right = 1920
 limit_bottom = 1080
 editor_draw_limits = true
 script = ExtResource("1_kjgqe")
+zoom_offset = 0.1
 debug_mode = true
