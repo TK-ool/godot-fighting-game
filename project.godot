@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://cisbdtpyco7lx"
 [autoload]
 
 Global="*uid://xaet4fo6udxo"
+Settings="*uid://u77rhgnw6m5a"
 
 [display]
 
@@ -163,6 +164,11 @@ P1_reload={
 P1_drop_down={
 "deadzone": 1.0,
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":1,"axis_value":1.0,"script":null)
+]
+}
+"Pause Menu"={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
 

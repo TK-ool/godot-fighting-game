@@ -2,16 +2,16 @@ class_name BulletBehaviour
 extends Resource
 
 # What happens to the bullet on Player hit
-func on_hit(bullet: Node2D):
+func on_hit(_bullet: Node2D):
 	pass
 
 # What happens to the Bullet on Wall Hit
-func on_wall_hit(bullet: Node2D):
+func on_wall_hit(_bullet: Node2D):
 	pass
 
 # What happens to the Bullet each tick
-func on_tick(bullet: Node, delta: float):
+func on_tick(_bullet: Node, _delta: float):
 	pass
 
-func on_ready(bullet: Node):
+func on_ready(_bullet: Node):
 	pass

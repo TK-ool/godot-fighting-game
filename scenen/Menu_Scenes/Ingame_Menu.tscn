@@ -1,0 +1,298 @@
+[gd_scene format=3 uid="uid://301q2ctfs1j4"]
+
+[ext_resource type="Script" uid="uid://f43yv5y6x47o" path="res://scripts/Settings/ingame_menu.gd" id="1_sot23"]
+[ext_resource type="Script" uid="uid://b5l743c0dlfon" path="res://scripts/Settings/audio_control.gd" id="2_sot23"]
+[ext_resource type="Script" uid="uid://brx3itngj4pf4" path="res://scripts/Settings/fullscreen_control.gd" id="3_c0ri2"]
+
+[sub_resource type="FontFile" id="FontFile_mwdv7"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_vxlxy"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uvc0k"]
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_sot23"]
+color = Color(0.31982252, 0.5272523, 1, 1)
+thickness = 8
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=624423858]
+process_mode = 3
+script = ExtResource("1_sot23")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1922689007]
+offset_right = 1980.0
+offset_bottom = 1080.0
+color = Color(0.16862746, 0.16862746, 0.16862746, 0.6784314)
+
+[node name="Options" type="Panel" parent="." unique_id=123431039]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.25
+offset_top = -298.5
+offset_right = 355.25
+offset_bottom = 298.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options" unique_id=1686069476]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 35
+text = "Pause Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main Menu" type="Button" parent="Options" unique_id=2002134353]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -118.0
+offset_right = 317.0
+grow_vertical = 0
+text = "
+
+
+
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/Main Menu" unique_id=1619723831]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.75
+offset_top = -39.0
+offset_right = 69.75
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = SubResource("FontFile_mwdv7")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
+text = "
+[center][wave]Main Menu
+
+"
+fit_content = true
+
+[node name="Resume" type="Button" parent="Options" unique_id=816203305]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -305.0
+offset_top = -118.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "
+
+
+
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/Resume" unique_id=183927947]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.75
+offset_top = -39.0
+offset_right = 69.75
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = SubResource("FontFile_vxlxy")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
+text = "
+[center][wave]Resume
+
+"
+fit_content = true
+
+[node name="MusicControl" type="HSlider" parent="Options" unique_id=504949615]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_top = 163.0
+offset_right = 287.25
+offset_bottom = 215.0
+grow_horizontal = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_uvc0k")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_sot23")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_sot23")
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_sot23")
+audio_bus_name = "Music"
+
+[node name="Label" type="Label" parent="Options/MusicControl" unique_id=632364014]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -5.0
+offset_right = 57.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 21
+text = "Music"
+
+[node name="MasterControl" type="HSlider" parent="Options" unique_id=472087094]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_top = 103.0
+offset_right = 287.25
+offset_bottom = 155.0
+grow_horizontal = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_uvc0k")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_sot23")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_sot23")
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_sot23")
+audio_bus_name = "Master"
+
+[node name="Label" type="Label" parent="Options/MasterControl" unique_id=884739052]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -5.0
+offset_right = 57.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 21
+text = "Master"
+
+[node name="SFXControl" type="HSlider" parent="Options" unique_id=1110162016]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_top = 223.0
+offset_right = 287.25
+offset_bottom = 275.0
+grow_horizontal = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_uvc0k")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_sot23")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_sot23")
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_sot23")
+audio_bus_name = "SFX"
+
+[node name="Label" type="Label" parent="Options/SFXControl" unique_id=721083896]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -5.0
+offset_right = 57.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 21
+text = "SFX"
+
+[node name="FullscreenControl" type="CheckButton" parent="Options" unique_id=1381857232]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -289.0
+offset_top = 346.00006
+offset_right = 121.714264
+offset_bottom = 370.00006
+grow_horizontal = 2
+scale = Vector2(1.4, 1.4)
+script = ExtResource("3_c0ri2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/FullscreenControl" unique_id=1622917569]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 7.857166
+offset_top = -12.000049
+offset_right = 169.76189
+offset_bottom = 29.666637
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+theme_override_font_sizes/normal_font_size = 25
+text = "Fullscreen"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=1131929805]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Options/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Options/Resume" to="." method="_on_resume_pressed"]
+[connection signal="value_changed" from="Options/MusicControl" to="." method="_on_music_control_value_changed"]
+[connection signal="value_changed" from="Options/MusicControl" to="Options/MusicControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/MasterControl" to="." method="_on_master_control_value_changed"]
+[connection signal="value_changed" from="Options/MasterControl" to="Options/MasterControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/SFXControl" to="." method="_on_sfx_control_value_changed"]
+[connection signal="value_changed" from="Options/SFXControl" to="Options/SFXControl" method="_on_value_changed"]
+[connection signal="toggled" from="Options/FullscreenControl" to="." method="_on_fullscreen_control_toggled"]
+[connection signal="toggled" from="Options/FullscreenControl" to="Options/FullscreenControl" method="_on_toggled"]

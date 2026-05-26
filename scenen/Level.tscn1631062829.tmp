@@ -112,13 +112,11 @@ position_smoothing_enabled = true
 debug_mode = false
 
 [node name="PauseMenu" parent="." unique_id=624423858 instance=ExtResource("7_umxam")]
-layer = 2
 visible = false
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=608524436]
 
 [node name="Score" parent="HUD" unique_id=1181961140 instance=ExtResource("4_j4ie4")]
-mouse_filter = 2
 
 [connection signal="player_spawned" from="Player_2 Spawner" to="HUD/Score" method="player_2_spawned"]
 [connection signal="player_spawned" from="Player_1 Spawner" to="HUD/Score" method="player_1_spawned"]
