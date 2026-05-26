@@ -28,6 +28,7 @@ func _input(_event: InputEvent) -> void:
 			else:
 				visible = true
 				get_tree().paused = true
+				$Options/MasterControl.grab_focus()
 
 
 func _on_resume_pressed() -> void:
@@ -36,7 +37,7 @@ func _on_resume_pressed() -> void:
 
 
 func _on_main_menu_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Level.tscn")
+	get_tree().change_scene_to_file("res://scenen/Menu_Scenes/Main Menu.tscn")
 
 
 func _on_master_control_value_changed(value: float) -> void:

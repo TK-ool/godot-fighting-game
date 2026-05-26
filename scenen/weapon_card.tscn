@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blx8houeac2kg"]
 
-[ext_resource type="Texture2D" uid="uid://dvr8884q0gv02" path="res://Texturen/Weapon/Test_gun.png" id="1_byt62"]
+[ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="1_byt62"]
 
 [node name="WeaponCard" type="Control" unique_id=2023858573]
 layout_mode = 3
