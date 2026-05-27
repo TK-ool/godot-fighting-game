@@ -1,7 +1,5 @@
 extends Control
 
-@onready var h_box: HBoxContainer = $MarginContainer/HBoxContainer
-
 
 @onready var weapon_name: Label = $Panel/VBoxContainer/WeaponName
 @onready var weapon_texture: TextureRect = $Panel/VBoxContainer/WeaponTexture
