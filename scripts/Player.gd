@@ -66,6 +66,7 @@ var air_sprite: bool = false
 var device : int
 var deadzone : float = 0.2
 
+var inventory: Inventory = Inventory.new()
 
 func _physics_process(delta: float) -> void:
 	
@@ -85,6 +86,7 @@ func _ready() -> void:
 	health_data.died.connect(died_)
 	add_to_group("Player_%d" % device)
 	add_to_group("Players")# alle spieler für camer/ und mehr als 2
+	
 	
 func gravity_var(delta):
 	if is_on_floor() or is_on_wall():
@@ -255,6 +257,24 @@ func scaling():
 		air_sprite = false
 		
 
+func use_card(weapon: WeaponResource):
+	if inventory.cards.has(weapon):
+		inventory.remove_card(weapon)
+		gun.equip_weapon(weapon)
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("P%d_Weapon_1" % device):
+		if inventory.cards.size() >= 1:
+			use_card(inventory.cards[0])
+	if Input.is_action_just_pressed("P%d_Weapon_2" % device):
+		if inventory.cards.size() >= 2:
+			use_card(inventory.cards[1])
+	if Input.is_action_just_pressed("P%d_Weapon_3" % device):
+		if inventory.cards.size() >= 3:
+			use_card(inventory.cards[2])
+	if Input.is_action_just_pressed("P%d_Weapon_4" % device):
+		if inventory.cards.size() >= 4:
+			use_card(inventory.cards[3])
 
 func _on_death_off_screen_screen_exited() -> void:
 	died_()

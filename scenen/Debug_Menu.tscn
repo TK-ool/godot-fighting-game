@@ -48,6 +48,18 @@ popup/item_2/text = "Split_gun"
 popup/item_2/icon = ExtResource("2_b4dly")
 popup/item_2/id = 1
 
+[node name="inventory_label_1" type="Label" parent="Weapon change" unique_id=1730736498]
+offset_left = 11.0
+offset_top = 273.0
+offset_right = 253.0
+offset_bottom = 361.0
+
+[node name="inventory_label_2" type="Label" parent="Weapon change" unique_id=882551637]
+offset_left = 1661.0
+offset_top = 279.0
+offset_right = 1913.0
+offset_bottom = 344.0
+
 [connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="item_selected" from="Weapon change/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="Weapon change/OptionButton2" to="." method="_on_option_button_2_item_selected"]

@@ -82,12 +82,6 @@ func equip_weapon(weapon: WeaponResource):
 	bullet = current_weapon.Bullet_scene
 	bullet_spread = current_weapon.bullet_spread
 	bullet_speed = current_weapon.bullet_speed
-	# set attributes
-	#current_weapon.damage = Bullet.damage
-	#current_weapon.fire_rate = 
-	#bullet_speed
-	#bullet_amount
-	#magazine_size
 
 func decrease_cooldown(delta: float):
 	if _cooldown_timer > 0:
@@ -150,8 +144,15 @@ func reload_progress():
 		
 
 func new_weapon(weapon_selected: int):
+	var debug_menu = get_parent().get_parent().get_node("DebugMenu")
 	current_weapon = all_guns[weapon_selected]
+	get_parent().inventory.add_card(current_weapon)
 	equip_weapon(current_weapon)
+	
+	if player_ID == 0:
+		debug_menu.update_inventory_display_1(get_parent().inventory)
+	else:
+		debug_menu.update_inventory_display_2(get_parent().inventory)
 	
 func debug():
 	var debug_menu = get_parent().get_parent().get_node("DebugMenu")
