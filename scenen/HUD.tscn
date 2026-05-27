@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cdhntnen0l5i8" path="res://scripts/HUD.gd" id="1_vmfms"]
 [ext_resource type="Texture2D" uid="uid://dmbar6bpjhr8a" path="res://Texturen/Empty Progress Bar fertig.png" id="2_x5jof"]
 [ext_resource type="Texture2D" uid="uid://ocbskeii5ugg" path="res://Texturen/Full Progress Bar fertig.png" id="3_8cexo"]
+[ext_resource type="PackedScene" uid="uid://bsepwrui1t41v" path="res://scenen/card_ui.tscn" id="4_8cexo"]
 
 [node name="Score" type="Control" unique_id=1181961140]
 z_index = 5
@@ -71,3 +72,31 @@ offset_top = 149.0
 offset_right = 1671.0
 offset_bottom = 172.0
 text = "Ammo"
+
+[node name="CardUI_P1" type="HBoxContainer" parent="." unique_id=1279755551]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -228.0
+offset_right = 960.0
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="CardUI" parent="CardUI_P1" unique_id=396009609 instance=ExtResource("4_8cexo")]
+layout_mode = 2
+
+[node name="CardUI_P2" type="HBoxContainer" parent="." unique_id=1718576491]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -228.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="CardUI" parent="CardUI_P2" unique_id=438247776 instance=ExtResource("4_8cexo")]
+layout_mode = 2

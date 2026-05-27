@@ -257,11 +257,15 @@ func scaling():
 		air_sprite = false
 		
 
+#checks inventory for cards and uses card
 func use_card(weapon: WeaponResource):
 	if inventory.cards.has(weapon):
 		inventory.remove_card(weapon)
 		gun.equip_weapon(weapon)
+		var hud = get_parent().get_node("HUD/Score")
+		hud.update_cards(device, inventory)
 
+#Input function for weapon selection
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("P%d_Weapon_1" % device):
 		if inventory.cards.size() >= 1:

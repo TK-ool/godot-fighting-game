@@ -6,7 +6,11 @@ extends Control
 @onready var ammo_p_1: Label = $Ammo_P1
 @onready var ammo_p_2: Label = $Ammo_P2
 
+@onready var card_ui_p_1: Control = $CardUI_P1/CardUI
+@onready var card_ui_p_2: Control = $CardUI_P2/CardUI
 
+
+const WEAPON_CARD = preload("res://scenen/weapon_card.tscn")
 
 var player_1: Player
 var player_2: Player
@@ -19,8 +23,16 @@ func _process(_delta: float) -> void:
 	health_p_2.value = player_2.health_data.current_health
 	ammo_p_1.text = "Ammo : " + str(player_1.gun.bullet_amount) + "/" + str(player_1.gun.magazine_size)
 	ammo_p_2.text = "Ammo : " + str(player_2.gun.bullet_amount) + "/" + str(player_2.gun.magazine_size)
+
 func player_1_spawned(new_player: Player):
 	player_1 = new_player
 	
 func player_2_spawned(new_player: Player):
 	player_2 = new_player
+
+func update_cards(player_id: int, inventory: Inventory):
+	#check player
+	if player_id == 0:
+		card_ui_p_1.update_display(inventory)
+	else:
+		card_ui_p_2.update_display(inventory)

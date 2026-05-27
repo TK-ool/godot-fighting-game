@@ -1,19 +1,24 @@
 [gd_scene format=3 uid="uid://blx8houeac2kg"]
 
 [ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="1_byt62"]
+[ext_resource type="Script" uid="uid://cp37wxpunip6b" path="res://scenen/weapon_card.gd" id="1_muvf1"]
 
 [node name="WeaponCard" type="Control" unique_id=2023858573]
+clip_contents = true
+custom_minimum_size = Vector2(120, 160)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_muvf1")
 
 [node name="Panel" type="Panel" parent="." unique_id=652550719]
+custom_minimum_size = Vector2(120, 160)
 layout_mode = 0
 offset_right = 128.0
-offset_bottom = 256.0
+offset_bottom = 160.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1913800812]
 layout_mode = 0
@@ -32,9 +37,3 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("1_byt62")
-
-[node name="WeaponDescription" type="Label" parent="Panel/VBoxContainer" unique_id=941842314]
-custom_minimum_size = Vector2(128, 96)
-layout_mode = 2
-text = "Weapon Description"
-autowrap_mode = 2
