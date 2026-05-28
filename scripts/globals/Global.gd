@@ -18,11 +18,13 @@ var all_level = [
 func load_menu():
 	Score_reset()
 	round_points_reset()
+	queue_free_bullets()
 	load(menu)
 	get_tree().change_scene_to_file(menu)
 
 func random_level():
 	round_points_reset()
+	queue_free_bullets()
 	var x = randi() % all_level.size()
 	var selected_scene = all_level[x]
 	load(selected_scene)
@@ -36,3 +38,8 @@ func round_points_reset():
 func Score_reset():
 	Score_P1 = 0
 	Score_P2 = 0
+	
+func queue_free_bullets():
+	var rest_bullets = get_tree().get_nodes_in_group("bullet")
+	for b in rest_bullets:
+		b.queue_free()

@@ -17,6 +17,7 @@ func start_round():
 	#Engine.set_time_scale(0.3)
 	
 func round_ending():
+	
 	ScreenTransition.transition()
 	await ScreenTransition.on_transition_finished
 	
