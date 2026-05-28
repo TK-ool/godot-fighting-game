@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://vk0kxs4fulii"]
 
-[ext_resource type="Script" uid="uid://derpdhc0kvrwi" path="res://scenen/Level/level_managment.gd" id="1_hthof"]
+[ext_resource type="Script" uid="uid://derpdhc0kvrwi" path="res://scripts/level_managment.gd" id="1_hthof"]
 [ext_resource type="Texture2D" uid="uid://cj2ri5w6jjek2" path="res://Texturen/TileMapTesting.png" id="1_qictj"]
 [ext_resource type="Texture2D" uid="uid://hbboio45rx15" path="res://Texturen/Tileset/Tilemap alles-export.png" id="2_sp14u"]
 [ext_resource type="Texture2D" uid="uid://ehc8nxta7cu4" path="res://Texturen/one_way_platform-export.png" id="3_hthof"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://301q2ctfs1j4" path="res://scenen/Menu_Scenes/Ingame_Menu.tscn" id="7_t341e"]
 [ext_resource type="PackedScene" uid="uid://ckdfglkmtwi0o" path="res://scenen/HUD.tscn" id="8_mnt3t"]
 [ext_resource type="PackedScene" uid="uid://bn4umywct83su" path="res://scenen/Debug_Menu.tscn" id="8_sp14u"]
+[ext_resource type="PackedScene" uid="uid://c7ruf4qa1q0k" path="res://scenen/Bulletscenen/Bullet_casing.tscn" id="11_dee1l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j4ie4"]
 texture = ExtResource("1_qictj")
@@ -62,6 +63,9 @@ physics_layer_1/collision_layer = 64
 sources/0 = SubResource("TileSetAtlasSource_j4ie4")
 sources/2 = SubResource("TileSetAtlasSource_rpce8")
 sources/6 = SubResource("TileSetAtlasSource_bmymw")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dee1l"]
+bounce = 0.11
 
 [node name="Level" type="Node2D" unique_id=1338423698]
 process_mode = 3
@@ -126,6 +130,12 @@ visible = false
 
 [node name="Score" parent="HUD" unique_id=1181961140 instance=ExtResource("8_mnt3t")]
 mouse_filter = 2
+
+[node name="BulletCasing" parent="." unique_id=42721028 instance=ExtResource("11_dee1l")]
+position = Vector2(693, 587)
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_dee1l")
+angular_velocity = 0.8134107
 
 [connection signal="player_spawned" from="Player_2 Spawner" to="HUD/Score" method="player_2_spawned"]
 [connection signal="player_spawned" from="Player_1 Spawner" to="HUD/Score" method="player_1_spawned"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blx8houeac2kg"]
 
 [ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="1_byt62"]
-[ext_resource type="Script" uid="uid://cp37wxpunip6b" path="res://scenen/weapon_card.gd" id="1_muvf1"]
+[ext_resource type="Script" uid="uid://cp37wxpunip6b" path="res://scripts/weapon_card.gd" id="1_muvf1"]
 
 [node name="WeaponCard" type="Control" unique_id=2023858573]
 clip_contents = true

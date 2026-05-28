@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bpbgsyrbrpjm"]
 
-[ext_resource type="Script" uid="uid://bhoq4nu3buqpx" path="res://scripts/bullet.gd" id="1_o5iau"]
+[ext_resource type="Script" uid="uid://bhoq4nu3buqpx" path="res://scripts/Weapon/bullet.gd" id="1_o5iau"]
 [ext_resource type="Texture2D" uid="uid://6jqr72tpedm5" path="res://Texturen/Bullets/Test_bullet.png" id="2_6m63l"]
-[ext_resource type="Script" uid="uid://drcps6drgdvc7" path="res://scripts/Hit_area_bullet.gd" id="2_ukf7i"]
+[ext_resource type="Script" uid="uid://drcps6drgdvc7" path="res://scripts/Weapon/Hit_area_bullet.gd" id="2_ukf7i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2j1n"]
 size = Vector2(17, 11)

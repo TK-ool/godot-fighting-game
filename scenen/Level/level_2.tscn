@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cnieqsgkay365"]
 
-[ext_resource type="Script" uid="uid://derpdhc0kvrwi" path="res://scenen/Level/level_managment.gd" id="1_6kus0"]
+[ext_resource type="Script" uid="uid://derpdhc0kvrwi" path="res://scripts/level_managment.gd" id="1_6kus0"]
 [ext_resource type="Texture2D" uid="uid://cj2ri5w6jjek2" path="res://Texturen/TileMapTesting.png" id="1_vy42l"]
 [ext_resource type="Texture2D" uid="uid://hbboio45rx15" path="res://Texturen/Tileset/Tilemap alles-export.png" id="2_vn8ad"]
 [ext_resource type="Texture2D" uid="uid://ehc8nxta7cu4" path="res://Texturen/one_way_platform-export.png" id="3_e8cr8"]

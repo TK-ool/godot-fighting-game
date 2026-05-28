@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cc8xy1s1oc6ir"]
 
-[ext_resource type="Script" uid="uid://bhoq4nu3buqpx" path="res://scripts/bullet.gd" id="1_fw8a8"]
-[ext_resource type="Script" uid="uid://drcps6drgdvc7" path="res://scripts/Hit_area_bullet.gd" id="2_ik7jq"]
+[ext_resource type="Script" uid="uid://bhoq4nu3buqpx" path="res://scripts/Weapon/bullet.gd" id="1_fw8a8"]
+[ext_resource type="Script" uid="uid://drcps6drgdvc7" path="res://scripts/Weapon/Hit_area_bullet.gd" id="2_ik7jq"]
 [ext_resource type="Texture2D" uid="uid://ccylu3vwvew2y" path="res://Texturen/Bullets/bullet.png" id="3_fw8a8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2j1n"]

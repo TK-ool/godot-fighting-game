@@ -34,6 +34,7 @@ window/size/viewport_height=1080
 
 Player_0="Spieler Nr.1"
 Player_1="Spieler Nr.2"
+bullet=""
 
 [input]
 
@@ -244,6 +245,7 @@ P1_Weapon_4={
 2d_physics/layer_2="Player"
 2d_physics/layer_7="one way platform"
 2d_physics/layer_8="Bullets"
+2d_physics/layer_9="Bullet_casing"
 
 [physics]
 

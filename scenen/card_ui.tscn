@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bsepwrui1t41v"]
 
 [ext_resource type="Texture2D" uid="uid://dv8q52afu0iey" path="res://Texturen/UI/d-pad-icon.png" id="1_ehiin"]
-[ext_resource type="Script" uid="uid://bbllq31vsat8k" path="res://scenen/card_ui.gd" id="1_gxyi1"]
+[ext_resource type="Script" uid="uid://bbllq31vsat8k" path="res://scripts/card_ui.gd" id="1_gxyi1"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ehiin"]
 load_path = "res://.godot/imported/d-pad-icon.png-389de24ffdf7a296d7580aca2378454f.ctex"

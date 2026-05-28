@@ -27,6 +27,7 @@ func round_ending():
 	elif Global.Round_points_P1 >= 2 or Global.Round_points_P2 >= 2:
 		Global.random_level() # winner decided
 	else:
+		Global.queue_free_bullets()
 		get_tree().reload_current_scene() #round ending
 
 	

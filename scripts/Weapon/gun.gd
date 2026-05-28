@@ -4,7 +4,7 @@ var player_ID : int = 0
 
 var face_right
 
-const Bullet = preload("res://scenen/bullet.tscn")
+const Bullet = preload("res://scenen/Bulletscenen/bullet.tscn")
 
 @onready var gunshot: AudioStreamPlayer = $gunshot_sound
 @onready var muzzleflash2d: AnimatedSprite2D = $Muzzleflash

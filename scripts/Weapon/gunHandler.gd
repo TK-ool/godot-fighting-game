@@ -6,6 +6,7 @@ var player_ID : int = 0
 var face_right
 
 var bullet
+var bullet_casing
 
 var all_guns: = [
 preload("uid://bxwi8dex18vm8"), #Bouncegun
@@ -21,6 +22,7 @@ preload("uid://cu3cv5885ctqs") #splitgun
 @onready var muzzleflash2d: AnimatedSprite2D = $Muzzleflash
 @onready var muzzleflash: AnimationPlayer = $Muzzleflash/AnimationPlayer
 
+@onready var bullet_casing_eject: Marker2D = $Sprite2D/Bullet_casing_eject
 @onready var gunpoint_links: Marker2D = $Sprite2D/Marker2D2
 @onready var gunpoint_rechts: Marker2D = $Sprite2D/Marker2D
 @onready var gunsprite_2d: Sprite2D = $Sprite2D
@@ -74,12 +76,14 @@ func equip_weapon(weapon: WeaponResource):
 	# set weapon offset for gunpoint
 	gunpoint_links.position = weapon.gunpoint_offset_left
 	gunpoint_rechts.position = weapon.gunpoint_offset_right
+	bullet_casing_eject.position = weapon.casing_eject_point
 	
 	fire_rate = current_weapon.fire_rate
 	bullet_amount = current_weapon.magazine_size
 	magazine_size = current_weapon.magazine_size
 	reload_bar.max_value = current_weapon.reload_time
 	bullet = current_weapon.Bullet_scene
+	bullet_casing = current_weapon.bullet_casing_scene
 	bullet_spread = current_weapon.bullet_spread
 	bullet_speed = current_weapon.bullet_speed
 
@@ -117,6 +121,7 @@ func Shoot():
 		muzzleflash.play("muzzleflash")
 		gunshot.play(0.0)
 		bullet_amount -= 1
+		spawn_bullet_casing()
 		if face_right == true:
 			bullet_instance.global_position = gunpoint_links.global_position
 		else:
@@ -125,6 +130,22 @@ func Shoot():
 		bullet_instance.global_rotation = global_rotation + final_bullet_spread
 		get_tree().root.add_child(bullet_instance)
 		
+func spawn_bullet_casing():
+	var bullet_casing_instance = bullet_casing.instantiate()
+	var bullet_casing_velocity = Vector2(randf_range(-310.47, -200),randf_range(-362.925,-200))
+	var bullet_casing_angular_velocity = randf_range(425, 900)
+	bullet_casing_instance.linear_velocity = bullet_casing_velocity
+	bullet_casing_instance.angular_velocity = bullet_casing_angular_velocity
+	bullet_casing_instance.global_position = bullet_casing_eject.global_position
+
+	if face_right == true:
+		bullet_casing_instance.linear_velocity.x = bullet_casing_instance.linear_velocity.x * 1
+	else:
+		bullet_casing_instance.linear_velocity.x = bullet_casing_instance.linear_velocity.x * -1
+
+	get_tree().root.add_child(bullet_casing_instance)
+	
+	
 func reload():
 	if Input.is_action_just_pressed("P%d_reload" % player_ID) and !is_reloading and bullet_amount != current_weapon.magazine_size or Input.is_action_just_pressed("P%d_shoot" % player_ID) and bullet_amount <= 0 and !is_reloading:
 		reload_timer = current_weapon.reload_time

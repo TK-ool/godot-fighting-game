@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dho8ew74bndc4" path="res://Texturen/Bullets/ball test.png" id="2_hkirm"]
 [ext_resource type="Script" uid="uid://br3khvcvjx3px" path="res://Ressources/WeaponResource.gd" id="2_nlvwq"]
 [ext_resource type="Script" uid="uid://y6ptk3pwaljs" path="res://Ressources/Behaviours/BounceBehaviour.gd" id="3_vuswn"]
+[ext_resource type="PackedScene" uid="uid://c7ruf4qa1q0k" path="res://scenen/Bulletscenen/Bullet_casing.tscn" id="4_sjivo"]
 [ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="6_vuswn"]
 
 [sub_resource type="Resource" id="Resource_sjivo"]
@@ -17,6 +18,7 @@ weapon_name = "Bounce_weapon"
 card_sprite = ExtResource("2_hkirm")
 weapon_description = "Bullet bounces on impact"
 Bullet_scene = ExtResource("1_vuswn")
+bullet_casing_scene = ExtResource("4_sjivo")
 weapon_sprite = ExtResource("6_vuswn")
 gunpoint_offset_left = Vector2(29.63, 0)
 gunpoint_offset_right = Vector2(29.63, 0)
