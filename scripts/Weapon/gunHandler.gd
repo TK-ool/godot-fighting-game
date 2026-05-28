@@ -131,19 +131,22 @@ func Shoot():
 		get_tree().root.add_child(bullet_instance)
 		
 func spawn_bullet_casing():
-	var bullet_casing_instance = bullet_casing.instantiate()
-	var bullet_casing_velocity = Vector2(randf_range(-310.47, -200),randf_range(-362.925,-200))
-	var bullet_casing_angular_velocity = randf_range(425, 900)
-	bullet_casing_instance.linear_velocity = bullet_casing_velocity
-	bullet_casing_instance.angular_velocity = bullet_casing_angular_velocity
-	bullet_casing_instance.global_position = bullet_casing_eject.global_position
-
-	if face_right == true:
-		bullet_casing_instance.linear_velocity.x = bullet_casing_instance.linear_velocity.x * 1
+	if bullet_casing == null:
+		return
 	else:
-		bullet_casing_instance.linear_velocity.x = bullet_casing_instance.linear_velocity.x * -1
+		var bullet_casing_instance = bullet_casing.instantiate()
+		var bullet_casing_velocity = Vector2(randf_range(-310.47, -200),randf_range(-362.925,-200))
+		var bullet_casing_angular_velocity = randf_range(425, 900)
+		bullet_casing_instance.linear_velocity = bullet_casing_velocity
+		bullet_casing_instance.angular_velocity = bullet_casing_angular_velocity
+		bullet_casing_instance.global_position = bullet_casing_eject.global_position
 
-	get_tree().root.add_child(bullet_casing_instance)
+		if face_right == true:
+			bullet_casing_instance.linear_velocity.x = bullet_casing_instance.linear_velocity.x * 1
+		else:
+			bullet_casing_instance.linear_velocity.x = bullet_casing_instance.linear_velocity.x * -1
+
+		get_tree().root.add_child(bullet_casing_instance)
 	
 	
 func reload():
