@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://vk0kxs4fulii"]
 
+[ext_resource type="Script" uid="uid://derpdhc0kvrwi" path="res://scenen/Level/level_managment.gd" id="1_hthof"]
 [ext_resource type="Texture2D" uid="uid://cj2ri5w6jjek2" path="res://Texturen/TileMapTesting.png" id="1_qictj"]
 [ext_resource type="Texture2D" uid="uid://hbboio45rx15" path="res://Texturen/Tileset/Tilemap alles-export.png" id="2_sp14u"]
 [ext_resource type="Texture2D" uid="uid://ehc8nxta7cu4" path="res://Texturen/one_way_platform-export.png" id="3_hthof"]
@@ -63,6 +64,8 @@ sources/2 = SubResource("TileSetAtlasSource_rpce8")
 sources/6 = SubResource("TileSetAtlasSource_bmymw")
 
 [node name="Level" type="Node2D" unique_id=1338423698]
+process_mode = 3
+script = ExtResource("1_hthof")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1516771537]
 z_index = 1

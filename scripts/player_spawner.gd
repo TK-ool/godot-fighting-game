@@ -2,6 +2,8 @@ extends Node2D
 
 var player_scene = preload("res://scenen/Player.tscn")
 
+@onready var level: Node2D = $".."
+
 signal player_spawned(new_player: Player)
 
 @export var device:int
@@ -15,6 +17,9 @@ func playerrespawn():
 		new_player.position = position
 		get_parent().add_child.call_deferred(new_player)
 		new_player.player_respawn.connect(playerrespawn)
+		new_player.player_died.connect(level.round_ending)
 		player_spawned.emit(new_player)
+		
+	
 
 		

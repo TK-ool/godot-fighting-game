@@ -41,7 +41,7 @@ func _on_resume_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	ScreenTransition.transition()
 	await ScreenTransition.on_transition_finished
-	get_tree().change_scene_to_file("res://scenen/Menu_Scenes/Main Menu.tscn")
+	Global.load_menu()
 
 
 func _on_master_control_value_changed(value: float) -> void:

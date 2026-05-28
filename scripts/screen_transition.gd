@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 signal on_transition_finished
-
+signal on_normal_transistion_finished
 
 
 func _ready() -> void:
@@ -16,6 +16,7 @@ func _on_animation_finished(anim_name):
 		on_transition_finished.emit()
 		animation_player.play("Black_to_normal")
 	elif anim_name == "Black_to_normal":
+		on_normal_transistion_finished.emit()
 		color_rect.visible = false
 	
 

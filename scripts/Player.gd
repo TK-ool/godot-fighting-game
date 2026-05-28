@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 signal device_id(player_id:int)
 signal player_respawn (player_name: String)
+signal player_died(player_name: String)
 
 @onready var gun: Gun = $Gun
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -213,12 +214,18 @@ func _on_hit_area_area_entered(bullet: Node2D) -> void:
 		
 func died_():
 	if self.is_in_group("Player_0"):
-		Global.Score_P2 += 1
-		player_respawn.emit()
+		Global.Round_points_P2 += 1
+		if Global.Round_points_P2 >= 2:
+			Global.Score_P2 += 1
+		player_died.emit()
+		#player_respawn.emit()
 		
 	if self.is_in_group("Player_1"):
-		Global.Score_P1 += 1
-		player_respawn.emit()
+		Global.Round_points_P1 += 1
+		if Global.Round_points_P1 >= 2:
+			Global.Score_P1 += 1
+		player_died.emit()
+		#player_respawn.emit()
 		
 		
 	self.queue_free()
@@ -266,7 +273,7 @@ func use_card(weapon: WeaponResource):
 		hud.update_cards(device, inventory)
 
 #Input function for weapon selection
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("P%d_Weapon_1" % device):
 		if inventory.cards.size() >= 1:
 			use_card(inventory.cards[0])

@@ -61,6 +61,7 @@ size = Vector2(55, 51)
 size = Vector2(53, 49)
 
 [node name="Player" type="CharacterBody2D" unique_id=1404308864]
+process_mode = 1
 collision_layer = 2
 collision_mask = 67
 script = ExtResource("1_kpjcp")

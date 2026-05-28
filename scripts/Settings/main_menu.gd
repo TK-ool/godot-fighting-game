@@ -3,12 +3,6 @@ extends Control
 # für controller grab focus
 @onready var music_control: HSlider = $Options/MusicControl
 @onready var main_buttons: PanelContainer = $"Main Buttons"
-
-var all_level = [
-	preload("uid://dlr1yhmdr3wkh"),
-	preload("uid://cnieqsgkay365")
-]
-
 @onready var options: Panel = $Options
 @onready var main_menu: Control = $"."
 @onready var start: Button = $"Main Buttons/MarginContainer/VBoxContainer/start"
@@ -37,9 +31,8 @@ func settingsChanged():
 func _on_start_pressed() -> void:
 	ScreenTransition.transition()
 	await ScreenTransition.on_transition_finished
-	var x = randi() % all_level.size()
-	var selected_scene = all_level[x]
-	get_tree().change_scene_to_packed(selected_scene)
+	Global.random_level()
+	
 
 
 func _on_options_pressed() -> void:
