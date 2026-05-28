@@ -13,15 +13,18 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	
 	var players = get_tree().get_nodes_in_group("Players")
-	set_process(players.size() >0)
-	camera_rect = Rect2(players[0].global_position, Vector2())
-	for player in players:
-		camera_rect = camera_rect.expand(player.global_position)
-	
-	global_position = calculate_center(camera_rect)
-	zoom =  calculate_zoom(camera_rect, viewport_rect.size)
-	if debug_mode:
-		queue_redraw()
+	if players.size() >= 1:
+		set_process(players.size() >0)
+		camera_rect = Rect2(players[0].global_position, Vector2())
+		for player in players:
+			camera_rect = camera_rect.expand(player.global_position)
+		
+		global_position = calculate_center(camera_rect)
+		zoom =  calculate_zoom(camera_rect, viewport_rect.size)
+		if debug_mode:
+			queue_redraw()
+	else:
+		global_position = Vector2(0,0)
 	
 	
 func calculate_center (rect: Rect2) -> Vector2:
