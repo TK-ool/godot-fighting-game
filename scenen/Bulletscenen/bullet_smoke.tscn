@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://civ4kegxh8gap"]
+
+[ext_resource type="Texture2D" uid="uid://bbv713qf3vdo4" path="res://Texturen/bullet_smoke-Sheet.png" id="1_t5b6c"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aqqsj"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_or17u"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.184, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5bugu"]
+curve = SubResource("Curve_or17u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cxv55"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+spread = 25.0
+initial_velocity_min = 1.0
+initial_velocity_max = 100.0
+angular_velocity_min = 0.9999839
+angular_velocity_max = 293.06998
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_5bugu")
+anim_offset_max = 1.0
+
+[sub_resource type="Animation" id="Animation_hc6sf"]
+resource_name = "Bullet_smoke"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_r7uma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ofwaq"]
+_data = {
+&"Bullet_smoke": SubResource("Animation_hc6sf"),
+&"RESET": SubResource("Animation_r7uma")
+}
+
+[node name="BulletSmoke" type="GPUParticles2D" unique_id=1172837608]
+modulate = Color(0.7529412, 0.7529412, 0.7529412, 0.3137255)
+material = SubResource("CanvasItemMaterial_aqqsj")
+emitting = false
+texture = ExtResource("1_t5b6c")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_cxv55")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=362302287]
+libraries/ = SubResource("AnimationLibrary_ofwaq")
+autoplay = &"Bullet_smoke"

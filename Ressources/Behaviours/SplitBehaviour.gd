@@ -20,4 +20,4 @@ func on_wall_hit(bullet: Node2D):
 		
 func on_tick(bullet: Node, delta: float):
 	bullet.velocity = Vector2(bullet.speed, 0).rotated(bullet.global_rotation)
-	bullet.move_and_collide(bullet.velocity * delta)
+	bullet.collision_result = bullet.move_and_collide(bullet.velocity * delta)

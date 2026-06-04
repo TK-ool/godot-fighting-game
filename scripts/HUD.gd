@@ -30,7 +30,8 @@ const WEAPON_CARD = preload("res://scenen/weapon_card.tscn")
 var player_1: Player
 var player_2: Player
 
-
+func _ready() -> void:
+	start_timer_label.visible = true
 
 func _process(_delta: float) -> void:
 	round_points()
@@ -85,7 +86,6 @@ func round_points():
 		
 func round_starts():
 	start_timer_label.text = "%d" % level.round_start_timer
-
 	if level.round_start_timer <= 1:
 		start_timer_label.text = "GO!"
 	if level.round_start_timer <= 0:

@@ -128,6 +128,7 @@ offset_bottom = 110.0
 texture = ExtResource("5_4l3db")
 
 [node name="Start_timer_label" type="Label" parent="." unique_id=1357511655]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
