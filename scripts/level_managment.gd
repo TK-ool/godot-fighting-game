@@ -1,7 +1,9 @@
 extends Node2D
 
-
 var round_ending_var:= false
+
+var round_start_timer : float = 3.0
+var round_started: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,15 +11,25 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _process(delta: float) -> void:
+	Countdown(delta)
 
 func start_round():
 	get_tree().paused = true
 	await ScreenTransition.on_normal_transistion_finished
-	get_tree().paused = false
+	round_started = true
+
+
 	#Engine.set_time_scale(0.3)
-	
+
+func Countdown(delta):
+	if round_started == true:
+		if round_start_timer >= 0:
+			round_start_timer -= delta
+	if round_start_timer <= 1:
+		get_tree().paused = false
+		
+		
 func round_ending():
 	ScreenTransition.transition()
 	await ScreenTransition.on_transition_finished

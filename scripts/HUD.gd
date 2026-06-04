@@ -6,6 +6,10 @@ extends Control
 @onready var ammo_p_1: Label = $Ammo_P1
 @onready var ammo_p_2: Label = $Ammo_P2
 
+@onready var start_timer_label: Label = $Start_timer_label
+
+@onready var level: Node2D = $"../.."
+
 const points_texture = preload("uid://ccylu3vwvew2y")
 
 
@@ -26,9 +30,13 @@ const WEAPON_CARD = preload("res://scenen/weapon_card.tscn")
 var player_1: Player
 var player_2: Player
 
+
+
 func _process(_delta: float) -> void:
 	round_points()
 	set_player_hud()
+	round_starts()
+	
 
 
 
@@ -75,3 +83,10 @@ func round_points():
 		final_point.texture = points_texture
 		final_point.modulate = Color("ff0000")
 		
+func round_starts():
+	start_timer_label.text = "%d" % level.round_start_timer
+
+	if level.round_start_timer <= 1:
+		start_timer_label.text = "GO!"
+	if level.round_start_timer <= 0:
+		start_timer_label.visible = false
