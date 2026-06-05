@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://g64rmryrtbx8"]
 
 [ext_resource type="Script" uid="uid://bhmdvojrpyb5u" path="res://scripts/Weapon/gunHandler.gd" id="1_0lpn5"]
-[ext_resource type="Resource" uid="uid://bohtx51vyqg3j" path="res://Ressources/Weapons/Handgun.tres" id="2_7w0ho"]
+[ext_resource type="Resource" uid="uid://cu3cv5885ctqs" path="res://Ressources/Weapons/Split_gun.tres" id="2_7w0ho"]
 [ext_resource type="Texture2D" uid="uid://ckqbm8oiub1vu" path="res://Texturen/Weapon/Handgun.png" id="3_7w0ho"]
 [ext_resource type="Texture2D" uid="uid://brxovixxnsc6y" path="res://Texturen/muzzle flash for test.png" id="3_l5qxt"]
 [ext_resource type="AudioStream" uid="uid://bpnphwupe501l" path="res://Sounds/pistol-gunshot.mp3" id="4_0lpn5"]

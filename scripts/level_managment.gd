@@ -43,6 +43,7 @@ func round_ending():
 		else:
 			Global.queue_free_bullets()
 			get_tree().reload_current_scene() #round ending
+			
 		
 	
 
