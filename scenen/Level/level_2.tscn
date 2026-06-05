@@ -73,15 +73,15 @@ tile_map_data = PackedByteArray("AAAAAAAAAgAIAAAAAAABAAAAAgAIAAAAAAACAAAAAgAIAAA
 tile_set = SubResource("TileSet_rpce8")
 
 [node name="Spikes2" parent="TileMapLayer" unique_id=1534843407 instance=ExtResource("4_tljj4")]
-position = Vector2(978, 317)
+position = Vector2(960, 317)
 rotation = 3.1415927
 
 [node name="Spikes3" parent="TileMapLayer" unique_id=2036237072 instance=ExtResource("4_tljj4")]
-position = Vector2(1042, 317)
+position = Vector2(1024, 317)
 rotation = 3.1415927
 
 [node name="Spikes4" parent="TileMapLayer" unique_id=1929861681 instance=ExtResource("4_tljj4")]
-position = Vector2(1106, 317)
+position = Vector2(1088, 317)
 rotation = 3.1415927
 
 [node name="Player_2 Spawner" parent="." unique_id=1010258943 instance=ExtResource("5_lg5eu")]
