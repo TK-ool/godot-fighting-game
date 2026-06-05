@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cdhntnen0l5i8" path="res://scripts/HUD.gd" id="1_vmfms"]
 [ext_resource type="FontFile" uid="uid://c0t5nvqjw8mhf" path="res://Texturen/cg-pixel-4x5.otf" id="2_gb32j"]
-[ext_resource type="Texture2D" uid="uid://dmbar6bpjhr8a" path="res://Texturen/Empty Progress Bar fertig.png" id="2_x5jof"]
-[ext_resource type="Texture2D" uid="uid://ocbskeii5ugg" path="res://Texturen/Full Progress Bar fertig.png" id="3_8cexo"]
+[ext_resource type="Texture2D" uid="uid://da7i6ja1jmhmd" path="res://Texturen/low hp leer.png" id="3_gb32j"]
 [ext_resource type="PackedScene" uid="uid://bsepwrui1t41v" path="res://scenen/card_ui.tscn" id="4_8cexo"]
+[ext_resource type="Texture2D" uid="uid://bbas00wac0o2c" path="res://Texturen/low hp voll.png" id="4_luhcg"]
 [ext_resource type="Texture2D" uid="uid://b24bvwgjt1ar4" path="res://Texturen/Point.png" id="5_4l3db"]
 
 [node name="Score" type="Control" unique_id=1181961140]
@@ -42,27 +42,27 @@ text = "Score 999"
 layout_mode = 0
 offset_left = 31.0
 offset_top = 33.0
-offset_right = 93.0
+offset_right = 95.0
 offset_bottom = 49.0
 max_value = 10.0
 step = 0.1
 value = 5.0
 nine_patch_stretch = true
-texture_under = ExtResource("2_x5jof")
-texture_progress = ExtResource("3_8cexo")
+texture_under = ExtResource("3_gb32j")
+texture_progress = ExtResource("4_luhcg")
 
 [node name="Health_P2" type="TextureProgressBar" parent="." unique_id=383990046]
 layout_mode = 0
 offset_left = 537.0
 offset_top = 21.0
-offset_right = 599.0
+offset_right = 601.0
 offset_bottom = 37.0
 max_value = 10.0
 step = 0.1
 value = 5.0
 nine_patch_stretch = true
-texture_under = ExtResource("2_x5jof")
-texture_progress = ExtResource("3_8cexo")
+texture_under = ExtResource("3_gb32j")
+texture_progress = ExtResource("4_luhcg")
 
 [node name="Ammo_P1" type="Label" parent="." unique_id=953698113]
 layout_mode = 0

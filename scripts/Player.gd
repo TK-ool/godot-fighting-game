@@ -13,15 +13,15 @@ signal player_died(player_name: String)
 
 
 const SPEED = 200.0
-const JUMP_VELOCITY = -400.0
-var gravity: float = 900
-const normal_gravity: float = 900
-const max_gravity: float = 1300
+const JUMP_VELOCITY = -350.0
+var gravity: float = 800
+const normal_gravity: float = 800
+const max_gravity: float = 1200
 
 # acceleration wie schnell die höchstgeschwindigkeit erreicht wird
-var acceleration: float = 12		# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
+var acceleration: float = 8		# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
 # friction beim anhalten hochstellen für schnellstopp
-var deceleration: float = 15
+var deceleration: float = 7
 
 #Knockback Values
 var knockback: Vector2 = Vector2.ZERO
@@ -187,14 +187,14 @@ func jumps(delta):
 	#doublejump
 	if is_in_the_air and Input.is_action_just_pressed("P%d_jump" % device) and jumps_left > 0:
 		velocity.y = JUMP_VELOCITY
-		sprite_2d.scale =  Vector2(1.1,1.2)
+		sprite_2d.scale =  Vector2(0.6,1.4)
 		jumps_left -= 1
 		
 	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0):
 		if jumpbuffer >0:
 			velocity.y = JUMP_VELOCITY
 			#squish for jump
-			sprite_2d.scale =  Vector2(1.1,1.2)
+			sprite_2d.scale =  Vector2(0.6,1.4)
 			jumpbuffer = 0.0
 			#walljump
 			if wall_contact_coyote > 0.0:
@@ -255,12 +255,12 @@ func drop_down(): # setzt es noch für beide spieler
 		
 func scaling():
 
-	sprite_2d.scale.x = move_toward(sprite_2d.scale.x,1, 0.01)
-	sprite_2d.scale.y = move_toward(sprite_2d.scale.y,1, 0.01)
+	sprite_2d.scale.x = move_toward(sprite_2d.scale.x,1, 0.02)
+	sprite_2d.scale.y = move_toward(sprite_2d.scale.y,1, 0.02)
 	if !is_on_floor():
 		air_sprite = true
 	if air_sprite == true and is_on_floor():
-		sprite_2d.scale = Vector2(1.3,1.2)
+		sprite_2d.scale = Vector2(1.4,0.7)
 		air_sprite = false
 		
 
