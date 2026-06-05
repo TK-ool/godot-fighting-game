@@ -76,12 +76,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -355.25
-offset_top = -298.5
-offset_right = 355.25
-offset_bottom = 298.5
+offset_left = -104.604996
+offset_top = -90.295
+offset_right = 605.895
+offset_bottom = 506.70502
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.3, 0.3)
 
 [node name="Label" type="Label" parent="Options" unique_id=1686069476]
 layout_mode = 1

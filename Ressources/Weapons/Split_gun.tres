@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://b1ow1tv21l4jx" path="res://Ressources/Behaviours/SplitBehaviour.gd" id="2_ou8xb"]
 [ext_resource type="Texture2D" uid="uid://cj2ri5w6jjek2" path="res://Texturen/TileMapTesting.png" id="3_ou8xb"]
 [ext_resource type="PackedScene" uid="uid://c7ruf4qa1q0k" path="res://scenen/Bulletscenen/Bullet_casing.tscn" id="4_2mprl"]
-[ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="6_ou8xb"]
+[ext_resource type="Texture2D" uid="uid://dvr8884q0gv02" path="res://Texturen/Weapon/Test_gun.png" id="7_2mprl"]
 
 [sub_resource type="Resource" id="Resource_ta4om"]
 script = ExtResource("2_ou8xb")
@@ -19,7 +19,7 @@ card_sprite = ExtResource("3_ou8xb")
 weapon_description = "Bullet splits on impact"
 Bullet_scene = ExtResource("1_ou8xb")
 bullet_casing_scene = ExtResource("4_2mprl")
-weapon_sprite = ExtResource("6_ou8xb")
+weapon_sprite = ExtResource("7_2mprl")
 gunpoint_offset_left = Vector2(29.63, 0)
 gunpoint_offset_right = Vector2(29.63, 0)
 behaviours = Array[ExtResource("1_5vjt1")]([SubResource("Resource_ta4om")])

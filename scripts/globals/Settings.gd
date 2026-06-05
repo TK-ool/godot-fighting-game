@@ -36,7 +36,7 @@ var fullscreen: bool:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		changed.emit()
 		
-var follow_camera: bool = true:
+var follow_camera: bool = false:
 	set(value):
 		follow_camera = value
 		changed.emit()

@@ -8,91 +8,103 @@ load_path = "res://.godot/imported/d-pad-icon.png-389de24ffdf7a296d7580aca237845
 
 [node name="CardUI" type="Control" unique_id=396009609]
 clip_contents = true
-custom_minimum_size = Vector2(960, 228)
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = -85.0
+offset_right = 320.0
+grow_vertical = 0
 script = ExtResource("1_gxyi1")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1495375063]
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -132.0
-offset_right = 971.0
+offset_left = 1.0
+offset_top = -84.0
+offset_right = 321.0
+offset_bottom = 1.0
 grow_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1398264758]
 layout_mode = 2
-theme_override_constants/separation = 150
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 85
 alignment = 1
 
 [node name="Slot1" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=91813379]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Slot1" unique_id=697197354]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="TextureRect4" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot1/Control" unique_id=1988766970]
 texture_filter = 1
-custom_minimum_size = Vector2(64, 64)
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_right = 16.0
+offset_bottom = 16.0
 texture = SubResource("CompressedTexture2D_ehiin")
 
 [node name="Slot2" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=326023357]
 layout_mode = 2
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/Slot2" unique_id=1338498385]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot2/Control2" unique_id=1422728989]
 texture_filter = 1
-custom_minimum_size = Vector2(64, 64)
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_right = 16.0
+offset_bottom = 16.0
 rotation = 1.5707964
-pivot_offset = Vector2(32, 32)
+pivot_offset = Vector2(8, 8)
 texture = ExtResource("1_ehiin")
 
 [node name="Slot3" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=194242949]
 layout_mode = 2
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/Slot3" unique_id=1186366923]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot3/Control3" unique_id=1287655540]
 texture_filter = 1
-custom_minimum_size = Vector2(64, 64)
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_right = 16.0
+offset_bottom = 16.0
 rotation = 3.1415927
-pivot_offset = Vector2(32, 32)
+pivot_offset = Vector2(8, 8)
 texture = ExtResource("1_ehiin")
 
 [node name="Slot4" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=255359946]
 layout_mode = 2
 
 [node name="Control4" type="Control" parent="MarginContainer/HBoxContainer/Slot4" unique_id=195150768]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot4/Control4" unique_id=1355771414]
 texture_filter = 1
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
 rotation = 4.712389
-pivot_offset = Vector2(32, 32)
+pivot_offset = Vector2(8, 8)
 texture = ExtResource("1_ehiin")

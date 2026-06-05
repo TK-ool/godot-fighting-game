@@ -9,13 +9,13 @@ signal player_died(player_name: String)
 @onready var gun: Gun = $Gun
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+ 
 
 
-
-const SPEED = 400.0
-const JUMP_VELOCITY = -700.0
-var gravity: float = 1200
-const normal_gravity: float = 1200
+const SPEED = 150.0
+const JUMP_VELOCITY = -350.0
+var gravity: float = 900
+const normal_gravity: float = 900
 const max_gravity: float = 1800
 
 # acceleration wie schnell die höchstgeschwindigkeit erreicht wird
@@ -38,7 +38,7 @@ const max_jumps: int = 1
 var is_in_the_air: bool = false
 
 #Dash values
-const Dashspeed = 1200
+const Dashspeed = 400
 var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: Vector2 = Vector2.RIGHT
@@ -48,7 +48,7 @@ var airdash: bool = false
 
 #Walljump values
 const gravity_wall: float = 80
-const wall_jump_push_force: float = 1200
+const wall_jump_push_force: float = 600
 #coyote time ist zeit nachdem der spieler die Wand verlassen hat, das er den wandspung noch ausführen kann
 var wall_contact_coyote: float = 0.0
 const wall_contact_coyote_time: float = 0.02
@@ -187,19 +187,19 @@ func jumps(delta):
 	#doublejump
 	if is_in_the_air and Input.is_action_just_pressed("P%d_jump" % device) and jumps_left > 0:
 		velocity.y = JUMP_VELOCITY
-		sprite_2d.scale =  Vector2(0.3,0.6)
+		sprite_2d.scale =  Vector2(1.1,1.2)
 		jumps_left -= 1
 		
 	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0):
 		if jumpbuffer >0:
 			velocity.y = JUMP_VELOCITY
 			#squish for jump
-			sprite_2d.scale =  Vector2(0.3,0.6)
+			sprite_2d.scale =  Vector2(1.1,1.2)
 			jumpbuffer = 0.0
 			#walljump
 			if wall_contact_coyote > 0.0:
 				velocity.x = -look_direction_x * wall_jump_push_force
-				velocity.y = JUMP_VELOCITY * 1.2
+				velocity.y = JUMP_VELOCITY * 1.4
 				wall_jump_lock = Wall_jump_locktime
 	# variable jumphöhe / verträgt sich aber nicht so gut mit walljump und jumpbuffer maybe anpassen oder entfernen
 	elif  Input.is_action_just_released("P%d_jump" % device) and velocity.y <= -0 and !is_dashing:
@@ -255,12 +255,12 @@ func drop_down(): # setzt es noch für beide spieler
 		
 func scaling():
 
-	sprite_2d.scale.x = move_toward(sprite_2d.scale.x,0.433, 0.01)
-	sprite_2d.scale.y = move_toward(sprite_2d.scale.y,0.398, 0.01)
+	sprite_2d.scale.x = move_toward(sprite_2d.scale.x,1, 0.01)
+	sprite_2d.scale.y = move_toward(sprite_2d.scale.y,1, 0.01)
 	if !is_on_floor():
 		air_sprite = true
 	if air_sprite == true and is_on_floor():
-		sprite_2d.scale = Vector2(0.6,0.28)
+		sprite_2d.scale = Vector2(1.3,1.2)
 		air_sprite = false
 		
 

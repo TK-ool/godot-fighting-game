@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://g64rmryrtbx8"]
 
 [ext_resource type="Script" uid="uid://bhmdvojrpyb5u" path="res://scripts/Weapon/gunHandler.gd" id="1_0lpn5"]
-[ext_resource type="Resource" uid="uid://cu3cv5885ctqs" path="res://Ressources/Weapons/Split_gun.tres" id="2_7w0ho"]
-[ext_resource type="Texture2D" uid="uid://ckqbm8oiub1vu" path="res://Texturen/Weapon/Handgun.png" id="3_7w0ho"]
+[ext_resource type="Resource" uid="uid://bohtx51vyqg3j" path="res://Ressources/Weapons/Handgun.tres" id="2_7w0ho"]
+[ext_resource type="Texture2D" uid="uid://dhx1lioshq44l" path="res://Texturen/Gun_temp.png" id="3_7w0ho"]
 [ext_resource type="Texture2D" uid="uid://brxovixxnsc6y" path="res://Texturen/muzzle flash for test.png" id="3_l5qxt"]
 [ext_resource type="AudioStream" uid="uid://bpnphwupe501l" path="res://Sounds/pistol-gunshot.mp3" id="4_0lpn5"]
 
@@ -140,12 +140,12 @@ current_weapon = ExtResource("2_7w0ho")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=757308342]
 z_index = 2
-position = Vector2(22, -1)
+position = Vector2(13.135, -1)
 texture = ExtResource("3_7w0ho")
 
 [node name="Marker2D" type="Marker2D" parent="Sprite2D" unique_id=1712222138]
 show_behind_parent = true
-position = Vector2(19, -0.9999994)
+position = Vector2(7.864998, 1.0000002)
 scale = Vector2(0.7407407, 0.7894736)
 
 [node name="Marker2D2" type="Marker2D" parent="Sprite2D" unique_id=1193412261]
@@ -153,7 +153,7 @@ position = Vector2(19, 2)
 scale = Vector2(0.7407407, 0.7894736)
 
 [node name="Bullet_casing_eject" type="Marker2D" parent="Sprite2D" unique_id=271860061]
-position = Vector2(-11, -4)
+position = Vector2(-5.135, -1)
 
 [node name="Muzzleflash" type="AnimatedSprite2D" parent="." unique_id=1694353277]
 visible = false
