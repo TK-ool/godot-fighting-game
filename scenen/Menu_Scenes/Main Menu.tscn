@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bi2nmmbvx00ww"]
 
 [ext_resource type="Script" uid="uid://bdituen0rh8fa" path="res://scripts/Settings/main_menu.gd" id="1_77m4q"]
+[ext_resource type="FontFile" uid="uid://rgqjk5prd48m" path="res://Texturen/lower-pixel.regular.otf" id="2_j57x4"]
 [ext_resource type="Script" uid="uid://b5l743c0dlfon" path="res://scripts/Settings/audio_control.gd" id="4_je6qg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eg507"]
@@ -28,8 +29,8 @@ script = ExtResource("1_77m4q")
 [node name="AspectRatioContainer BG" type="AspectRatioContainer" parent="." unique_id=1088657553]
 layout_mode = 0
 offset_left = -51.0
-offset_right = 1954.0
-offset_bottom = 1132.0
+offset_right = 661.0
+offset_bottom = 377.0
 stretch_mode = 3
 
 [node name="BG" type="PanelContainer" parent="AspectRatioContainer BG" unique_id=1665664671]
@@ -43,10 +44,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -170.5
-offset_right = 170.5
-offset_bottom = 127.0
+offset_left = -172.0
+offset_top = 23.0
+offset_right = 169.0
+offset_bottom = 150.0
 grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_j57x4")
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
@@ -57,7 +60,6 @@ text = "
 [wave][center]  fighting game"
 
 [node name="Main Buttons" type="PanelContainer" parent="." unique_id=1780740465]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 7
@@ -89,20 +91,23 @@ text = "
 "
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Main Buttons/MarginContainer/VBoxContainer/start" unique_id=611004827]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.75
-offset_top = -8.363749
-offset_right = 25.75
-offset_bottom = 8.363749
+offset_left = -26.881989
+offset_top = -7.1450033
+offset_right = 73.98602
+offset_bottom = 23.854996
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.485, 0.485)
 mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 10
+theme_override_fonts/normal_font = ExtResource("2_j57x4")
+theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 10
 theme_override_font_sizes/bold_italics_font_size = 10
 theme_override_font_sizes/italics_font_size = 10
@@ -130,6 +135,7 @@ offset_bottom = 8.113754
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_j57x4")
 theme_override_font_sizes/normal_font_size = 10
 theme_override_font_sizes/bold_font_size = 10
 theme_override_font_sizes/bold_italics_font_size = 10
@@ -158,6 +164,7 @@ offset_bottom = 7.8637543
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_j57x4")
 theme_override_font_sizes/normal_font_size = 10
 theme_override_font_sizes/bold_font_size = 10
 theme_override_font_sizes/bold_italics_font_size = 10
@@ -186,6 +193,7 @@ offset_bottom = 9.613754
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_j57x4")
 theme_override_font_sizes/normal_font_size = 10
 theme_override_font_sizes/bold_font_size = 10
 theme_override_font_sizes/bold_italics_font_size = 10
@@ -196,6 +204,7 @@ text = "[center][wave]Exit"
 fit_content = true
 
 [node name="Options" type="Panel" parent="." unique_id=425879159]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
