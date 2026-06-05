@@ -39,6 +39,16 @@ Player_0="Spieler Nr.1"
 Player_1="Spieler Nr.2"
 bullet=""
 
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+theme/default_font_antialiasing=2
+theme/default_font_hinting=0
+theme/default_font_subpixel_positioning=0
+theme/default_font_multichannel_signed_distance_field=true
+theme/default_font_generate_mipmaps=true
+theme/lcd_subpixel_layout=0
+
 [input]
 
 ui_accept={

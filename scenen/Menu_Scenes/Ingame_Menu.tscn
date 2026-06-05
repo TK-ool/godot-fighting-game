@@ -1,56 +1,8 @@
 [gd_scene format=3 uid="uid://301q2ctfs1j4"]
 
 [ext_resource type="Script" uid="uid://f43yv5y6x47o" path="res://scripts/Settings/ingame_menu.gd" id="1_sot23"]
+[ext_resource type="FontFile" uid="uid://c0t5nvqjw8mhf" path="res://Texturen/cg-pixel-4x5.otf" id="2_mwdv7"]
 [ext_resource type="Script" uid="uid://b5l743c0dlfon" path="res://scripts/Settings/audio_control.gd" id="2_sot23"]
-[ext_resource type="FontFile" uid="uid://rgqjk5prd48m" path="res://Texturen/lower-pixel.regular.otf" id="3_mwdv7"]
-
-[sub_resource type="FontFile" id="FontFile_mwdv7"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/30/0/ascent = 0.0
-cache/0/30/0/descent = 0.0
-cache/0/30/0/underline_position = 0.0
-cache/0/30/0/underline_thickness = 0.0
-cache/0/30/0/scale = 1.0
-
-[sub_resource type="FontFile" id="FontFile_vxlxy"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/30/0/ascent = 0.0
-cache/0/30/0/descent = 0.0
-cache/0/30/0/underline_position = 0.0
-cache/0/30/0/underline_thickness = 0.0
-cache/0/30/0/scale = 1.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_uvc0k"]
 thickness = 8
@@ -77,13 +29,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.604996
-offset_top = -90.295
-offset_right = 605.895
-offset_bottom = 506.70502
+offset_left = -186.5
+offset_top = -135.75
+offset_right = 186.5
+offset_bottom = 135.75
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.3, 0.3)
 
 [node name="Label" type="Label" parent="Options" unique_id=1686069476]
 layout_mode = 1
@@ -91,7 +42,8 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 81.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("2_mwdv7")
+theme_override_font_sizes/font_size = 15
 text = "Pause Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -101,10 +53,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 51.25
-offset_top = -121.5
-offset_right = 310.25
-offset_bottom = -34.0
+offset_left = 43.0
+offset_top = -48.0
+offset_right = 159.0
+offset_bottom = -17.0
 grow_vertical = 0
 text = "
 
@@ -119,15 +71,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -95.0
-offset_top = -61.5
-offset_right = 95.0
-offset_bottom = 61.5
+offset_left = -44.0
+offset_top = -19.0625
+offset_right = 44.0
+offset_bottom = 19.0625
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme_override_fonts/normal_font = SubResource("FontFile_mwdv7")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_fonts/normal_font = ExtResource("2_mwdv7")
+theme_override_font_sizes/normal_font_size = 10
 theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
 theme_override_font_sizes/italics_font_size = 30
@@ -146,10 +98,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -280.25
-offset_top = -118.5
-offset_right = -61.5
-offset_bottom = -31.0
+offset_left = -159.0
+offset_top = -45.0
+offset_right = -66.5
+offset_bottom = -14.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "
@@ -165,15 +117,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -69.75
-offset_top = -39.0
-offset_right = 69.75
-offset_bottom = 39.0
+offset_left = -37.03125
+offset_top = -19.0
+offset_right = 37.03125
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme_override_fonts/normal_font = SubResource("FontFile_vxlxy")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_fonts/normal_font = ExtResource("2_mwdv7")
+theme_override_font_sizes/normal_font_size = 10
 theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
 theme_override_font_sizes/italics_font_size = 30
@@ -190,10 +142,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -280.0
-offset_top = 163.0
-offset_right = 287.25
-offset_bottom = 215.0
+offset_left = -150.0
+offset_top = 93.5
+offset_right = 150.0
+offset_bottom = 120.5
 grow_horizontal = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_uvc0k")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_sot23")
@@ -209,8 +161,8 @@ offset_left = -2.0
 offset_top = -5.0
 offset_right = 57.0
 offset_bottom = 25.0
-theme_override_fonts/font = ExtResource("3_mwdv7")
-theme_override_font_sizes/font_size = 21
+theme_override_fonts/font = ExtResource("2_mwdv7")
+theme_override_font_sizes/font_size = 5
 text = "Music"
 
 [node name="MasterControl" type="HSlider" parent="Options" unique_id=472087094]
@@ -218,10 +170,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -280.0
-offset_top = 103.0
-offset_right = 287.25
-offset_bottom = 155.0
+offset_left = -150.0
+offset_top = 63.5
+offset_right = 150.0
+offset_bottom = 92.0
 grow_horizontal = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_uvc0k")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_sot23")
@@ -237,8 +189,8 @@ offset_left = -2.0
 offset_top = -5.0
 offset_right = 57.0
 offset_bottom = 25.0
-theme_override_fonts/font = ExtResource("3_mwdv7")
-theme_override_font_sizes/font_size = 21
+theme_override_fonts/font = ExtResource("2_mwdv7")
+theme_override_font_sizes/font_size = 5
 text = "Master"
 
 [node name="SFXControl" type="HSlider" parent="Options" unique_id=1110162016]
@@ -246,10 +198,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -280.0
-offset_top = 223.0
-offset_right = 287.25
-offset_bottom = 275.0
+offset_left = -150.0
+offset_top = 123.5
+offset_right = 150.0
+offset_bottom = 151.5
 grow_horizontal = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_uvc0k")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_sot23")
@@ -265,8 +217,8 @@ offset_left = -2.0
 offset_top = -5.0
 offset_right = 57.0
 offset_bottom = 25.0
-theme_override_fonts/font = ExtResource("3_mwdv7")
-theme_override_font_sizes/font_size = 21
+theme_override_fonts/font = ExtResource("2_mwdv7")
+theme_override_font_sizes/font_size = 5
 text = "SFX"
 
 [node name="FullscreenControl" type="CheckButton" parent="Options" unique_id=1381857232]
@@ -274,25 +226,23 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -289.0
-offset_top = 346.00006
-offset_right = 121.714264
-offset_bottom = 370.00006
+offset_left = -146.5
+offset_top = 159.5
+offset_right = 157.5
+offset_bottom = 183.5
 grow_horizontal = 2
-scale = Vector2(1.4, 1.4)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Options/FullscreenControl" unique_id=1622917569]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 7.857166
-offset_top = -12.000049
-offset_right = 169.76189
-offset_bottom = 29.666637
+offset_top = -3.4999995
+offset_right = 161.90472
+offset_bottom = 3.4999995
 grow_vertical = 2
-scale = Vector2(0.6, 0.6)
-theme_override_font_sizes/normal_font_size = 25
+theme_override_fonts/normal_font = ExtResource("2_mwdv7")
+theme_override_font_sizes/normal_font_size = 5
 text = "Fullscreen"
 
 [node name="CameraControl" type="CheckButton" parent="Options" unique_id=793723382]
@@ -300,25 +250,23 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -289.0
-offset_top = 389.5
-offset_right = 121.714264
-offset_bottom = 413.5
+offset_left = -146.5
+offset_top = 183.795
+offset_right = 157.5
+offset_bottom = 207.795
 grow_horizontal = 2
-scale = Vector2(1.4, 1.4)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Options/CameraControl" unique_id=1918148851]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 7.857166
-offset_top = -12.000049
-offset_right = 232.8571
-offset_bottom = 29.666637
+offset_top = -4.0
+offset_right = 228.8571
+offset_bottom = 4.0
 grow_vertical = 2
-scale = Vector2(0.6, 0.6)
-theme_override_font_sizes/normal_font_size = 25
+theme_override_fonts/normal_font = ExtResource("2_mwdv7")
+theme_override_font_sizes/normal_font_size = 5
 text = "Follower_camera"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=1131929805]

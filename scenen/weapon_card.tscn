@@ -1,39 +1,42 @@
 [gd_scene format=3 uid="uid://blx8houeac2kg"]
 
-[ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="1_byt62"]
 [ext_resource type="Script" uid="uid://cp37wxpunip6b" path="res://scripts/weapon_card.gd" id="1_muvf1"]
+[ext_resource type="FontFile" uid="uid://c0t5nvqjw8mhf" path="res://Texturen/cg-pixel-4x5.otf" id="2_8b0i5"]
+[ext_resource type="Texture2D" uid="uid://dhx1lioshq44l" path="res://Texturen/Gun_temp.png" id="3_vcope"]
 
 [node name="WeaponCard" type="Control" unique_id=2023858573]
 clip_contents = true
-custom_minimum_size = Vector2(120, 160)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.066
+anchor_bottom = 0.172
+offset_right = 21.760002
+offset_bottom = 1.9079971
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_muvf1")
 
 [node name="Panel" type="Panel" parent="." unique_id=652550719]
-custom_minimum_size = Vector2(120, 160)
 layout_mode = 0
-offset_right = 128.0
-offset_bottom = 160.0
+offset_right = 41.0
+offset_bottom = 61.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1913800812]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 41.0
+offset_bottom = 61.0
 
 [node name="WeaponName" type="Label" parent="Panel/VBoxContainer" unique_id=609904027]
-custom_minimum_size = Vector2(128, 32)
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8b0i5")
+theme_override_font_sizes/font_size = 5
 text = "Weapon Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="WeaponTexture" type="TextureRect" parent="Panel/VBoxContainer" unique_id=1698834489]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("1_byt62")
+texture = ExtResource("3_vcope")

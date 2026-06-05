@@ -12,11 +12,11 @@ signal player_died(player_name: String)
  
 
 
-const SPEED = 150.0
-const JUMP_VELOCITY = -350.0
+const SPEED = 200.0
+const JUMP_VELOCITY = -400.0
 var gravity: float = 900
 const normal_gravity: float = 900
-const max_gravity: float = 1800
+const max_gravity: float = 1300
 
 # acceleration wie schnell die höchstgeschwindigkeit erreicht wird
 var acceleration: float = 12		# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
@@ -38,7 +38,7 @@ const max_jumps: int = 1
 var is_in_the_air: bool = false
 
 #Dash values
-const Dashspeed = 400
+const Dashspeed = 500
 var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: Vector2 = Vector2.RIGHT
@@ -47,7 +47,7 @@ const DASH_TIME: float = 0.2
 var airdash: bool = false
 
 #Walljump values
-const gravity_wall: float = 80
+const gravity_wall: float = 40
 const wall_jump_push_force: float = 600
 #coyote time ist zeit nachdem der spieler die Wand verlassen hat, das er den wandspung noch ausführen kann
 var wall_contact_coyote: float = 0.0
@@ -199,7 +199,7 @@ func jumps(delta):
 			#walljump
 			if wall_contact_coyote > 0.0:
 				velocity.x = -look_direction_x * wall_jump_push_force
-				velocity.y = JUMP_VELOCITY * 1.4
+				velocity.y = JUMP_VELOCITY * 1.2
 				wall_jump_lock = Wall_jump_locktime
 	# variable jumphöhe / verträgt sich aber nicht so gut mit walljump und jumpbuffer maybe anpassen oder entfernen
 	elif  Input.is_action_just_released("P%d_jump" % device) and velocity.y <= -0 and !is_dashing:

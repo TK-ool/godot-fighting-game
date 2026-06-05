@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ckqbm8oiub1vu" path="res://Texturen/Weapon/Handgun.png" id="1_1jfcq"]
 [ext_resource type="Script" uid="uid://t5av7u05x8ck" path="res://scripts/debug_menu.gd" id="1_b4dly"]
 [ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="2_b4dly"]
+[ext_resource type="FontFile" uid="uid://c0t5nvqjw8mhf" path="res://Texturen/cg-pixel-4x5.otf" id="2_o2n2r"]
 
 [node name="DebugMenu" type="CanvasLayer" unique_id=1068167939]
 script = ExtResource("1_b4dly")
@@ -12,17 +13,20 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 80.0
 offset_bottom = 26.0
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("2_o2n2r")
+theme_override_font_sizes/font_size = 5
 text = "Debug Menu"
 
 [node name="Weapon change" type="CanvasGroup" parent="." unique_id=2109129047]
 
 [node name="OptionButton" type="OptionButton" parent="Weapon change" unique_id=1131992660]
 offset_left = 7.0
-offset_top = 45.0
-offset_right = 267.0
-offset_bottom = 117.0
-scale = Vector2(0.3, 0.3)
+offset_top = 70.0
+offset_right = 86.0
+offset_bottom = 93.0
+theme_override_fonts/font = ExtResource("2_o2n2r")
+theme_override_font_sizes/font_size = 5
+fit_to_longest_item = false
 item_count = 3
 popup/item_0/text = "Bouncegun"
 popup/item_0/icon = ExtResource("2_b4dly")
@@ -35,11 +39,11 @@ popup/item_2/icon = ExtResource("2_b4dly")
 popup/item_2/id = 1
 
 [node name="OptionButton2" type="OptionButton" parent="Weapon change" unique_id=691977845]
-offset_left = 553.0
-offset_top = 46.0
-offset_right = 813.0
-offset_bottom = 118.0
-scale = Vector2(0.3, 0.3)
+offset_left = 558.0
+offset_top = 70.0
+offset_right = 637.0
+offset_bottom = 93.0
+fit_to_longest_item = false
 item_count = 3
 popup/item_0/text = "Bouncegun"
 popup/item_0/icon = ExtResource("2_b4dly")
@@ -56,12 +60,16 @@ offset_left = 2.0
 offset_top = 148.0
 offset_right = 244.0
 offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("2_o2n2r")
+theme_override_font_sizes/font_size = 5
 
 [node name="inventory_label_2" type="Label" parent="Weapon change" unique_id=882551637]
 offset_left = 387.0
 offset_top = 175.0
 offset_right = 639.0
 offset_bottom = 240.0
+theme_override_fonts/font = ExtResource("2_o2n2r")
+theme_override_font_sizes/font_size = 5
 
 [connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="item_selected" from="Weapon change/OptionButton" to="." method="_on_option_button_item_selected"]

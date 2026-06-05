@@ -2,7 +2,7 @@ class_name Hazard
 extends Node
 
 @export var damage := 2
-@export var knockback_force := 400
+@export var knockback_force := 200
 @export var knockback_time :float = 0.15
 var knockback_direction: Vector2 = Vector2.ZERO
 

@@ -9,7 +9,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_or17u"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.184, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.128, 0.42012447), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_5bugu"]
@@ -21,7 +21,7 @@ angle_min = 1.0728835e-05
 angle_max = 180.00002
 spread = 25.0
 initial_velocity_min = 1.0
-initial_velocity_max = 100.0
+initial_velocity_max = 38.54
 angular_velocity_min = 0.9999839
 angular_velocity_max = 293.06998
 gravity = Vector3(0, 0, 0)

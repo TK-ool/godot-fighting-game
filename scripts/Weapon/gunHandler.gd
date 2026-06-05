@@ -135,8 +135,8 @@ func spawn_bullet_casing():
 		return
 	else:
 		var bullet_casing_instance = bullet_casing.instantiate()
-		var bullet_casing_velocity = Vector2(randf_range(-310.47, -200),randf_range(-362.925,-200))
-		var bullet_casing_angular_velocity = randf_range(425, 900)
+		var bullet_casing_velocity = Vector2(randf_range(-160.47, -100),randf_range(-242.925,-200))
+		var bullet_casing_angular_velocity = randf_range(225, 600)
 		bullet_casing_instance.linear_velocity = bullet_casing_velocity
 		bullet_casing_instance.angular_velocity = bullet_casing_angular_velocity
 		bullet_casing_instance.global_position = bullet_casing_eject.global_position

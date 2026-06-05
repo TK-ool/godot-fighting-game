@@ -3,24 +3,28 @@
 [ext_resource type="Script" uid="uid://bkf4p1vkjh7y0" path="res://scripts/bullet_casing.gd" id="1_5042v"]
 [ext_resource type="Texture2D" uid="uid://ct42alk2t6v3j" path="res://Texturen/placeholder_casing.png" id="2_5042v"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5042v"]
+bounce = 0.03
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5042v"]
-size = Vector2(8, 3)
+size = Vector2(4, 2)
 
 [node name="BulletCasing" type="RigidBody2D" unique_id=42721028]
 collision_layer = 256
 collision_mask = 65
 mass = 0.1
-linear_velocity = Vector2(-310.47, -362.925)
-angular_velocity = 7.421751
+physics_material_override = SubResource("PhysicsMaterial_5042v")
+linear_velocity = Vector2(-143.565, -160.06)
+angular_velocity = 7.344084
 script = ExtResource("1_5042v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=126131584]
-position = Vector2(1, 1)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_5042v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=618213613]
 z_index = 1
-position = Vector2(2, 1)
+position = Vector2(0, 1)
 texture = ExtResource("2_5042v")
 
 [node name="Timer" type="Timer" parent="." unique_id=1419098474]
