@@ -12,16 +12,16 @@ signal player_died(player_name: String)
  
 
 
-const SPEED = 200.0
+const SPEED = 175.0
 const JUMP_VELOCITY = -350.0
 var gravity: float = 800
 const normal_gravity: float = 800
 const max_gravity: float = 1200
 
 # acceleration wie schnell die höchstgeschwindigkeit erreicht wird
-var acceleration: float = 8		# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
+var acceleration: float = 10	# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
 # friction beim anhalten hochstellen für schnellstopp
-var deceleration: float = 7
+var deceleration: float = 11
 
 #Knockback Values
 var knockback: Vector2 = Vector2.ZERO
