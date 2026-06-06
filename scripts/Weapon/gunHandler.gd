@@ -128,7 +128,7 @@ func Shoot():
 			bullet_instance.global_position = gunpoint_rechts.global_position
 		var final_bullet_spread = randf_range(bullet_spread, -bullet_spread)
 		bullet_instance.global_rotation = global_rotation + final_bullet_spread
-		get_tree().root.add_child(bullet_instance)
+		get_viewport().add_child(bullet_instance)
 		
 func spawn_bullet_casing():
 	if bullet_casing == null:
@@ -146,7 +146,7 @@ func spawn_bullet_casing():
 		else:
 			bullet_casing_instance.linear_velocity.x = bullet_casing_instance.linear_velocity.x * -1
 
-		get_tree().root.add_child(bullet_casing_instance)
+		get_viewport().add_child(bullet_casing_instance)
 	
 	
 func reload():

@@ -4,6 +4,7 @@ var round_ending_var:= false
 
 var round_start_timer : float = 3.0
 var round_started: bool = false
+var timer_vorbei: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	Countdown(delta)
+
 
 func start_round():
 	get_tree().paused = true
@@ -26,8 +28,10 @@ func Countdown(delta):
 	if round_started == true:
 		if round_start_timer >= 0:
 			round_start_timer -= delta
-	if round_start_timer <= 1:
+	if round_start_timer <= 1 and timer_vorbei == false:
 		get_tree().paused = false
+		timer_vorbei = true
+		
 		
 		
 func round_ending():

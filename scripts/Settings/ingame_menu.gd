@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var camera_2d: Camera2D = $"../Camera2D"
+@onready var level: Node2D = $".."
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,13 +25,13 @@ func settingsChanged():
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Pause Menu"):
-			if get_tree().paused:
-				visible = false
-				get_tree().paused = false
-			else:
-				visible = true
-				get_tree().paused = true
-				$Options/MasterControl.grab_focus()
+		if get_tree().paused:
+			visible = false
+			get_tree().paused = false
+		else:
+			visible = true
+			get_tree().paused = true
+			$Options/MasterControl.grab_focus()
 
 
 func _on_resume_pressed() -> void:
