@@ -84,6 +84,7 @@ material = SubResource("CanvasItemMaterial_aqqsj")
 emitting = false
 texture = ExtResource("1_t5b6c")
 lifetime = 0.4
+one_shot = true
 explosiveness = 0.9
 process_material = SubResource("ParticleProcessMaterial_cxv55")
 
