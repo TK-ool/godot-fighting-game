@@ -35,3 +35,4 @@ func update_display(inventory: Inventory):
 		slots[i].add_child(card_instance)
 		card_instance.setup(inventory.cards[i])
 	is_updating = false
+	

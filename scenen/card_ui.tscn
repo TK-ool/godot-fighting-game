@@ -22,8 +22,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -132.0
+offset_top = -96.40997
 offset_right = 971.0
+offset_bottom = 88.590454
 grow_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1398264758]
