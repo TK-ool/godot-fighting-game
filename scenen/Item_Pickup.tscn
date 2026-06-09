@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dq5xvkgfxogyg"]
+
+[ext_resource type="Script" uid="uid://baopceebiratl" path="res://scenen/item_pickup.gd" id="1_8pmev"]
+[ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="2_f6oa0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrp6h"]
+size = Vector2(64, 63)
+
+[node name="ItemPickup" type="Node2D" unique_id=1480384173]
+script = ExtResource("1_8pmev")
+gun_texture = ExtResource("2_f6oa0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=580352246]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1898200380]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_mrp6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2132537773]
+position = Vector2(32, 32)
+texture = ExtResource("2_f6oa0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
