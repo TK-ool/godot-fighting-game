@@ -170,8 +170,7 @@ func reload_progress():
 func new_weapon(weapon_selected: int):
 	var debug_menu = get_parent().get_parent().get_node("DebugMenu")
 	current_weapon = all_guns[weapon_selected]
-	get_parent().inventory.add_card(current_weapon)
-	#equip_weapon(current_weapon)
+	equip_weapon(current_weapon)
 	
 	if player_ID == 0:
 		debug_menu.update_inventory_display_1(get_parent().inventory)

@@ -17,6 +17,5 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.gun.new_weapon(item_to_pickup)
-		body.update_cards()
+		body.add_card(item_to_pickup)
 		self.queue_free()

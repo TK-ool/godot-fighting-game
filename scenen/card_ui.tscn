@@ -32,6 +32,7 @@ theme_override_constants/separation = 150
 alignment = 1
 
 [node name="Slot1" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=91813379]
+custom_minimum_size = Vector2(92, 185)
 layout_mode = 2
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Slot1" unique_id=697197354]
@@ -47,6 +48,7 @@ offset_bottom = 64.0
 texture = SubResource("CompressedTexture2D_ehiin")
 
 [node name="Slot2" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=326023357]
+custom_minimum_size = Vector2(92, 185)
 layout_mode = 2
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/Slot2" unique_id=1338498385]
@@ -64,6 +66,7 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("1_ehiin")
 
 [node name="Slot3" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=194242949]
+custom_minimum_size = Vector2(92, 185)
 layout_mode = 2
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/Slot3" unique_id=1186366923]
@@ -81,6 +84,7 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("1_ehiin")
 
 [node name="Slot4" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=255359946]
+custom_minimum_size = Vector2(92, 185)
 layout_mode = 2
 
 [node name="Control4" type="Control" parent="MarginContainer/HBoxContainer/Slot4" unique_id=195150768]

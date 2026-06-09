@@ -264,8 +264,12 @@ func scaling():
 		air_sprite = false
 		
 
+func add_card(new_item: int):
+	var new_card = gun.all_guns[new_item] # von gun genommen um alles in einem script zu haben // und um debug menu und items/weapons zu trennen
+	inventory.add_card(new_card)
+	update_cards()
 
-func update_cards():
+func update_cards(): # update the card HUD
 	var hud = get_parent().get_node("HUD/Score")
 	hud.update_cards(device, inventory)
 
