@@ -54,6 +54,17 @@ func update_cards(player_id: int, inventory: Inventory):
 	else:
 		card_ui_p_2.update_display(inventory)
 		
+func open_card_inv(player_id: int):
+	if player_id == 0:
+		card_ui_p_1.open_inventory()
+	else:
+		card_ui_p_2.open_inventory()
+		
+func close_card_inv(player_id: int):
+	if player_id == 0:
+		card_ui_p_1.close_inventory()
+	else:
+		card_ui_p_2.close_inventory()
 		
 func set_player_hud():
 	

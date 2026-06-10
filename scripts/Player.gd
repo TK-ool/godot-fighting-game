@@ -10,8 +10,6 @@ signal player_died(player_name: String)
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
-
-
 const SPEED = 400.0
 const JUMP_VELOCITY = -700.0
 var gravity: float = 1200
@@ -273,6 +271,7 @@ func update_cards(): # update the card HUD
 	var hud = get_parent().get_node("HUD/Score")
 	hud.update_cards(device, inventory)
 
+
 #checks inventory for cards and uses card
 func use_card(weapon: WeaponResource):
 	if inventory.cards.has(weapon):
@@ -282,6 +281,8 @@ func use_card(weapon: WeaponResource):
 
 #Input function for weapon selection
 func _input(_event: InputEvent) -> void:
+	var hud = get_parent().get_node("HUD/Score")
+	
 	if Input.is_action_just_pressed("P%d_Weapon_1" % device):
 		if inventory.cards.size() >= 1:
 			use_card(inventory.cards[0])
@@ -294,6 +295,12 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("P%d_Weapon_4" % device):
 		if inventory.cards.size() >= 4:
 			use_card(inventory.cards[3])
-
+			
+	if Input.is_action_just_pressed("P%d_card_UI" % device):
+		hud.open_card_inv(device)
+	if Input.is_action_just_released("P%d_card_UI" % device):
+		hud.close_card_inv(device)
+	
+	
 func _on_death_off_screen_screen_exited() -> void:
 	died_()

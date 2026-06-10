@@ -1,5 +1,6 @@
 extends Control
 
+@onready var margin_container: MarginContainer = $MarginContainer
 
 @onready var h_box: HBoxContainer = $MarginContainer/HBoxContainer
 
@@ -12,6 +13,16 @@ extends Control
 
 var is_updating: bool = false
 const WEAPON_CARD = preload("res://scenen/weapon_card.tscn")
+
+
+func open_inventory():
+	var tween = get_tree().create_tween()
+	tween.tween_property(margin_container, "position", Vector2(0, 42.19),0.3)
+	
+func close_inventory():
+	var tween = get_tree().create_tween()
+	tween.tween_property(margin_container, "position", Vector2(0, 131.59),0.3)
+
 
 func update_display(inventory: Inventory):
 	if is_updating:

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dv8q52afu0iey" path="res://Texturen/UI/d-pad-icon.png" id="1_ehiin"]
 [ext_resource type="Script" uid="uid://bbllq31vsat8k" path="res://scripts/card_ui.gd" id="1_gxyi1"]
+[ext_resource type="PackedScene" uid="uid://blx8houeac2kg" path="res://scenen/weapon_card.tscn" id="2_va6ot"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ehiin"]
 load_path = "res://.godot/imported/d-pad-icon.png-389de24ffdf7a296d7580aca2378454f.ctex"
@@ -24,7 +25,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -96.40997
 offset_right = 971.0
-offset_bottom = 88.590454
+offset_bottom = 88.590576
 grow_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1398264758]
@@ -47,6 +48,9 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 texture = SubResource("CompressedTexture2D_ehiin")
+
+[node name="WeaponCard" parent="MarginContainer/HBoxContainer/Slot1" unique_id=2023858573 instance=ExtResource("2_va6ot")]
+layout_mode = 2
 
 [node name="Slot2" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=326023357]
 custom_minimum_size = Vector2(92, 185)
