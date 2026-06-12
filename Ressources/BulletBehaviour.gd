@@ -1,6 +1,9 @@
 class_name BulletBehaviour
 extends Resource
 
+# um Variablen für bullets zu benutzen
+var dictionary: Dictionary
+
 # What happens to the bullet on Player hit
 func on_hit(_bullet: Node2D):
 	pass

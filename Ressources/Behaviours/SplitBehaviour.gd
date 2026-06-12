@@ -3,7 +3,7 @@ extends BulletBehaviour
 
 @export var sub_bullet_count: int = 10
 @export var sub_bullet_speed: float = 200.0
-@export_range(0, 360, 0.1, "radians_as_degrees") var arc : float = 170
+@export_range(0, 360, 0.1, "radians_as_degrees") var arc : float = 210
 
 func on_wall_hit(bullet: Node2D):
 	if bullet.collision_result != null:
