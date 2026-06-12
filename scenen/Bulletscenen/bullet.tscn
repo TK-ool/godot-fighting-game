@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://drcps6drgdvc7" path="res://scripts/Weapon/Hit_area_bullet.gd" id="2_ukf7i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5iau"]
-size = Vector2(15, 9)
+size = Vector2(15, 11.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2j1n"]
 size = Vector2(17, 11)
@@ -18,21 +18,22 @@ script = ExtResource("1_o5iau")
 bullet_hit = ExtResource("2_03ebb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=90874543]
-position = Vector2(1, -1.5)
+position = Vector2(0, 0.375)
 shape = SubResource("RectangleShape2D_o5iau")
 
 [node name="Bullet_area" type="Area2D" parent="." unique_id=516728236]
 script = ExtResource("2_ukf7i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet_area" unique_id=1065275330]
-position = Vector2(1.5, -1.5)
 shape = SubResource("RectangleShape2D_v2j1n")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Bullet_area" unique_id=324904229]
+position = Vector2(-2, -1)
 rect = Rect2(-66, -35, 140, 69)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bullet_area" unique_id=1736693349]
 texture = ExtResource("2_6m63l")
+offset = Vector2(-1.815, 0.745)
 
 [connection signal="body_entered" from="Bullet_area" to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="Bullet_area/VisibleOnScreenNotifier2D" to="Bullet_area" method="_on_visible_on_screen_notifier_2d_screen_exited"]

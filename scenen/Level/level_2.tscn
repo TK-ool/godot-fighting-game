@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cwnre3mgoorog" path="res://scenen/Player_Spawner.tscn" id="5_lg5eu"]
 [ext_resource type="PackedScene" uid="uid://c322eifxdgnmt" path="res://scenen/camera.tscn" id="6_njj18"]
 [ext_resource type="PackedScene" uid="uid://301q2ctfs1j4" path="res://scenen/Menu_Scenes/Ingame_Menu.tscn" id="7_aaaot"]
+[ext_resource type="PackedScene" uid="uid://dq5xvkgfxogyg" path="res://scenen/Item_Pickup.tscn" id="7_e8txm"]
+[ext_resource type="Texture2D" uid="uid://ckqbm8oiub1vu" path="res://Texturen/Weapon/Handgun.png" id="8_3le72"]
 [ext_resource type="PackedScene" uid="uid://ckdfglkmtwi0o" path="res://scenen/HUD.tscn" id="8_opo84"]
 [ext_resource type="PackedScene" uid="uid://bn4umywct83su" path="res://scenen/Debug_Menu.tscn" id="9_xcjwx"]
 
@@ -104,6 +106,27 @@ rotation = 3.1415927
 [node name="Spikes4" parent="SubViewport/Level/TileMapLayer" unique_id=1929861681 instance=ExtResource("4_tljj4")]
 position = Vector2(1106, 317)
 rotation = 3.1415927
+
+[node name="ItemPickup" parent="SubViewport/Level/TileMapLayer" unique_id=1480384173 instance=ExtResource("7_e8txm")]
+position = Vector2(1285, 746)
+
+[node name="ItemPickup2" parent="SubViewport/Level/TileMapLayer" unique_id=1914718114 instance=ExtResource("7_e8txm")]
+position = Vector2(700, 640)
+item_to_pickup = 1
+gun_texture = ExtResource("8_3le72")
+
+[node name="ItemPickup3" parent="SubViewport/Level/TileMapLayer" unique_id=15276573 instance=ExtResource("7_e8txm")]
+position = Vector2(1731, 865)
+item_to_pickup = 2
+
+[node name="ItemPickup4" parent="SubViewport/Level/TileMapLayer" unique_id=700159038 instance=ExtResource("7_e8txm")]
+position = Vector2(1005, 191)
+item_to_pickup = 2
+
+[node name="ItemPickup5" parent="SubViewport/Level/TileMapLayer" unique_id=529688170 instance=ExtResource("7_e8txm")]
+position = Vector2(451, 199)
+item_to_pickup = 1
+gun_texture = ExtResource("8_3le72")
 
 [node name="Player_2 Spawner" parent="SubViewport/Level" unique_id=1010258943 instance=ExtResource("5_lg5eu")]
 position = Vector2(1695, 267)

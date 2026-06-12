@@ -135,6 +135,7 @@ gun_texture = ExtResource("8_kw8s7")
 
 [node name="ItemPickup3" parent="SubViewport/Level/TileMapLayer" unique_id=1722735172 instance=ExtResource("7_equ8x")]
 position = Vector2(1731, 865)
+item_to_pickup = 2
 
 [node name="ItemPickup4" parent="SubViewport/Level/TileMapLayer" unique_id=1233590529 instance=ExtResource("7_equ8x")]
 position = Vector2(1005, 191)

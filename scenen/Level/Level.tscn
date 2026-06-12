@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://ckdfglkmtwi0o" path="res://scenen/HUD.tscn" id="4_j4ie4"]
 [ext_resource type="PackedScene" uid="uid://cwnre3mgoorog" path="res://scenen/Player_Spawner.tscn" id="5_rpce8"]
 [ext_resource type="PackedScene" uid="uid://c322eifxdgnmt" path="res://scenen/camera.tscn" id="7_4l5pk"]
+[ext_resource type="PackedScene" uid="uid://dq5xvkgfxogyg" path="res://scenen/Item_Pickup.tscn" id="7_hfeqd"]
 [ext_resource type="PackedScene" uid="uid://301q2ctfs1j4" path="res://scenen/Menu_Scenes/Ingame_Menu.tscn" id="7_umxam"]
+[ext_resource type="Texture2D" uid="uid://ckqbm8oiub1vu" path="res://Texturen/Weapon/Handgun.png" id="8_k5u4f"]
 [ext_resource type="PackedScene" uid="uid://bn4umywct83su" path="res://scenen/Debug_Menu.tscn" id="9_igm3w"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dee1l"]
@@ -122,6 +124,27 @@ disable_mode = 1
 position = Vector2(803, 808)
 rotation = -1.5707964
 disable_mode = 1
+
+[node name="ItemPickup" parent="SubViewport/Level/TileMapLayer" unique_id=1480384173 instance=ExtResource("7_hfeqd")]
+position = Vector2(76, 856)
+
+[node name="ItemPickup2" parent="SubViewport/Level/TileMapLayer" unique_id=380059497 instance=ExtResource("7_hfeqd")]
+position = Vector2(700, 640)
+item_to_pickup = 1
+gun_texture = ExtResource("8_k5u4f")
+
+[node name="ItemPickup3" parent="SubViewport/Level/TileMapLayer" unique_id=2064296055 instance=ExtResource("7_hfeqd")]
+position = Vector2(1731, 865)
+item_to_pickup = 2
+
+[node name="ItemPickup4" parent="SubViewport/Level/TileMapLayer" unique_id=1116944759 instance=ExtResource("7_hfeqd")]
+position = Vector2(1005, 191)
+item_to_pickup = 2
+
+[node name="ItemPickup5" parent="SubViewport/Level/TileMapLayer" unique_id=1083144389 instance=ExtResource("7_hfeqd")]
+position = Vector2(451, 199)
+item_to_pickup = 1
+gun_texture = ExtResource("8_k5u4f")
 
 [node name="Player_2 Spawner" parent="SubViewport/Level" unique_id=1010258943 instance=ExtResource("5_rpce8")]
 position = Vector2(1695, 267)
