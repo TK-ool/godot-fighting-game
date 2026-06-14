@@ -31,5 +31,4 @@ bullet_speed = 800.0
 bullet_spread = 0.04
 magazine_size = 10
 reload_time = 1.0
-multishoot_amount = 1
 metadata/_custom_type_script = "uid://br3khvcvjx3px"

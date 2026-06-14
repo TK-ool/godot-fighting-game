@@ -1,6 +1,6 @@
 extends Node2D
 
-@export_enum("Bouncegun:0", "Handgun:1", "splitgun:2") var item_to_pickup: int
+@export_enum("Bouncegun:0", "Handgun:1", "splitgun:2", "shuriken:3") var item_to_pickup: int # abhängig vom array in gunhandler
 @export var gun_texture : Texture2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 

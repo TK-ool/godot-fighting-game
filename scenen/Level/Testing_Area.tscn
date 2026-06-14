@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ckqbm8oiub1vu" path="res://Texturen/Weapon/Handgun.png" id="8_kw8s7"]
 [ext_resource type="PackedScene" uid="uid://ckdfglkmtwi0o" path="res://scenen/HUD.tscn" id="8_mnt3t"]
 [ext_resource type="PackedScene" uid="uid://bn4umywct83su" path="res://scenen/Debug_Menu.tscn" id="8_sp14u"]
+[ext_resource type="Texture2D" uid="uid://gu7nauh677fi" path="res://Texturen/Bullets/Shuriken.png" id="9_t341e"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dee1l"]
 viewport_path = NodePath("SubViewport")
@@ -139,7 +140,8 @@ item_to_pickup = 2
 
 [node name="ItemPickup4" parent="SubViewport/Level/TileMapLayer" unique_id=1233590529 instance=ExtResource("7_equ8x")]
 position = Vector2(1005, 191)
-item_to_pickup = 2
+item_to_pickup = 3
+gun_texture = ExtResource("9_t341e")
 
 [node name="ItemPickup5" parent="SubViewport/Level/TileMapLayer" unique_id=2052786974 instance=ExtResource("7_equ8x")]
 position = Vector2(451, 199)

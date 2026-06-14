@@ -27,5 +27,6 @@ extends Resource
 @export var bullet_spread: float # bullet spread amount
 @export var magazine_size : int # the amount of bullets in the weapon
 @export var reload_time: float # the time the reload need
+@export var multishoot: bool
 @export var multishoot_amount: int # how many bullets per shoot
 @export_range(0, 360, 0.1, "radians_as_degrees") var multishoot_arc : float = 45

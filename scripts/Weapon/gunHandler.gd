@@ -11,7 +11,8 @@ var bullet_casing
 var all_guns: = [
 preload("uid://bxwi8dex18vm8"), #Bouncegun
 preload("uid://bohtx51vyqg3j"), #Handgun
-preload("uid://cu3cv5885ctqs") #splitgun
+preload("uid://cu3cv5885ctqs"), #splitgun
+preload("uid://b1egicpbk2pcj") #shuriken
 ]
 
 @onready var reload_bar: ProgressBar = $"../Reload_bar"
@@ -31,6 +32,7 @@ var fire_rate: float #The amount of Time between Shots in Seconds
 var bullet_amount: int #ammo
 var bullet_spread: float
 var bullet_speed: float
+var multishoot: bool = false
 var multishoot_amount: int
 var multishoot_arc: float 
 var magazine_size: int
@@ -88,6 +90,7 @@ func equip_weapon(weapon: WeaponResource):
 	bullet_casing = current_weapon.bullet_casing_scene
 	bullet_spread = current_weapon.bullet_spread
 	bullet_speed = current_weapon.bullet_speed
+	multishoot = current_weapon.multishoot
 	multishoot_amount = current_weapon.multishoot_amount
 	multishoot_arc = current_weapon.multishoot_arc
 
@@ -118,10 +121,6 @@ func Shoot():
 	if Input.is_action_pressed("P%d_shoot" % player_ID) and can_fire() and bullet_amount > 0 and !is_reloading:
 		_cooldown_timer = fire_rate
 		var bullet_instance = bullet.instantiate()
-		bullet_instance.device = player_ID
-		bullet_instance.behaviours = current_weapon.behaviours
-		bullet_instance.damage = current_weapon.damage
-		bullet_instance.speed = bullet_speed
 		muzzleflash.play("muzzleflash")
 		gunshot.play(0.0)
 		bullet_amount -= 1
@@ -132,10 +131,24 @@ func Shoot():
 			bullet_instance.global_position = gunpoint_rechts.global_position
 		var final_bullet_spread = randf_range(bullet_spread, -bullet_spread)
 		
-		for i in multishoot_amount:
-			var angle_increment = multishoot_arc / (multishoot_amount - 1) #  abstand zwischen den kugeln
-			bullet_instance.global_rotation = global_rotation + final_bullet_spread + angle_increment * i - multishoot_arc / 2
-			get_viewport().add_child.call_deferred(bullet_instance)
+		if multishoot == true:
+			for i in multishoot_amount:
+				var b = bullet_instance.duplicate()
+				var angle_increment = multishoot_arc / (multishoot_amount - 1) #  abstand zwischen den kugeln
+				b.behaviours = current_weapon.behaviours # nur behaviour neu gesetzt sonst keine funltion // testen mit anderen werten falls notwendig
+				b.device = player_ID
+				b.behaviours = current_weapon.behaviours
+				b.damage = current_weapon.damage
+				b.speed = bullet_speed
+				b.global_rotation = global_rotation + angle_increment * i - multishoot_arc / 2 #spreaded die kugeln gleichmäßig über den angle
+				get_viewport().add_child(b)
+		else:
+			bullet_instance.device = player_ID
+			bullet_instance.behaviours = current_weapon.behaviours
+			bullet_instance.damage = current_weapon.damage
+			bullet_instance.speed = bullet_speed
+			bullet_instance.global_rotation = global_rotation + final_bullet_spread
+			get_viewport().add_child(bullet_instance)
 		
 func spawn_bullet_casing():
 	if bullet_casing == null:
