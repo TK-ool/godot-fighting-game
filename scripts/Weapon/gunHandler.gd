@@ -31,6 +31,8 @@ var fire_rate: float #The amount of Time between Shots in Seconds
 var bullet_amount: int #ammo
 var bullet_spread: float
 var bullet_speed: float
+var multishoot_amount: int
+var multishoot_arc: float 
 var magazine_size: int
 var reload_timer: float = 0.0
 var is_reloading: bool = false
@@ -86,6 +88,8 @@ func equip_weapon(weapon: WeaponResource):
 	bullet_casing = current_weapon.bullet_casing_scene
 	bullet_spread = current_weapon.bullet_spread
 	bullet_speed = current_weapon.bullet_speed
+	multishoot_amount = current_weapon.multishoot_amount
+	multishoot_arc = current_weapon.multishoot_arc
 
 func decrease_cooldown(delta: float):
 	if _cooldown_timer > 0:
@@ -127,8 +131,11 @@ func Shoot():
 		else:
 			bullet_instance.global_position = gunpoint_rechts.global_position
 		var final_bullet_spread = randf_range(bullet_spread, -bullet_spread)
-		bullet_instance.global_rotation = global_rotation + final_bullet_spread
-		get_viewport().add_child(bullet_instance)
+		
+		for i in multishoot_amount:
+			var angle_increment = multishoot_arc / (multishoot_amount - 1) #  abstand zwischen den kugeln
+			bullet_instance.global_rotation = global_rotation + final_bullet_spread + angle_increment * i - multishoot_arc / 2
+			get_viewport().add_child.call_deferred(bullet_instance)
 		
 func spawn_bullet_casing():
 	if bullet_casing == null:

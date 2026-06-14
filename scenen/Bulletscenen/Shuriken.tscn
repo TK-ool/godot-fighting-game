@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c7lxpo025j5ov"]
+
+[ext_resource type="Script" uid="uid://bhoq4nu3buqpx" path="res://scripts/Weapon/bullet.gd" id="1_j0ujj"]
+[ext_resource type="PackedScene" uid="uid://civ4kegxh8gap" path="res://scenen/Bulletscenen/bullet_smoke.tscn" id="2_pfqjh"]
+[ext_resource type="Script" uid="uid://drcps6drgdvc7" path="res://scripts/Weapon/Hit_area_bullet.gd" id="3_ufmf5"]
+[ext_resource type="Texture2D" uid="uid://gu7nauh677fi" path="res://Texturen/Bullets/Shuriken.png" id="4_j0ujj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5iau"]
+size = Vector2(24, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2j1n"]
+size = Vector2(21.5, 23.25)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=810977238]
+process_mode = 1
+collision_layer = 128
+script = ExtResource("1_j0ujj")
+bullet_hit = ExtResource("2_pfqjh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=90874543]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_o5iau")
+
+[node name="Bullet_area" type="Area2D" parent="." unique_id=516728236]
+script = ExtResource("3_ufmf5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet_area" unique_id=1065275330]
+position = Vector2(0, -0.375)
+shape = SubResource("RectangleShape2D_v2j1n")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Bullet_area" unique_id=324904229]
+visible = false
+position = Vector2(-2, -1)
+rect = Rect2(-66, -35, 140, 69)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bullet_area" unique_id=1736693349]
+texture = ExtResource("4_j0ujj")
+
+[connection signal="body_entered" from="Bullet_area" to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="Bullet_area/VisibleOnScreenNotifier2D" to="Bullet_area" method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -19,6 +19,7 @@ extends Resource
 @export var casing_eject_point: Vector2 # marker used to spawn eject casings
 @export var behaviours: Array[BulletBehaviour] = []
 
+
 @export_group("Stats") 
 @export var damage: int # the amount of damage per bullet
 @export var fire_rate: float # the fire rate of the weapon
@@ -26,3 +27,5 @@ extends Resource
 @export var bullet_spread: float # bullet spread amount
 @export var magazine_size : int # the amount of bullets in the weapon
 @export var reload_time: float # the time the reload need
+@export var multishoot_amount: int # how many bullets per shoot
+@export_range(0, 360, 0.1, "radians_as_degrees") var multishoot_arc : float = 45

@@ -1,4 +1,4 @@
-class_name BounceBeahviour
+class_name BounceBehaviour
 extends BulletBehaviour
 
 

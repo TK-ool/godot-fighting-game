@@ -49,7 +49,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 func collision_detect():
 	if collision_result != null:
 		if collision_result.get_collider().name == "TileMapLayer":
-			var bullet_smoke = bullet_hit.instantiate() as GPUParticles2D
+			var bullet_smoke = bullet_hit.instantiate() as GPUParticles2D # bullet impact particles
 			bullet_smoke.global_position = bullet_col.global_position
 			bullet_smoke.rotation =  collision_result.get_normal().angle()
 			get_parent().add_child(bullet_smoke)
