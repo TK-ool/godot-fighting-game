@@ -8,6 +8,8 @@
 
 [sub_resource type="Resource" id="Resource_a36lp"]
 script = ExtResource("2_a36lp")
+max_health = 20
+current_health = 20
 metadata/_custom_type_script = "uid://bnuilhtjbnplk"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p16o4"]

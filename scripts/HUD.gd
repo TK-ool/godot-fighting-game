@@ -32,6 +32,8 @@ var player_2: Player
 
 func _ready() -> void:
 	start_timer_label.visible = true
+	set_max_hp()
+	
 
 func _process(_delta: float) -> void:
 	round_points()
@@ -101,3 +103,7 @@ func round_starts():
 		start_timer_label.text = "GO!"
 	if level.round_start_timer <= 0:
 		start_timer_label.visible = false
+		
+func set_max_hp():
+		health_p_1.max_value = player_1.health_data.current_health
+		health_p_2.max_value = player_2.health_data.current_health

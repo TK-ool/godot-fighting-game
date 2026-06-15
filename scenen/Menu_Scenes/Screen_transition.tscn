@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4irlpsbrvr4g"]
 
-[ext_resource type="Script" uid="uid://enae8x1ut5s4" path="res://scripts/screen_transition.gd" id="1_k10ox"]
+[ext_resource type="Script" uid="uid://enae8x1ut5s4" path="res://scripts/globals/screen_transition.gd" id="1_k10ox"]
 
 [sub_resource type="Animation" id="Animation_nagkp"]
 resource_name = "Black_to_normal"

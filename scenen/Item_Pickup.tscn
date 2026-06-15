@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://baopceebiratl" path="res://scripts/item_pickup.gd" id="1_8pmev"]
 [ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="2_f6oa0"]
+[ext_resource type="Texture2D" uid="uid://wrpq7qrlk5c1" path="res://Texturen/Temp_item_pillar2.png" id="3_f6oa0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrp6h"]
-size = Vector2(64, 63)
+size = Vector2(58, 25)
 
 [node name="ItemPickup" type="Node2D" unique_id=1480384173]
+z_index = -2
 script = ExtResource("1_8pmev")
 gun_texture = ExtResource("2_f6oa0")
 
@@ -14,11 +16,19 @@ gun_texture = ExtResource("2_f6oa0")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1898200380]
-position = Vector2(32, 32)
+position = Vector2(32, 30)
 shape = SubResource("RectangleShape2D_mrp6h")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2132537773]
-position = Vector2(32, 32)
+[node name="Item" type="Sprite2D" parent="Area2D" unique_id=2132537773]
+position = Vector2(32, 27)
 texture = ExtResource("2_f6oa0")
 
+[node name="Respawn_Timer" type="Timer" parent="." unique_id=1970744412]
+wait_time = 5.0
+
+[node name="Pillar" type="Sprite2D" parent="." unique_id=566432662]
+position = Vector2(32, 52)
+texture = ExtResource("3_f6oa0")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Respawn_Timer" to="." method="_on_respawn_timer_timeout"]

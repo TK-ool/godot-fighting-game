@@ -12,7 +12,9 @@ var all_guns: = [
 preload("uid://bxwi8dex18vm8"), #Bouncegun
 preload("uid://bohtx51vyqg3j"), #Handgun
 preload("uid://cu3cv5885ctqs"), #splitgun
-preload("uid://b1egicpbk2pcj") #shuriken
+preload("uid://b1egicpbk2pcj"), #shuriken
+preload("uid://t7mmt3f7xruq")   #Machine Gun
+
 ]
 
 @onready var reload_bar: ProgressBar = $"../Reload_bar"

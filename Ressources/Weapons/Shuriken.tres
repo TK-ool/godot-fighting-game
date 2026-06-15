@@ -26,5 +26,5 @@ magazine_size = 10
 reload_time = 1.0
 multishoot = true
 multishoot_amount = 3
-multishoot_arc = 0.5235987755982988
+multishoot_arc = 0.2617993877991494
 metadata/_custom_type_script = "uid://br3khvcvjx3px"
