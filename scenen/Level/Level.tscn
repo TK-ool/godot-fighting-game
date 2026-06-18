@@ -128,6 +128,7 @@ disable_mode = 1
 
 [node name="ItemPickup" parent="SubViewport/Level/TileMapLayer" unique_id=1480384173 instance=ExtResource("7_hfeqd")]
 position = Vector2(77, 844)
+item_to_pickup = 5
 
 [node name="ItemPickup2" parent="SubViewport/Level/TileMapLayer" unique_id=380059497 instance=ExtResource("7_hfeqd")]
 position = Vector2(701, 620)

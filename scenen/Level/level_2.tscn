@@ -110,6 +110,7 @@ rotation = 3.1415927
 
 [node name="ItemPickup" parent="SubViewport/Level/TileMapLayer" unique_id=1480384173 instance=ExtResource("7_e8txm")]
 position = Vector2(1283, 727)
+item_to_pickup = 5
 
 [node name="ItemPickup2" parent="SubViewport/Level/TileMapLayer" unique_id=1914718114 instance=ExtResource("7_e8txm")]
 position = Vector2(702, 620)

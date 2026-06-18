@@ -17,5 +17,7 @@ angular_velocity_max = 293.06998
 radial_velocity_min = -2.2351742e-05
 radial_velocity_max = 53.269978
 gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 1.5
 scale_curve = SubResource("CurveTexture_5bugu")
 anim_offset_max = 1.0

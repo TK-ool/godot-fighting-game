@@ -188,7 +188,7 @@ func spawn_bullet_casing():
 	
 	
 func reload():
-	if magazine_amount <= 0 and bullet_amount <= 0 and current_weapon != all_guns[0]:# allguns 0 ist keine Waffe
+	if magazine_amount <= 0 and bullet_amount <= 0 and current_weapon != all_guns[0] and (Input.is_action_just_pressed("P%d_shoot" % player_ID) or Input.is_action_just_pressed("P%d_reload" % player_ID)):# allguns 0 ist keine Waffe
 		weapon_smoke.emitting = true
 		equip_weapon(all_guns[0])
 	elif magazine_amount <= 0:
