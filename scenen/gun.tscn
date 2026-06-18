@@ -170,6 +170,5 @@ libraries/ = SubResource("AnimationLibrary_7w0ho")
 
 [node name="gunshot_sound" type="AudioStreamPlayer" parent="." unique_id=151536711]
 stream = SubResource("AudioStreamRandomizer_0lpn5")
-volume_db = -26.908
-pitch_scale = 1.81
+pitch_scale = 1.8
 bus = &"SFX"

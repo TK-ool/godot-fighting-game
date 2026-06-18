@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dho8ew74bndc4" path="res://Texturen/Bullets/ball test.png" id="2_hkirm"]
 [ext_resource type="Script" uid="uid://br3khvcvjx3px" path="res://Ressources/WeaponResource.gd" id="2_nlvwq"]
 [ext_resource type="Script" uid="uid://y6ptk3pwaljs" path="res://Ressources/Behaviours/BounceBehaviour.gd" id="3_vuswn"]
+[ext_resource type="AudioStream" uid="uid://bcdautlk7mmep" path="res://Sounds/plop.wav" id="6_sjivo"]
 [ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="6_vuswn"]
 
 [sub_resource type="Resource" id="Resource_vuswn"]
@@ -27,4 +28,5 @@ bullet_speed = 1200.0
 bullet_spread = 0.04
 magazine_size = 30
 reload_time = 1.0
+shoot_sound = ExtResource("6_sjivo")
 metadata/_custom_type_script = "uid://bwlf0khqffv21"

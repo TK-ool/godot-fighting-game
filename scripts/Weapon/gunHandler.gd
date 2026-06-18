@@ -99,7 +99,11 @@ func equip_weapon(weapon: WeaponResource):
 	multishoot_amount = current_weapon.multishoot_amount
 	multishoot_arc = current_weapon.multishoot_arc
 	muzzleflash_anim = current_weapon.muzzleflash_anim
+	
+	# audio
 	gunshot.stream = current_weapon.shoot_sound # derzeit ersetzt es den ranomizer sound, also immer derselbe sound zurzeit ohne anpassung
+	gunshot.volume_db = current_weapon.volume_db_offset_shoot
+	gunshot.pitch_scale = current_weapon.pitch_scale_shoot
 	
 func decrease_cooldown(delta: float):
 	if _cooldown_timer > 0:
