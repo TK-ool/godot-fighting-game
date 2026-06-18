@@ -9,19 +9,23 @@ var bullet
 var bullet_casing
 
 var all_guns: = [
-preload("uid://bxwi8dex18vm8"), #Bouncegun 0
+preload("uid://y6rwdpy5crvv"),  #No Gun 0
 preload("uid://bohtx51vyqg3j"), #Handgun 1
 preload("uid://cu3cv5885ctqs"), #splitgun 2
 preload("uid://b1egicpbk2pcj"), #shuriken 3
 preload("uid://t7mmt3f7xruq"),  #Machine Gun 4
-preload("uid://y6rwdpy5crvv")   #No Gun 5
+preload("uid://bxwi8dex18vm8")  #Bouncegun 5
 ]
 
 @onready var reload_bar: ProgressBar = $"../Reload_bar"
 
 @export var current_weapon: WeaponResource
 
+
+@onready var weapon_smoke: GPUParticles2D = $WeaponSmoke # bei verlieren der Waffe
+
 @onready var gunshot: AudioStreamPlayer = $gunshot_sound
+@onready var gunreload_sound: AudioStreamPlayer = $gunreload_sound
 @onready var muzzleflash2d: AnimatedSprite2D = $Muzzleflash
 @onready var muzzleflash: AnimationPlayer = $Muzzleflash/AnimationPlayer
 
@@ -100,10 +104,13 @@ func equip_weapon(weapon: WeaponResource):
 	multishoot_arc = current_weapon.multishoot_arc
 	muzzleflash_anim = current_weapon.muzzleflash_anim
 	
-	# audio
+	# shoot audio
 	gunshot.stream = current_weapon.shoot_sound # derzeit ersetzt es den ranomizer sound, also immer derselbe sound zurzeit ohne anpassung
 	gunshot.volume_db = current_weapon.volume_db_offset_shoot
 	gunshot.pitch_scale = current_weapon.pitch_scale_shoot
+	
+	#reload audio
+	gunreload_sound.stream = current_weapon.reload_sound
 	
 func decrease_cooldown(delta: float):
 	if _cooldown_timer > 0:
@@ -181,11 +188,15 @@ func spawn_bullet_casing():
 	
 	
 func reload():
-	if magazine_amount <= 0:
+	if magazine_amount <= 0 and bullet_amount <= 0 and current_weapon != all_guns[0]:# allguns 0 ist keine Waffe
+		weapon_smoke.emitting = true
+		equip_weapon(all_guns[0])
+	elif magazine_amount <= 0:
 		return
 	if Input.is_action_just_pressed("P%d_reload" % player_ID) and !is_reloading and bullet_amount != current_weapon.magazine_size or Input.is_action_just_pressed("P%d_shoot" % player_ID) and bullet_amount <= 0 and !is_reloading:
 		reload_timer = current_weapon.reload_time
 		is_reloading = true
+		gunreload_sound.play(0.0)
 	if is_reloading and reload_timer <= 0.0:
 		bullet_amount = current_weapon.magazine_size
 		magazine_amount -= 1

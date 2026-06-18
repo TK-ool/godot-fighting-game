@@ -27,5 +27,5 @@ magazine_amount = 1
 magazine_size = 20
 reload_time = 1.0
 shoot_sound = ExtResource("6_hnti5")
-pitch_scale_shoot = 3.0
+pitch_scale_shoot = 1.8
 metadata/_custom_type_script = "uid://br3khvcvjx3px"

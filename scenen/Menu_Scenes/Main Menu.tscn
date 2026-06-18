@@ -43,10 +43,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -678.0
-offset_top = 50.0
-offset_right = 659.0
-offset_bottom = 363.0
+offset_left = -668.5
+offset_right = 668.5
+offset_bottom = 374.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 90
 theme_override_font_sizes/bold_font_size = 90
@@ -54,8 +53,7 @@ theme_override_font_sizes/bold_italics_font_size = 90
 theme_override_font_sizes/italics_font_size = 90
 theme_override_font_sizes/mono_font_size = 90
 bbcode_enabled = true
-text = "
-[wave][center]  fighting game"
+text = "[wave][center]  fighting game"
 
 [node name="Main Buttons" type="PanelContainer" parent="." unique_id=1780740465]
 self_modulate = Color(1, 1, 1, 0)

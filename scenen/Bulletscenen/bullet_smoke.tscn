@@ -1,32 +1,13 @@
 [gd_scene format=3 uid="uid://civ4kegxh8gap"]
 
 [ext_resource type="Texture2D" uid="uid://bbv713qf3vdo4" path="res://Texturen/bullet_smoke-Sheet.png" id="1_t5b6c"]
+[ext_resource type="Material" uid="uid://cou7tfhd0kbnd" path="res://Texturen/Bullet_Smoke.tres" id="2_aqqsj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aqqsj"]
 particles_animation = true
 particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_or17u"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.184, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_5bugu"]
-curve = SubResource("Curve_or17u")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cxv55"]
-particle_flag_disable_z = true
-angle_min = 1.0728835e-05
-angle_max = 180.00002
-spread = 25.0
-initial_velocity_min = 1.0
-initial_velocity_max = 100.0
-angular_velocity_min = 0.9999839
-angular_velocity_max = 293.06998
-gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_5bugu")
-anim_offset_max = 1.0
 
 [sub_resource type="Animation" id="Animation_hc6sf"]
 resource_name = "Bullet_smoke"
@@ -86,7 +67,7 @@ texture = ExtResource("1_t5b6c")
 lifetime = 0.4
 one_shot = true
 explosiveness = 0.9
-process_material = SubResource("ParticleProcessMaterial_cxv55")
+process_material = ExtResource("2_aqqsj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=362302287]
 libraries/ = SubResource("AnimationLibrary_ofwaq")

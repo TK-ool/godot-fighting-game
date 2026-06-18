@@ -36,5 +36,5 @@ extends Resource
 @export_group("Audio")
 @export var shoot_sound: AudioStream # audio that is played when trigger is pressed
 @export var reload_sound: AudioStream
-@export var volume_db_offset_shoot : float 
-@export var pitch_scale_shoot : float
+@export_range(-25, 25,0.1) var volume_db_offset_shoot : float = 0 # 0 ist normaler standard wert
+@export_range(0.1, 25,0.1) var pitch_scale_shoot : float = 1 # 1 ist normaler standard wert

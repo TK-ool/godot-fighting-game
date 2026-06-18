@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://17s0d762qtjm"]
+
+[ext_resource type="Texture2D" uid="uid://bbv713qf3vdo4" path="res://Texturen/bullet_smoke-Sheet.png" id="1_jxkb6"]
+[ext_resource type="Material" uid="uid://sixoash0yhgl" path="res://Texturen/Weapon_Smoke.tres" id="2_t52g7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aqqsj"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="WeaponSmoke" type="GPUParticles2D" unique_id=1172837608]
+modulate = Color(0.7529412, 0.7529412, 0.7529412, 0.3137255)
+z_index = 5
+material = SubResource("CanvasItemMaterial_aqqsj")
+emitting = false
+amount = 20
+texture = ExtResource("1_jxkb6")
+lifetime = 0.39
+one_shot = true
+explosiveness = 0.71
+process_material = ExtResource("2_t52g7")

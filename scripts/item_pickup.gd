@@ -1,6 +1,6 @@
 extends Node2D
 
-@export_enum("Bouncegun:0", "Handgun:1", "splitgun:2", "shuriken:3", "Machine Gun:4", "No Gun:5") var item_to_pickup: int # abhängig vom array in gunhandler
+@export_enum("No Gun:0", "Handgun:1", "splitgun:2", "shuriken:3", "Machine Gun:4", "Bouncegun:5") var item_to_pickup: int # abhängig vom array in gunhandler
 @export var gun_texture : Texture2D
 @onready var item: Sprite2D = $Area2D/Item
 @onready var area_2d: Area2D = $Area2D
