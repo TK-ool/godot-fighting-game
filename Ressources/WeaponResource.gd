@@ -17,6 +17,8 @@ extends Resource
 @export var gunpoint_offset_left: Vector2 # Used to set the marker for spawning bullets on guns left
 @export var gunpoint_offset_right: Vector2 # Used to set the marker for spawning bullets on guns left
 @export var casing_eject_point: Vector2 # marker used to spawn eject casings
+@export var shoot_sound: AudioStream # audio that is played when trigger is pressed
+@export_enum("no_muzzleflash", "pistol_muzzleflash") var muzzleflash_anim : String = "no_muzzleflash" # muss mit dem namen im Gun animationsplayer übereinstimmen
 @export var behaviours: Array[BulletBehaviour] = []
 
 

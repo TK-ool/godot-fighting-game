@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c7ruf4qa1q0k" path="res://scenen/Bulletscenen/Bullet_casing.tscn" id="4_ry1k4"]
 [ext_resource type="Texture2D" uid="uid://cj2ri5w6jjek2" path="res://Texturen/TileMapTesting.png" id="5_b0dm8"]
 [ext_resource type="Script" uid="uid://br3khvcvjx3px" path="res://Ressources/WeaponResource.gd" id="6_h7ams"]
+[ext_resource type="AudioStream" uid="uid://bpnphwupe501l" path="res://Sounds/pistol-gunshot.mp3" id="6_hnti5"]
 [ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="7_o5krq"]
 
 [resource]
@@ -17,6 +18,8 @@ bullet_casing_scene = ExtResource("4_ry1k4")
 weapon_sprite = ExtResource("7_o5krq")
 gunpoint_offset_left = Vector2(29.63, 0)
 gunpoint_offset_right = Vector2(29.63, 0)
+shoot_sound = ExtResource("6_hnti5")
+muzzleflash_anim = "pistol_muzzleflash"
 damage = 1
 fire_rate = 0.1
 bullet_speed = 800.0

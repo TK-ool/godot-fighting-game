@@ -11,10 +11,10 @@ signal player_died(player_name: String)
 
 
 const SPEED = 400.0
-const JUMP_VELOCITY = -700.0
-var gravity: float = 1200
-const normal_gravity: float = 1200
-const max_gravity: float = 1800
+const JUMP_VELOCITY = -800.0
+var gravity: float = 1700
+const normal_gravity: float = 1700
+const max_gravity: float = 2400
 
 # acceleration wie schnell die höchstgeschwindigkeit erreicht wird
 var acceleration: float = 12		# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
@@ -84,10 +84,10 @@ func _ready() -> void:
 	health_data = health_data.duplicate()
 	health_data.died.connect(died_)
 	add_to_group("Player_%d" % device)
-	add_to_group("Players")# alle spieler für camer/ und mehr als 2
+	add_to_group("Players")# alle spieler für camera/ und mehr als 2
 	
 	
-func gravity_var(delta):
+func gravity_var(delta): # um im fall die gravity zu erhöhen
 	if is_on_floor() or is_on_wall():
 		gravity = lerp(gravity, normal_gravity, 20 * delta)
 	elif velocity.y >= 0:

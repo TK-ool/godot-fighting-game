@@ -38,6 +38,7 @@ var multishoot: bool = false
 var multishoot_amount: int
 var multishoot_arc: float 
 var magazine_size: int
+var muzzleflash_anim: String
 var reload_timer: float = 0.0
 var is_reloading: bool = false
 var _cooldown_timer = 0.0
@@ -95,7 +96,9 @@ func equip_weapon(weapon: WeaponResource):
 	multishoot = current_weapon.multishoot
 	multishoot_amount = current_weapon.multishoot_amount
 	multishoot_arc = current_weapon.multishoot_arc
-
+	muzzleflash_anim = current_weapon.muzzleflash_anim
+	gunshot.stream = current_weapon.shoot_sound
+	
 func decrease_cooldown(delta: float):
 	if _cooldown_timer > 0:
 		_cooldown_timer -= delta
@@ -123,7 +126,7 @@ func Shoot():
 	if Input.is_action_pressed("P%d_shoot" % player_ID) and can_fire() and bullet_amount > 0 and !is_reloading:
 		_cooldown_timer = fire_rate
 		var bullet_instance = bullet.instantiate()
-		muzzleflash.play("muzzleflash")
+		muzzleflash.play(muzzleflash_anim)
 		gunshot.play(0.0)
 		bullet_amount -= 1
 		spawn_bullet_casing()
@@ -174,10 +177,8 @@ func spawn_bullet_casing():
 func reload():
 	if Input.is_action_just_pressed("P%d_reload" % player_ID) and !is_reloading and bullet_amount != current_weapon.magazine_size or Input.is_action_just_pressed("P%d_shoot" % player_ID) and bullet_amount <= 0 and !is_reloading:
 		reload_timer = current_weapon.reload_time
-		print(	"reload pressed")
 		is_reloading = true
 	if is_reloading and reload_timer <= 0.0:
-		print("reloaded")
 		bullet_amount = current_weapon.magazine_size
 		is_reloading = false
 
