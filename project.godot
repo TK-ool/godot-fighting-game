@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Godot-Fighting-Game"
 run/main_scene="uid://bi2nmmbvx00ww"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://Texturen/icon.svg"
 
 [audio]
