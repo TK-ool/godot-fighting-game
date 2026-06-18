@@ -15,13 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://bn4umywct83su" path="res://scenen/Debug_Menu.tscn" id="8_sp14u"]
 [ext_resource type="Texture2D" uid="uid://gu7nauh677fi" path="res://Texturen/Bullets/Shuriken.png" id="9_t341e"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dee1l"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_34gfm"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_equ8x"]
 resource_local_to_scene = true
 shader = ExtResource("1_dee1l")
-shader_parameter/screen = SubResource("ViewportTexture_dee1l")
+shader_parameter/screen = SubResource("ViewportTexture_34gfm")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j4ie4"]
 texture = ExtResource("1_qictj")
