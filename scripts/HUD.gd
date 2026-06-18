@@ -72,14 +72,14 @@ func set_player_hud():
 	
 	if player_1 != null:
 		health_p_1.value = player_1.health_data.current_health
-		ammo_p_1.text = "Ammo : " + str(player_1.gun.bullet_amount) + "/" + str(player_1.gun.magazine_size)
+		ammo_p_1.text = "Ammo : " + str(player_1.gun.bullet_amount) + "/" + str(player_1.gun.magazine_size) + "\nMagazine size: " + str(player_1.gun.magazine_amount)
 		score_p_1.text = "Player 1 Points " + str(Global.Score_P1)
 	else:
 		health_p_1.value = 0
 		
 	if player_2 != null:
 		health_p_2.value = player_2.health_data.current_health
-		ammo_p_2.text = "Ammo : " + str(player_2.gun.bullet_amount) + "/" + str(player_2.gun.magazine_size)
+		ammo_p_2.text = "Ammo : " + str(player_2.gun.bullet_amount) + "/" + str(player_2.gun.magazine_size) + "\nMagazine size: " + str(player_2.gun.magazine_amount)
 		score_p_2.text = "Player 2 Points " + str(Global.Score_P2)
 	else: 
 		health_p_2.value = 0

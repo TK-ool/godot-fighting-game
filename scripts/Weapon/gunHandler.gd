@@ -9,12 +9,12 @@ var bullet
 var bullet_casing
 
 var all_guns: = [
-preload("uid://bxwi8dex18vm8"), #Bouncegun
-preload("uid://bohtx51vyqg3j"), #Handgun
-preload("uid://cu3cv5885ctqs"), #splitgun
-preload("uid://b1egicpbk2pcj"), #shuriken
-preload("uid://t7mmt3f7xruq")   #Machine Gun
-
+preload("uid://bxwi8dex18vm8"), #Bouncegun 0
+preload("uid://bohtx51vyqg3j"), #Handgun 1
+preload("uid://cu3cv5885ctqs"), #splitgun 2
+preload("uid://b1egicpbk2pcj"), #shuriken 3
+preload("uid://t7mmt3f7xruq"),  #Machine Gun 4
+preload("uid://y6rwdpy5crvv")   #No Gun 5
 ]
 
 @onready var reload_bar: ProgressBar = $"../Reload_bar"
@@ -31,13 +31,14 @@ preload("uid://t7mmt3f7xruq")   #Machine Gun
 @onready var gunsprite_2d: Sprite2D = $Sprite2D
 
 var fire_rate: float #The amount of Time between Shots in Seconds
-var bullet_amount: int #ammo
+var bullet_amount: int # derzeitige anzahl der kugeln
 var bullet_spread: float
 var bullet_speed: float
 var multishoot: bool = false
 var multishoot_amount: int
 var multishoot_arc: float 
-var magazine_size: int
+var magazine_amount: int # anzahl der magazine
+var magazine_size: int # größe des magazines
 var muzzleflash_anim: String
 var reload_timer: float = 0.0
 var is_reloading: bool = false
@@ -87,6 +88,7 @@ func equip_weapon(weapon: WeaponResource):
 	
 	fire_rate = current_weapon.fire_rate
 	bullet_amount = current_weapon.magazine_size
+	magazine_amount = current_weapon.magazine_amount
 	magazine_size = current_weapon.magazine_size
 	reload_bar.max_value = current_weapon.reload_time
 	bullet = current_weapon.Bullet_scene
@@ -97,7 +99,7 @@ func equip_weapon(weapon: WeaponResource):
 	multishoot_amount = current_weapon.multishoot_amount
 	multishoot_arc = current_weapon.multishoot_arc
 	muzzleflash_anim = current_weapon.muzzleflash_anim
-	gunshot.stream = current_weapon.shoot_sound
+	gunshot.stream = current_weapon.shoot_sound # derzeit ersetzt es den ranomizer sound, also immer derselbe sound zurzeit ohne anpassung
 	
 func decrease_cooldown(delta: float):
 	if _cooldown_timer > 0:
@@ -175,11 +177,14 @@ func spawn_bullet_casing():
 	
 	
 func reload():
+	if magazine_amount <= 0:
+		return
 	if Input.is_action_just_pressed("P%d_reload" % player_ID) and !is_reloading and bullet_amount != current_weapon.magazine_size or Input.is_action_just_pressed("P%d_shoot" % player_ID) and bullet_amount <= 0 and !is_reloading:
 		reload_timer = current_weapon.reload_time
 		is_reloading = true
 	if is_reloading and reload_timer <= 0.0:
 		bullet_amount = current_weapon.magazine_size
+		magazine_amount -= 1
 		is_reloading = false
 
 func reload_progress():

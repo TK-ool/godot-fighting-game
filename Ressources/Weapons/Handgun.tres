@@ -25,6 +25,7 @@ damage = 1
 fire_rate = 0.3
 bullet_speed = 1500.0
 bullet_spread = 0.02
+magazine_amount = 2
 magazine_size = 10
 reload_time = 1.0
 metadata/_custom_type_script = "uid://br3khvcvjx3px"

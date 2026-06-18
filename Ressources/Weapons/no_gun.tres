@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://y6rwdpy5crvv"]
+
+[ext_resource type="Script" uid="uid://bwlf0khqffv21" path="res://Ressources/BulletBehaviour.gd" id="1_8lcwa"]
+[ext_resource type="Script" uid="uid://br3khvcvjx3px" path="res://Ressources/WeaponResource.gd" id="2_46q8r"]
+
+[resource]
+script = ExtResource("2_46q8r")
+weapon_name = "no gun"
+metadata/_custom_type_script = "uid://br3khvcvjx3px"
