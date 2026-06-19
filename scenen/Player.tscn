@@ -60,7 +60,7 @@ _data = {
 size = Vector2(55, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rratb"]
-size = Vector2(53, 49)
+size = Vector2(57, 53)
 
 [node name="Player" type="CharacterBody2D" unique_id=1404308864]
 process_mode = 1
@@ -80,6 +80,7 @@ offset = Vector2(0, -65.39)
 [node name="Gun" parent="." unique_id=418450671 instance=ExtResource("3_kne1u")]
 
 [node name="Reload_bar" type="ProgressBar" parent="." unique_id=140511464]
+visible = false
 z_index = 4
 offset_left = -74.0
 offset_top = 28.0
@@ -99,6 +100,7 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_e80uo")
 
 [node name="HitArea" type="Area2D" parent="." unique_id=1335338859]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=1342490862]
 position = Vector2(-0.5, -0.5)
@@ -109,4 +111,5 @@ rect = Rect2(-33, -29, 65, 57)
 
 [connection signal="device_id" from="." to="Gun" method="_on_character_body_2d_device_id"]
 [connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]
+[connection signal="body_entered" from="HitArea" to="." method="Knockback_other_player"]
 [connection signal="screen_exited" from="Death_off_screen" to="." method="_on_death_off_screen_screen_exited"]

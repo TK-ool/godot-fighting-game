@@ -157,6 +157,7 @@ func dash(delta: float) -> void:
 		velocity = final_dash_direction * Dashspeed
 	if is_dashing:
 		dash_timer -= delta
+		
 		if dash_timer <= 0.0:
 			is_dashing = false
 			airdash = false
@@ -204,7 +205,7 @@ func jumps(delta):
 			velocity.y = velocity.y / 2
 
 func _on_hit_area_area_entered(bullet: Node2D) -> void:
-	if !bullet.is_in_group("Player_%d" % device) and bullet.is_in_group("bullet"):
+	if !bullet.is_in_group("Player_%d" % device) and bullet.is_in_group("bullet") and !is_dashing: # dashing für invincibility testweise
 		health_data.take_damage(bullet.damage)
 		hitflash.play("Hit_flash")
 		print(device, "got hit")
@@ -228,8 +229,8 @@ func died_():
 		
 	self.queue_free()
 	
-func get_dmg(damage:int):
-	if is_knocked_back == false:
+func get_dmg(damage:int): # function wird derzeit nur von Hazard Spikes benutzt // bullet dmg in on area entered
+	if is_knocked_back == false:    
 		health_data.take_damage(damage)
 		hitflash.play("Hit_flash")
 	
@@ -303,4 +304,17 @@ func _input(_event: InputEvent) -> void:
 	
 	
 func _on_death_off_screen_screen_exited() -> void:
-	died_()
+	pass
+	#died_()
+
+
+func Knockback_other_player(body: Node2D) -> void:  #knockback on player touch
+	var knockback_force_enemy := 450
+	var knockback_time_enemy :float = 0.10
+	var knockback_direction_enemy: Vector2 = Vector2.ZERO
+	
+
+	if body is Player and !is_in_group("Player_%d" %body.device):
+		knockback_direction_enemy = (body.global_position - self.global_position).normalized() #self.global_position.direction_to(body.global_position) // auch eine möglichkeit
+		body.apply_knockback(knockback_direction_enemy,knockback_force_enemy,knockback_time_enemy)
+		print(knockback_direction_enemy)

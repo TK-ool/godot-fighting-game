@@ -36,6 +36,7 @@ window/stretch/mode="canvas_items"
 Player_0="Spieler Nr.1"
 Player_1="Spieler Nr.2"
 bullet=""
+Players=""
 
 [input]
 
@@ -251,7 +252,6 @@ P1_card_UI={
 
 [layer_names]
 
-2d_render/layer_3="Ebene 3"
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_7="one way platform"
