@@ -12,6 +12,7 @@ signal player_died(player_name: String)
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -800.0
+var is_jumping: bool = false # wert wird für knockbackjump benutzt
 var gravity: float = 1700
 const normal_gravity: float = 1700
 const max_gravity: float = 2400
@@ -56,6 +57,7 @@ const Wall_jump_locktime: float = 0.1
 var look_direction_x: int = 1
 
 #for sprite squash
+var air_timer: float
 var air_sprite: bool = false
 
 #flash effect on hit
@@ -76,7 +78,7 @@ func _physics_process(delta: float) -> void:
 	jumps(delta)
 	knocked_back()
 	drop_down()
-	scaling()
+	scaling(delta)
 
 	
 func _ready() -> void:
@@ -125,9 +127,12 @@ func overall_movement(delta):
 			elif not is_on_floor() and is_dashing == false:
 				velocity.y += gravity * delta
 				wall_contact_coyote -= delta
-		else:
-				velocity = knockback
+		elif is_jumping == true: #jump während knockback
+				velocity = knockback + Vector2(0, JUMP_VELOCITY)
 				knockback_duration -= delta
+		else: # nur knockback
+			velocity = knockback
+			knockback_duration -= delta
 				
 	
 func dash(delta: float) -> void:
@@ -179,18 +184,21 @@ func jumps(delta):
 		jumpbuffer -= delta
 		
 	if is_on_floor() or is_on_wall():
+		is_jumping = false
 		is_in_the_air = false
 		jumps_left = max_jumps
 	else:
 		is_in_the_air = true
 	#doublejump
 	if is_in_the_air and Input.is_action_just_pressed("P%d_jump" % device) and jumps_left > 0:
+		is_jumping = true
 		velocity.y = JUMP_VELOCITY
 		sprite_2d.scale =  Vector2(0.3,0.6)
 		jumps_left -= 1
 		
 	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0):
 		if jumpbuffer >0:
+			is_jumping = true
 			velocity.y = JUMP_VELOCITY
 			#squish for jump
 			sprite_2d.scale =  Vector2(0.3,0.6)
@@ -202,6 +210,7 @@ func jumps(delta):
 				wall_jump_lock = Wall_jump_locktime
 	# variable jumphöhe / verträgt sich aber nicht so gut mit walljump und jumpbuffer maybe anpassen oder entfernen
 	elif  Input.is_action_just_released("P%d_jump" % device) and velocity.y <= -0 and !is_dashing:
+			is_jumping = false
 			velocity.y = velocity.y / 2
 
 func _on_hit_area_area_entered(bullet: Node2D) -> void:
@@ -252,11 +261,15 @@ func drop_down(): # setzt es noch für beide spieler
 	elif Input.is_action_just_released("P%d_drop_down" % device):
 		set_collision_mask_value(7, true)
 		
-func scaling():
-
+func scaling(delta):
+	print(air_timer)
 	sprite_2d.scale.x = move_toward(sprite_2d.scale.x,0.433, 0.01)
 	sprite_2d.scale.y = move_toward(sprite_2d.scale.y,0.398, 0.01)
-	if !is_on_floor():
+	if is_knocked_back: #damit der squash nicht bei einem knockback am boden kommt
+		air_timer = 0.1
+	if air_timer >0:
+		air_timer -= delta
+	if !is_on_floor() and air_timer < 0:
 		air_sprite = true
 	if air_sprite == true and is_on_floor():
 		sprite_2d.scale = Vector2(0.6,0.28)
@@ -317,4 +330,3 @@ func Knockback_other_player(body: Node2D) -> void:  #knockback on player touch
 	if body is Player and !is_in_group("Player_%d" %body.device):
 		knockback_direction_enemy = (body.global_position - self.global_position).normalized() #self.global_position.direction_to(body.global_position) // auch eine möglichkeit
 		body.apply_knockback(knockback_direction_enemy,knockback_force_enemy,knockback_time_enemy)
-		print(knockback_direction_enemy)
