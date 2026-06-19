@@ -262,7 +262,6 @@ func drop_down(): # setzt es noch für beide spieler
 		set_collision_mask_value(7, true)
 		
 func scaling(delta):
-	print(air_timer)
 	sprite_2d.scale.x = move_toward(sprite_2d.scale.x,0.433, 0.01)
 	sprite_2d.scale.y = move_toward(sprite_2d.scale.y,0.398, 0.01)
 	if is_knocked_back: #damit der squash nicht bei einem knockback am boden kommt
@@ -322,7 +321,7 @@ func _on_death_off_screen_screen_exited() -> void:
 
 
 func Knockback_other_player(body: Node2D) -> void:  #knockback on player touch
-	var knockback_force_enemy := 450
+	var knockback_force_enemy := 500
 	var knockback_time_enemy :float = 0.10
 	var knockback_direction_enemy: Vector2 = Vector2.ZERO
 	
