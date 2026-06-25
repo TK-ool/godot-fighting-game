@@ -23,6 +23,7 @@ damage = 1
 fire_rate = 0.1
 bullet_speed = 800.0
 bullet_spread = 0.04
+visuell_recoil = -4
 magazine_amount = 1
 magazine_size = 20
 reload_time = 1.0

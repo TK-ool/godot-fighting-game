@@ -22,6 +22,7 @@ behaviours = Array[ExtResource("1_gkdjy")]([SubResource("Resource_85rt4")])
 damage = 1
 fire_rate = 0.5
 bullet_speed = 900.0
+visuell_recoil = 4
 magazine_amount = 1
 magazine_size = 3
 reload_time = 1.0

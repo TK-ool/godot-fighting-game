@@ -9,6 +9,9 @@ signal player_died(player_name: String)
 @onready var gun: Gun = $Gun
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+#Audio
+@onready var movement_sounds: AudioStreamPlayer = $Movement_sounds
+
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -800.0
@@ -154,6 +157,7 @@ func dash(delta: float) -> void:
 		if input_direction.y != 0 and input_direction.x == 0: # damit bei oben, unten dash kein horizontaler movement dazukomment da Input direktion für richtung über oder unter 0 gespeichert wird
 			final_dash_direction.x = 0
 		final_dash_direction.y = input_direction.y
+		update_audio_player("dash")
 		
 		can_dash = false
 		is_dashing = true
@@ -192,6 +196,7 @@ func jumps(delta):
 	#doublejump
 	if is_in_the_air and Input.is_action_just_pressed("P%d_jump" % device) and jumps_left > 0:
 		is_jumping = true
+		update_audio_player("jump")
 		velocity.y = JUMP_VELOCITY
 		sprite_2d.scale =  Vector2(0.3,0.6)
 		jumps_left -= 1
@@ -199,6 +204,7 @@ func jumps(delta):
 	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0):
 		if jumpbuffer >0:
 			is_jumping = true
+			update_audio_player("jump")
 			velocity.y = JUMP_VELOCITY
 			#squish for jump
 			sprite_2d.scale =  Vector2(0.3,0.6)
@@ -324,8 +330,15 @@ func Knockback_other_player(body: Node2D) -> void:  #knockback on player touch
 	var knockback_force_enemy := 500
 	var knockback_time_enemy :float = 0.10
 	var knockback_direction_enemy: Vector2 = Vector2.ZERO
-	
 
 	if body is Player and !is_in_group("Player_%d" %body.device):
 		knockback_direction_enemy = (body.global_position - self.global_position).normalized() #self.global_position.direction_to(body.global_position) // auch eine möglichkeit
 		body.apply_knockback(knockback_direction_enemy,knockback_force_enemy,knockback_time_enemy)
+		
+func update_audio_player(audio_name:String):
+	if audio_name == "none": # wird derzeit nicht benutzt
+		movement_sounds.stop()
+	if audio_name:
+		movement_sounds.play()
+		movement_sounds["parameters/switch_to_clip"] = audio_name
+		

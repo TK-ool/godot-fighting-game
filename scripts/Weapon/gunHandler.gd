@@ -37,6 +37,7 @@ preload("uid://bxwi8dex18vm8")  #Bouncegun 5
 var fire_rate: float #The amount of Time between Shots in Seconds
 var bullet_amount: int # derzeitige anzahl der kugeln
 var bullet_spread: float
+var visuell_recoil:int
 var bullet_speed: float
 var multishoot: bool = false
 var multishoot_amount: int
@@ -98,6 +99,7 @@ func equip_weapon(weapon: WeaponResource):
 	bullet = current_weapon.Bullet_scene
 	bullet_casing = current_weapon.bullet_casing_scene
 	bullet_spread = current_weapon.bullet_spread
+	visuell_recoil = current_weapon.visuell_recoil
 	bullet_speed = current_weapon.bullet_speed
 	multishoot = current_weapon.multishoot
 	multishoot_amount = current_weapon.multishoot_amount
@@ -147,7 +149,8 @@ func Shoot():
 			bullet_instance.global_position = gunpoint_links.global_position
 		else:
 			bullet_instance.global_position = gunpoint_rechts.global_position
-		var final_bullet_spread = randf_range(bullet_spread, -bullet_spread)
+		var final_bullet_spread = randf_range(bullet_spread, -bullet_spread) # für visuell reoil benutzt
+		visuell_recoil_tween()
 		
 		if multishoot == true:
 			for i in multishoot_amount:
@@ -201,6 +204,9 @@ func reload():
 		bullet_amount = current_weapon.magazine_size
 		magazine_amount -= 1
 		is_reloading = false
+	if magazine_amount < 0:
+		magazine_amount = 0
+
 
 func reload_progress():
 	if is_reloading:
@@ -219,6 +225,13 @@ func new_weapon(weapon_selected: int):
 		debug_menu.update_inventory_display_1(get_parent().inventory)
 	else:
 		debug_menu.update_inventory_display_2(get_parent().inventory)
+		
+		
+		
+func visuell_recoil_tween():
+	var recoil_tween = self.create_tween()
+	recoil_tween.tween_property(gunsprite_2d, "position",Vector2(visuell_recoil,0),0.05).as_relative().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	recoil_tween.tween_property(gunsprite_2d, "position",Vector2(22,-1),0.07).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
 func debug():
 	var debug_menu = get_parent().get_parent().get_node("DebugMenu")
