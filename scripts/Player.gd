@@ -33,6 +33,8 @@ var is_knocked_back: bool = false
 #jumpbuffers
 var jumpbuffer: float = 0.0
 const jumpbuffer_max_time: float = 0.12
+var jump_cooldown: float 
+const JUMP_COOLDOWN_TIMER: float = 0.19 # wird für wandsprung benötigt um den nicht zu chainen +sounds + damit nicht doublejump chain into walljump geht 
 
 #doublejump
 var jumps_left : int = 0
@@ -44,8 +46,10 @@ const Dashspeed = 1200
 var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: Vector2 = Vector2.RIGHT
-var dash_timer: float = 0.0
-const DASH_TIME: float = 0.2
+var dash_cooldown: float 
+const DASH_COOLDOWN_TIME: float = 0.3 # zum setzten
+var dash_timer: float = 0.0 #derzeitiger Dash
+const DASH_TIME: float = 0.2 #Dashtime zums setzten
 var airdash: bool = false
 
 #Walljump values
@@ -161,9 +165,13 @@ func dash(delta: float) -> void:
 		
 		can_dash = false
 		is_dashing = true
+		dash_cooldown = DASH_COOLDOWN_TIME #damit an der wand nicht unlimited gedashed werden kann
 		dash_timer = DASH_TIME
 		
 		velocity = final_dash_direction * Dashspeed
+	if dash_cooldown >0:
+		dash_cooldown -= delta
+		
 	if is_dashing:
 		dash_timer -= delta
 		
@@ -172,7 +180,7 @@ func dash(delta: float) -> void:
 			airdash = false
 			velocity = input_direction
 		
-	if is_on_floor() or is_on_wall():
+	if (is_on_floor() or is_on_wall()) and dash_cooldown <= 0:
 		can_dash = true
 		
 	if airdash == true and is_on_floor() or is_on_wall() or is_on_ceiling():
@@ -187,6 +195,9 @@ func jumps(delta):
 	if jumpbuffer >0:
 		jumpbuffer -= delta
 		
+	if jump_cooldown >0:
+		jump_cooldown -= delta
+		
 	if is_on_floor() or is_on_wall():
 		is_jumping = false
 		is_in_the_air = false
@@ -194,26 +205,35 @@ func jumps(delta):
 	else:
 		is_in_the_air = true
 	#doublejump
-	if is_in_the_air and Input.is_action_just_pressed("P%d_jump" % device) and jumps_left > 0:
+	if is_in_the_air and Input.is_action_just_pressed("P%d_jump" % device) and jumps_left > 0 and jump_cooldown <= 0:
 		is_jumping = true
+		jump_cooldown = JUMP_COOLDOWN_TIMER
 		update_audio_player("jump")
 		velocity.y = JUMP_VELOCITY
 		sprite_2d.scale =  Vector2(0.3,0.6)
 		jumps_left -= 1
 		
-	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0):
-		if jumpbuffer >0:
-			is_jumping = true
-			update_audio_player("jump")
+	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0) and jump_cooldown <= 0 and jumpbuffer >0:
+		
+		is_jumping = true
+		update_audio_player("jump")
+		#squish for jump
+		sprite_2d.scale =  Vector2(0.3,0.6)
+		jumpbuffer = 0.0
+		
+		#walljump
+		if wall_contact_coyote > 0.0:
+			velocity.x = -look_direction_x * wall_jump_push_force
+			velocity.y = JUMP_VELOCITY * 1.2
+			wall_jump_lock = Wall_jump_locktime
+			jump_cooldown = JUMP_COOLDOWN_TIMER # damit sound und squish bei spam nicht bugged
+		else:
+			#normal jump
 			velocity.y = JUMP_VELOCITY
-			#squish for jump
-			sprite_2d.scale =  Vector2(0.3,0.6)
-			jumpbuffer = 0.0
-			#walljump
-			if wall_contact_coyote > 0.0:
-				velocity.x = -look_direction_x * wall_jump_push_force
-				velocity.y = JUMP_VELOCITY * 1.2
-				wall_jump_lock = Wall_jump_locktime
+			
+			
+			
+				
 	# variable jumphöhe / verträgt sich aber nicht so gut mit walljump und jumpbuffer maybe anpassen oder entfernen
 	elif  Input.is_action_just_released("P%d_jump" % device) and velocity.y <= -0 and !is_dashing:
 			is_jumping = false
