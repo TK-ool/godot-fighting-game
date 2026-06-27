@@ -254,6 +254,7 @@ P1_card_UI={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
+2d_physics/layer_6="Water"
 2d_physics/layer_7="one way platform"
 2d_physics/layer_8="Bullets"
 2d_physics/layer_9="Bullet_casing"

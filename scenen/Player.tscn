@@ -76,7 +76,7 @@ clip_1/auto_advance = 0
 [node name="Player" type="CharacterBody2D" unique_id=1404308864]
 process_mode = 1
 collision_layer = 2
-collision_mask = 67
+collision_mask = 99
 script = ExtResource("1_kpjcp")
 health_data = SubResource("Resource_a36lp")
 
@@ -118,7 +118,9 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_rratb")
 
 [node name="Death_off_screen" type="VisibleOnScreenNotifier2D" parent="." unique_id=1349299244]
+scale = Vector2(9.05, 9.05)
 rect = Rect2(-33, -29, 65, 57)
+show_rect = false
 
 [node name="Movement_sounds" type="AudioStreamPlayer" parent="." unique_id=767074175]
 stream = SubResource("AudioStreamInteractive_q6j04")

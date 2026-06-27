@@ -18,7 +18,9 @@ const JUMP_VELOCITY = -800.0
 var is_jumping: bool = false # wert wird für knockbackjump benutzt
 var gravity: float = 1700
 const normal_gravity: float = 1700
-const max_gravity: float = 2400
+var final_gravity:float
+var gravity_multiplier: float = 1.0
+var jump_multiplier: float = 1.0
 
 # acceleration wie schnell die höchstgeschwindigkeit erreicht wird
 var acceleration: float = 12		# beide starten und stoppen noch komisch und das verlangsamt die bewegung muss man noch testen auch mit sprites später
@@ -39,6 +41,7 @@ const JUMP_COOLDOWN_TIMER: float = 0.19 # wird für wandsprung benötigt um den 
 #doublejump
 var jumps_left : int = 0
 const max_jumps: int = 1
+var unlimited_jumps: bool = false
 var is_in_the_air: bool = false
 
 #Dash values
@@ -64,7 +67,7 @@ const Wall_jump_locktime: float = 0.1
 var look_direction_x: int = 1
 
 #for sprite squash
-var air_timer: float
+var air_timer: float = 0.0
 var air_sprite: bool = false
 
 #flash effect on hit
@@ -97,10 +100,11 @@ func _ready() -> void:
 	
 	
 func gravity_var(delta): # um im fall die gravity zu erhöhen
+	final_gravity = normal_gravity * gravity_multiplier
 	if is_on_floor() or is_on_wall():
-		gravity = lerp(gravity, normal_gravity, 20 * delta)
+		gravity = lerp(gravity, final_gravity, 20 * delta)
 	elif velocity.y >= 0:
-		gravity = lerp(gravity, max_gravity, 1 * delta)
+		gravity = lerp(gravity, final_gravity * 1.40, 1 * delta) # max gravity wert beim fallen
 	
 func overall_movement(delta):
 		if knockback_duration <= 0.0:
@@ -132,7 +136,7 @@ func overall_movement(delta):
 			
 				# normale Gravity funktion, drüber ist die  wallslide gravity
 			elif not is_on_floor() and is_dashing == false:
-				velocity.y += gravity * delta
+				velocity.y += gravity * gravity_multiplier * delta
 				wall_contact_coyote -= delta
 		elif is_jumping == true: #jump während knockback
 				velocity = knockback + Vector2(0, JUMP_VELOCITY)
@@ -189,6 +193,8 @@ func dash(delta: float) -> void:
 		
 
 func jumps(delta):
+	var final_jump_height = JUMP_VELOCITY * jump_multiplier
+	
 	if Input.is_action_just_pressed("P%d_jump" % device):
 		jumpbuffer = jumpbuffer_max_time
 		
@@ -209,9 +215,10 @@ func jumps(delta):
 		is_jumping = true
 		jump_cooldown = JUMP_COOLDOWN_TIMER
 		update_audio_player("jump")
-		velocity.y = JUMP_VELOCITY
+		velocity.y =  final_jump_height
 		sprite_2d.scale =  Vector2(0.3,0.6)
-		jumps_left -= 1
+		if unlimited_jumps == false:
+			jumps_left -= 1
 		
 	if !is_dashing and (is_on_floor() or wall_contact_coyote > 0.0) and jump_cooldown <= 0 and jumpbuffer >0:
 		
@@ -224,12 +231,12 @@ func jumps(delta):
 		#walljump
 		if wall_contact_coyote > 0.0:
 			velocity.x = -look_direction_x * wall_jump_push_force
-			velocity.y = JUMP_VELOCITY * 1.2
+			velocity.y =  final_jump_height * 1.2
 			wall_jump_lock = Wall_jump_locktime
 			jump_cooldown = JUMP_COOLDOWN_TIMER # damit sound und squish bei spam nicht bugged
 		else:
 			#normal jump
-			velocity.y = JUMP_VELOCITY
+			velocity.y =  final_jump_height
 			
 			
 			
@@ -294,7 +301,7 @@ func scaling(delta):
 		air_timer = 0.1
 	if air_timer >0:
 		air_timer -= delta
-	if !is_on_floor() and air_timer < 0:
+	if !is_on_floor() and air_timer <= 0:
 		air_sprite = true
 	if air_sprite == true and is_on_floor():
 		sprite_2d.scale = Vector2(0.6,0.28)
@@ -342,8 +349,7 @@ func _input(_event: InputEvent) -> void:
 	
 	
 func _on_death_off_screen_screen_exited() -> void:
-	pass
-	#died_()
+	died_()
 
 
 func Knockback_other_player(body: Node2D) -> void:  #knockback on player touch
