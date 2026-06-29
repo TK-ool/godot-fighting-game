@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bsy8wy24gqc4c"]
+
+[ext_resource type="Script" uid="uid://bjw7celu1lhet" path="res://scenen/water_spring.gd" id="1_s8yex"]
+[ext_resource type="Texture2D" uid="uid://ccylu3vwvew2y" path="res://Texturen/Bullets/bullet.png" id="2_i2ik6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8yex"]
+
+[node name="WaterSpring" type="Node2D" unique_id=718825941]
+script = ExtResource("1_s8yex")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=499043722]
+texture = ExtResource("2_i2ik6")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1578494034]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1001205547]
+shape = SubResource("RectangleShape2D_s8yex")

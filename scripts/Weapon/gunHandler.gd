@@ -50,7 +50,7 @@ var is_reloading: bool = false
 var _cooldown_timer = 0.0
 
 var deadzone: float = 0.2
-var rotation_speed: float = 5.0
+var rotation_speed: float = 40.0
 
 var target_angle: float
 
@@ -71,12 +71,11 @@ func _process(delta: float) -> void:
 		target_angle = input_vec.angle()
 	
 	if rotation != target_angle:
-		rotation = target_angle
-		
-		 
+		#rotation = target_angle
+
 		#code für übergang zum endpunkt
-		#var rotation_lerp_weight: float = 1.0 - exp(-rotation_speed * delta)
-		#rotation = lerp_angle(	rotation, target_angle, rotation_lerp_weight)
+		var rotation_lerp_weight: float = 1.0 - exp(-rotation_speed * delta)
+		rotation = lerp_angle(	rotation, target_angle, rotation_lerp_weight)
 		
 	flip_rotation()
 	Shoot()

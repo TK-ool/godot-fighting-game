@@ -105,7 +105,7 @@ func gravity_var(delta): # um im fall die gravity zu erhöhen
 		gravity = lerp(gravity, final_gravity, 20 * delta)
 	elif velocity.y >= 0:
 		gravity = lerp(gravity, final_gravity * 1.40, 1 * delta) # max gravity wert beim fallen
-	
+		
 func overall_movement(delta):
 		if knockback_duration <= 0.0:
 			if is_dashing == false:
@@ -137,7 +137,8 @@ func overall_movement(delta):
 				# normale Gravity funktion, drüber ist die  wallslide gravity
 			elif not is_on_floor() and is_dashing == false:
 				velocity.y += gravity * gravity_multiplier * delta
-				wall_contact_coyote -= delta
+				if wall_contact_coyote >= 0:
+					wall_contact_coyote -= delta
 		elif is_jumping == true: #jump während knockback
 				velocity = knockback + Vector2(0, JUMP_VELOCITY)
 				knockback_duration -= delta
