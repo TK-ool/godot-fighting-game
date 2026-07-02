@@ -51,7 +51,7 @@ func _ready() -> void:
 			w.sprite_2d.visible = true
 		
 		
-	var total_lenght = distance_between_springs * (spring_number -1)
+	var total_lenght: float  = distance_between_springs * (spring_number -1)
 	var rectangle = RectangleShape2D.new().duplicate()
 	var rect_position: Vector2 = Vector2(total_lenght / 2, depth / 2)
 	var rect_size : Vector2 = Vector2(total_lenght, depth)

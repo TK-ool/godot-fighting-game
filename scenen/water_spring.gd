@@ -7,9 +7,9 @@ var velocity: float  = 0
 # force applied to spring
 var force: float =  0
 #current height of the spring
-var height: int  = 0
+var height: float  = 0
 #normal sping height
-var target_height: int
+var target_height: float
 
 @onready var timer: Timer = $Timer
 

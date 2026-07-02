@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://bnuilhtjbnplk"
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p16o4"]
 resource_local_to_scene = true
 shader = ExtResource("3_57jcf")
-shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_color = Color(0.9098039, 0.9098039, 0.9098039, 1)
 shader_parameter/hit_flash_on = false
 
 [sub_resource type="Animation" id="Animation_57jcf"]
@@ -92,7 +92,7 @@ offset = Vector2(0, -65.39)
 
 [node name="Reload_bar" type="ProgressBar" parent="." unique_id=140511464]
 visible = false
-z_index = 4
+z_index = 6
 offset_left = -74.0
 offset_top = 28.0
 offset_right = 74.0

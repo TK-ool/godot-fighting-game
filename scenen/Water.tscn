@@ -8,7 +8,7 @@ size = Vector2(89, 49)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7m6bt"]
 shader = ExtResource("2_2kjii")
-shader_parameter/tint = Color(0.1507762, 0.54202336, 0.8221171, 1)
+shader_parameter/tint = Color(0.063367724, 0.5204596, 0.9210546, 1)
 
 [node name="Water" type="Node2D" unique_id=397847283]
 script = ExtResource("1_n4upf")

@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://bdqibo2iwj2yb"]
+
+[ext_resource type="Script" uid="uid://bkf3mpu24vhja" path="res://scenen/Hazards/laser.gd" id="1_sonep"]
+[ext_resource type="Texture2D" uid="uid://b1i7x2v6cgfc7" path="res://Texturen/temp_item_pillar.png" id="2_s5i33"]
+[ext_resource type="Texture2D" uid="uid://cjei71m18xq6b" path="res://Texturen/Laser particle.png" id="3_gnp4m"]
+
+[sub_resource type="Curve" id="Curve_gnp4m"]
+_data = [Vector2(0, 0.8836978), 0.0, 0.0, 0, 0, Vector2(0.71979433, 0.52186877), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_okklu"]
+curve = SubResource("Curve_gnp4m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_okklu"]
+particle_flag_disable_z = true
+initial_velocity_min = 37.18
+initial_velocity_max = 37.18
+gravity = Vector3(0, 0, 0)
+scale_min = 0.79999995
+scale_max = 0.79999995
+scale_curve = SubResource("CurveTexture_okklu")
+
+[sub_resource type="Curve" id="Curve_okklu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.50642675, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_u8kau"]
+curve = SubResource("Curve_okklu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lc80t"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 99.99999
+tangential_accel_max = 99.99999
+scale_min = 0.39999998
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_u8kau")
+
+[sub_resource type="Curve" id="Curve_krqf2"]
+_data = [Vector2(0, 0.7997018), 0.0, -0.7854443, 0, 0, Vector2(0.5501285, 0.48310137), 0.0, 0.0, 0, 0, Vector2(0.6015424, 0.4637177), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_bwfjm"]
+curve = SubResource("Curve_krqf2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jhn0l"]
+particle_flag_disable_z = true
+spread = 50.0
+initial_velocity_min = 110.0
+initial_velocity_max = 110.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_bwfjm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnp4m"]
+size = Vector2(105, 12)
+
+[node name="Laser2DWithLine" type="RayCast2D" unique_id=871826718]
+process_mode = 1
+target_position = Vector2(100, 0)
+script = ExtResource("1_sonep")
+max_beam_length = 1080.0
+color = Color(18.892157, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1921181818]
+points = PackedVector2Array(0, 0, 100, 0)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=835305343]
+texture_filter = 1
+rotation = 1.5707964
+scale = Vector2(0.234375, 0.234375)
+texture = ExtResource("2_s5i33")
+
+[node name="casting_particles" type="GPUParticles2D" parent="." unique_id=2107400125]
+position = Vector2(1, 0)
+amount = 15
+texture = ExtResource("3_gnp4m")
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_okklu")
+
+[node name="beam_particles" type="GPUParticles2D" parent="." unique_id=1440331129]
+position = Vector2(1, 0)
+amount = 25
+texture = ExtResource("3_gnp4m")
+preprocess = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_lc80t")
+
+[node name="collision_particles" type="GPUParticles2D" parent="." unique_id=938565576]
+position = Vector2(102, 1)
+amount = 15
+texture = ExtResource("3_gnp4m")
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_jhn0l")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=761733390]
+collision_layer = 128
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1917043792]
+position = Vector2(51.5, 0)
+shape = SubResource("RectangleShape2D_gnp4m")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

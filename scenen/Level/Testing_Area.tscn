@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bn4umywct83su" path="res://scenen/Debug_Menu.tscn" id="8_sp14u"]
 [ext_resource type="Texture2D" uid="uid://gu7nauh677fi" path="res://Texturen/Bullets/Shuriken.png" id="9_t341e"]
 [ext_resource type="PackedScene" uid="uid://b7ahxxkwviekr" path="res://scenen/Water.tscn" id="10_mnt3t"]
+[ext_resource type="PackedScene" uid="uid://bdqibo2iwj2yb" path="res://scenen/Hazards/Laser.tscn" id="11_4v223"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_34gfm"]
 viewport_path = NodePath("SubViewport")
@@ -70,11 +71,11 @@ texture_region_size = Vector2i(32, 32)
 texture = ExtResource("3_hthof")
 texture_region_size = Vector2i(32, 10)
 0:0/0 = 0
-0:0/0/z_index = 5
+0:0/0/z_index = 1
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -5, 16, -5, 16, 5, -16, 5)
 0:0/0/physics_layer_1/polygon_0/one_way = true
 1:0/0 = 0
-1:0/0/z_index = 5
+1:0/0/z_index = 1
 1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -5, 16, -5, 16, 5, -16, 5)
 1:0/0/physics_layer_1/polygon_0/one_way = true
 
@@ -86,6 +87,14 @@ physics_layer_1/collision_layer = 64
 sources/0 = SubResource("TileSetAtlasSource_j4ie4")
 sources/2 = SubResource("TileSetAtlasSource_rpce8")
 sources/6 = SubResource("TileSetAtlasSource_bmymw")
+
+[sub_resource type="Environment" id="Environment_4v223"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.15
+glow_strength = 1.58
+glow_blend_mode = 0
+glow_hdr_threshold = 1.1
 
 [node name="SubViewportContainer" type="SubViewportContainer" unique_id=1009201988]
 process_mode = 3
@@ -108,15 +117,15 @@ tile_map_data = PackedByteArray("AAABAAAAAgAIAAAAAAACAAAAAgAIAAAAAAADAAAAAgAIAAA
 tile_set = SubResource("TileSet_rpce8")
 
 [node name="Spikes2" parent="SubViewport/Level/TileMapLayer" unique_id=1534843407 instance=ExtResource("4_dee1l")]
-position = Vector2(480, -67)
+position = Vector2(1277, -68)
 rotation = 3.1415927
 
 [node name="Spikes3" parent="SubViewport/Level/TileMapLayer" unique_id=2036237072 instance=ExtResource("4_dee1l")]
-position = Vector2(544, -67)
+position = Vector2(1341, -68)
 rotation = 3.1415927
 
 [node name="Spikes4" parent="SubViewport/Level/TileMapLayer" unique_id=1929861681 instance=ExtResource("4_dee1l")]
-position = Vector2(608, -67)
+position = Vector2(1405, -68)
 rotation = 3.1415927
 
 [node name="Spikes6" parent="SubViewport/Level/TileMapLayer" unique_id=1036887579 instance=ExtResource("4_dee1l")]
@@ -163,6 +172,13 @@ distance_between_springs = 15
 spring_number = 14
 depth = 320
 
+[node name="Laser2DWithLine" parent="SubViewport/Level/TileMapLayer" unique_id=871826718 instance=ExtResource("11_4v223")]
+position = Vector2(409, 390)
+rotation = 1.5707964
+target_position = Vector2(1080, 0)
+collision_mask = 3
+is_casting = true
+
 [node name="Player_2 Spawner" parent="SubViewport/Level" unique_id=1010258943 instance=ExtResource("5_equ8x")]
 position = Vector2(1561, 897)
 device = 1
@@ -185,10 +201,12 @@ visible = false
 [node name="DebugMenu" parent="SubViewport/Level" unique_id=1068167939 instance=ExtResource("8_sp14u")]
 
 [node name="HUD" type="CanvasLayer" parent="SubViewport/Level" unique_id=608524436]
-visible = false
 
 [node name="Score" parent="SubViewport/Level/HUD" unique_id=1181961140 instance=ExtResource("8_mnt3t")]
 mouse_filter = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Level" unique_id=833870957]
+environment = SubResource("Environment_4v223")
 
 [connection signal="player_spawned" from="SubViewport/Level/Player_2 Spawner" to="SubViewport/Level/HUD/Score" method="player_2_spawned"]
 [connection signal="player_spawned" from="SubViewport/Level/Player_1 Spawner" to="SubViewport/Level/HUD/Score" method="player_1_spawned"]

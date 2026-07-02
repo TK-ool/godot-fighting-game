@@ -273,7 +273,7 @@ func died_():
 	self.queue_free()
 	
 func get_dmg(damage:int): # function wird derzeit nur von Hazard Spikes benutzt // bullet dmg in on area entered
-	if is_knocked_back == false:    
+	if is_knocked_back == false and !is_dashing:   # derzeit doppel invinicibilty mit dem on area entert dadrüber // noch nicht sicher ob man komplett unbesiegbar dabei sein soll       /////////////////////////////////////////////////////////////////////////////////
 		health_data.take_damage(damage)
 		hitflash.play("Hit_flash")
 	
