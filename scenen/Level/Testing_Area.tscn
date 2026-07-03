@@ -173,11 +173,11 @@ spring_number = 14
 depth = 320
 
 [node name="Laser2DWithLine" parent="SubViewport/Level/TileMapLayer" unique_id=871826718 instance=ExtResource("11_4v223")]
-position = Vector2(409, 390)
+position = Vector2(760, 70)
 rotation = 1.5707964
 target_position = Vector2(1080, 0)
 collision_mask = 3
-is_casting = true
+is_casting = false
 
 [node name="Player_2 Spawner" parent="SubViewport/Level" unique_id=1010258943 instance=ExtResource("5_equ8x")]
 position = Vector2(1561, 897)
@@ -201,6 +201,7 @@ visible = false
 [node name="DebugMenu" parent="SubViewport/Level" unique_id=1068167939 instance=ExtResource("8_sp14u")]
 
 [node name="HUD" type="CanvasLayer" parent="SubViewport/Level" unique_id=608524436]
+visible = false
 
 [node name="Score" parent="SubViewport/Level/HUD" unique_id=1181961140 instance=ExtResource("8_mnt3t")]
 mouse_filter = 2

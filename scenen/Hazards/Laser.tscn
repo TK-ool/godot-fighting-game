@@ -64,6 +64,8 @@ target_position = Vector2(100, 0)
 script = ExtResource("1_sonep")
 max_beam_length = 1080.0
 color = Color(18.892157, 0, 0, 1)
+is_casting = true
+Laser_rest_time = 3.0
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1921181818]
 points = PackedVector2Array(0, 0, 100, 0)
@@ -77,6 +79,7 @@ scale = Vector2(0.234375, 0.234375)
 texture = ExtResource("2_s5i33")
 
 [node name="casting_particles" type="GPUParticles2D" parent="." unique_id=2107400125]
+visible = false
 position = Vector2(1, 0)
 amount = 15
 texture = ExtResource("3_gnp4m")
@@ -84,6 +87,7 @@ lifetime = 0.4
 process_material = SubResource("ParticleProcessMaterial_okklu")
 
 [node name="beam_particles" type="GPUParticles2D" parent="." unique_id=1440331129]
+visible = false
 position = Vector2(1, 0)
 amount = 25
 texture = ExtResource("3_gnp4m")
@@ -92,6 +96,7 @@ randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_lc80t")
 
 [node name="collision_particles" type="GPUParticles2D" parent="." unique_id=938565576]
+visible = false
 position = Vector2(102, 1)
 amount = 15
 texture = ExtResource("3_gnp4m")
@@ -106,5 +111,14 @@ collision_mask = 3
 position = Vector2(51.5, 0)
 shape = SubResource("RectangleShape2D_gnp4m")
 
+[node name="LaserTimer" type="Timer" parent="." unique_id=1020649829]
+wait_time = 5.0
+one_shot = true
+
+[node name="LaserRestTimer" type="Timer" parent="." unique_id=231697206]
+one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="LaserRestTimer" to="." method="_on_laser_rest_timer_timeout"]

@@ -5,13 +5,14 @@ extends RayCast2D
 @export var growth_time: float = 0.1 # wie schnell der laser an breite gewinnt
 @export var max_beam_length: float = 2000
 @onready var line_2d: Line2D = $Line2D
-@onready var line_width = line_2d.width
+
+@export var line_width = 10
 @export var color: Color = Color.WHITE: set = set_color
 @export var is_casting: bool = false: set = casting
 
-@export var Laser_timer: float = 5.0
+@export var Laser_time: float = 5.0
+@export var Laser_rest_time: float = 1.0
 
-@export var Laser_rest_timer:float = 1.0
 
 var beam_tween: Tween = null
 
@@ -25,17 +26,33 @@ var timer_dic: Dictionary = {} # um timer dem spieler zuzuordnen
 
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
+@onready var laser_timer: Timer = $LaserTimer
+@onready var laser_rest_timer: Timer = $LaserRestTimer
 
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	is_casting = false
+			#damit der laser richtig startet wenn man den is_casting export ändert
+	if is_casting == true:
+		laser_timer.start()
+	else:
+		laser_rest_timer.start()
+		
 	casting(is_casting)
 	set_color(color)
+	line_2d.width = line_width
 	line_2d.points[0] = Vector2.RIGHT * start_distance
 	line_2d.points[1] = Vector2.ZERO
 	casting_particles.position = line_2d.points[0]
+	
+	#set timer
+	laser_rest_timer.wait_time = Laser_rest_time
+	laser_timer.wait_time = Laser_time
+	
+	#visible damit das nicht im level editor auftaucht 
+	casting_particles.visible = true
+	beam_particles.visible = true
+	collision_particles.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -62,17 +79,13 @@ func _physics_process(delta: float) -> void:
 	
 	
 	collision_shape_2d.position = laser_start_position + (laser_end_position - laser_start_position) * 0.5
-	collision_shape_2d.shape.set_size(Vector2(laser_end_position.distance_to(laser_start_position), line_width))
+	collision_shape_2d.shape.set_size(Vector2(laser_end_position.distance_to(laser_start_position) +15, line_width)) # 15 damit die area2d stück über den Laser
 
-	
-	
-	
-		
 	collision_particles.emitting = is_colliding()
+	
 
 func casting (new_value: bool) -> void:
-	if is_casting == new_value:
-		return
+
 	is_casting = new_value
 	set_physics_process(is_casting) # wenn casting true ist wird physicsprocess erst gestartet
 	
@@ -98,13 +111,10 @@ func casting (new_value: bool) -> void:
 			casting_particles.position = laser_start
 			collision_shape_2d.disabled = false
 			appear()
-	
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("leftclick"):
-		is_casting = true
-	if Input.is_action_just_released("leftclick"):
-		is_casting = false
-		
+			
+			
+
+
 func set_color(new_color: Color) -> void:
 	color = new_color
 	if line_2d == null:
@@ -153,3 +163,13 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if timer_dic.has(body):
 		var timer = timer_dic[body]
 		timer.queue_free()
+
+
+func _on_laser_timer_timeout() -> void:
+	laser_rest_timer.start()
+	is_casting = false
+
+
+func _on_laser_rest_timer_timeout() -> void:
+	laser_timer.start()
+	is_casting = true
