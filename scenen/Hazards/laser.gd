@@ -32,7 +32,12 @@ var timer_dic: Dictionary = {} # um timer dem spieler zuzuordnen
 
 
 func _ready() -> void:
-			#damit der laser richtig startet wenn man den is_casting export ändert
+	
+	#set timer
+	laser_rest_timer.wait_time = Laser_rest_time
+	laser_timer.wait_time = Laser_time
+	
+	#damit der laser richtig startet wenn man den is_casting export ändert
 	if is_casting == true:
 		laser_timer.start()
 	else:
@@ -44,10 +49,6 @@ func _ready() -> void:
 	line_2d.points[0] = Vector2.RIGHT * start_distance
 	line_2d.points[1] = Vector2.ZERO
 	casting_particles.position = line_2d.points[0]
-	
-	#set timer
-	laser_rest_timer.wait_time = Laser_rest_time
-	laser_timer.wait_time = Laser_time
 	
 	#visible damit das nicht im level editor auftaucht 
 	casting_particles.visible = true
