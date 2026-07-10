@@ -8,10 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://17ah2lt624ue" path="res://Sounds/jump.wav" id="6_q6j04"]
 [ext_resource type="AudioStream" uid="uid://otf4di3tjnhj" path="res://Sounds/Dash.wav" id="7_05xd2"]
 
-[sub_resource type="Resource" id="Resource_a36lp"]
+[sub_resource type="Resource" id="Resource_q6j04"]
 script = ExtResource("2_a36lp")
-max_health = 20
-current_health = 20
+max_health = 20.0
+current_health = 20.0
 metadata/_custom_type_script = "uid://bnuilhtjbnplk"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p16o4"]
@@ -78,7 +78,7 @@ process_mode = 1
 collision_layer = 2
 collision_mask = 99
 script = ExtResource("1_kpjcp")
-health_data = SubResource("Resource_a36lp")
+health_data = SubResource("Resource_q6j04")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=500274965]
 z_index = 1

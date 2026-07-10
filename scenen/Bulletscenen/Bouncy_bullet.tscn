@@ -3,9 +3,15 @@
 [ext_resource type="Script" uid="uid://bhoq4nu3buqpx" path="res://scripts/Weapon/bullet.gd" id="1_afyhn"]
 [ext_resource type="Script" uid="uid://drcps6drgdvc7" path="res://scripts/Weapon/Hit_area_bullet.gd" id="2_633s7"]
 [ext_resource type="Texture2D" uid="uid://dho8ew74bndc4" path="res://Texturen/Bullets/ball test.png" id="2_xxlgx"]
+[ext_resource type="Shader" uid="uid://pw5g1hpuee4u" path="res://Shader/Outline.gdshader" id="3_ahjcm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d8uel"]
 radius = 8.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ambyk"]
+shader = ExtResource("3_ahjcm")
+shader_parameter/outline_color = Color(0.827451, 0, 0, 1)
+shader_parameter/corner_pixel = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afyhn"]
 radius = 7.0
@@ -21,6 +27,7 @@ script = ExtResource("2_633s7")
 shape = SubResource("CircleShape2D_d8uel")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bullet_area" unique_id=1654191528]
+material = SubResource("ShaderMaterial_ambyk")
 texture = ExtResource("2_xxlgx")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Bullet_area" unique_id=1630132390]

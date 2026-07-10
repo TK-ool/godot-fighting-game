@@ -3,6 +3,7 @@ extends Node2D
 @onready var bullet: Area2D = $Bullet_area
 @onready var bullet_col: CharacterBody2D = $"."
 @export var bullet_hit : PackedScene
+@onready var sprite_2d: Sprite2D = $Bullet_area/Sprite2D # for shader acces
 
 var behaviours: Array = []
 
@@ -23,6 +24,7 @@ func _ready() -> void:
 	bullet_col.add_to_group("bullet") # für queue free nach runden ende
 	bullet.add_to_group("bullet") # für hit detect
 	bullet.add_to_group("Player_%d" % device)
+	sprite_2d.material.set_shader_parameter("outline_color", Vector4(211, 0.0, 203, 1.0))
 	if behaviours:
 		for b in behaviours:
 			b.on_ready(self)

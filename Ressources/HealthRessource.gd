@@ -5,8 +5,8 @@ signal died
 signal hit
 var dead:= false
 
-@export var max_health: int = 10
-@export var current_health: int = 10
+@export var max_health: float = 10.0
+@export var current_health: float = 10.0
 
 #This handles the Health Data for a player
 func _init() -> void:

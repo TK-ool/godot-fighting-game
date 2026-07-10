@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmbar6bpjhr8a"
-path="res://.godot/imported/Empty Progress Bar fertig.png-8ac91b48b1368be30aefc19822e64b92.ctex"
+uid="uid://dvtr15w11bsms"
+path="res://.godot/imported/Healthbar_EMPTY.png-6b3f118e1be49f94d21f28f23f361806.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texturen/Empty Progress Bar fertig.png"
-dest_files=["res://.godot/imported/Empty Progress Bar fertig.png-8ac91b48b1368be30aefc19822e64b92.ctex"]
+source_file="res://Texturen/Healthbar_EMPTY.png"
+dest_files=["res://.godot/imported/Healthbar_EMPTY.png-6b3f118e1be49f94d21f28f23f361806.ctex"]
 
 [params]
 

@@ -32,12 +32,12 @@ var player_2: Player
 
 func _ready() -> void:
 	start_timer_label.visible = true
-	set_max_hp()
+	set_hp()
 	
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	round_points()
-	set_player_hud()
+	set_player_hud(delta)
 	round_starts()
 	
 
@@ -68,21 +68,21 @@ func close_card_inv(player_id: int):
 	else:
 		card_ui_p_2.close_inventory()
 		
-func set_player_hud():
+func set_player_hud(delta):
 	
 	if player_1 != null:
-		health_p_1.value = player_1.health_data.current_health
+		health_p_1.value = move_toward(health_p_1.value, player_1.health_data.current_health, 0.1) # damit der übergang nicht so abrupt ist
 		ammo_p_1.text = "Ammo : " + str(player_1.gun.bullet_amount) + "/" + str(player_1.gun.magazine_size) + "\nMagazine size: " + str(player_1.gun.magazine_amount)
 		score_p_1.text = "Player 1 Points " + str(Global.Score_P1)
 	else:
-		health_p_1.value = 0
+		health_p_1.value = move_toward(health_p_1.value, 0, 0.1)
 		
 	if player_2 != null:
-		health_p_2.value = player_2.health_data.current_health
+		health_p_2.value = move_toward(health_p_2.value, player_2.health_data.current_health, 0.1) # damit der übergang nicht so abrupt ist
 		ammo_p_2.text = "Ammo : " + str(player_2.gun.bullet_amount) + "/" + str(player_2.gun.magazine_size) + "\nMagazine size: " + str(player_2.gun.magazine_amount)
 		score_p_2.text = "Player 2 Points " + str(Global.Score_P2)
 	else: 
-		health_p_2.value = 0
+		health_p_2.value = move_toward(health_p_2.value, 0, 0.1)
 		
 func round_points():
 	if Global.Round_points_P1  >= 1:
@@ -104,6 +104,10 @@ func round_starts():
 	if level.round_start_timer <= 0:
 		start_timer_label.visible = false
 		
-func set_max_hp():
+func set_hp():
+		#set max hp
 		health_p_1.max_value = player_1.health_data.current_health
 		health_p_2.max_value = player_2.health_data.current_health
+		#set normal hp
+		health_p_1.value = player_1.health_data.current_health
+		health_p_2.value = player_2.health_data.current_health

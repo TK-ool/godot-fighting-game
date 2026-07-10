@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://ckdfglkmtwi0o"]
 
 [ext_resource type="Script" uid="uid://cdhntnen0l5i8" path="res://scripts/HUD.gd" id="1_vmfms"]
-[ext_resource type="Texture2D" uid="uid://dmbar6bpjhr8a" path="res://Texturen/Empty Progress Bar fertig.png" id="2_x5jof"]
-[ext_resource type="Texture2D" uid="uid://ocbskeii5ugg" path="res://Texturen/Full Progress Bar fertig.png" id="3_8cexo"]
+[ext_resource type="Texture2D" uid="uid://dvtr15w11bsms" path="res://Texturen/Healthbar_EMPTY.png" id="2_4l3db"]
+[ext_resource type="Texture2D" uid="uid://do5mte4onspuo" path="res://Texturen/Healthbar_FULL.png" id="3_gb32j"]
 [ext_resource type="PackedScene" uid="uid://bsepwrui1t41v" path="res://scenen/card_ui.tscn" id="4_8cexo"]
+[ext_resource type="Texture2D" uid="uid://c1sdtdu6j6n34" path="res://Texturen/Healthbar_OVERLAY.png" id="4_gb32j"]
 [ext_resource type="Texture2D" uid="uid://b24bvwgjt1ar4" path="res://Texturen/Point.png" id="5_4l3db"]
 
 [node name="Score" type="Control" unique_id=1181961140]
@@ -19,60 +20,76 @@ script = ExtResource("1_vmfms")
 
 [node name="Score_P1" type="Label" parent="." unique_id=1645693211]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 76.0
-offset_right = 175.0
-offset_bottom = 99.0
+offset_left = 527.0
+offset_top = 12.0
+offset_right = 602.0
+offset_bottom = 35.0
 text = "Score 999"
 
 [node name="Score_P2" type="Label" parent="." unique_id=1270059123]
 layout_mode = 0
-offset_left = 1669.0
-offset_top = 76.0
-offset_right = 1744.0
-offset_bottom = 99.0
+offset_left = 1208.0
+offset_top = 11.0
+offset_right = 1283.0
+offset_bottom = 34.0
 text = "Score 999"
 
 [node name="Health_P1" type="TextureProgressBar" parent="." unique_id=1412551810]
 layout_mode = 0
 offset_left = 75.0
 offset_top = 100.0
-offset_right = 291.0
-offset_bottom = 140.0
-max_value = 10.0
+offset_right = 331.0
+offset_bottom = 132.0
+max_value = 20.0
 step = 0.1
-value = 5.0
+value = 10.0
 nine_patch_stretch = true
-texture_under = ExtResource("2_x5jof")
-texture_progress = ExtResource("3_8cexo")
+texture_under = ExtResource("2_4l3db")
+texture_over = ExtResource("4_gb32j")
+texture_progress = ExtResource("3_gb32j")
+
+[node name="HP_1" type="Label" parent="Health_P1" unique_id=361013781]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -23.0
+offset_right = 37.0
+text = "HP: "
 
 [node name="Health_P2" type="TextureProgressBar" parent="." unique_id=383990046]
 layout_mode = 0
 offset_left = 1598.0
 offset_top = 100.0
-offset_right = 1814.0
-offset_bottom = 140.0
-max_value = 10.0
+offset_right = 1854.0
+offset_bottom = 132.0
+max_value = 20.0
 step = 0.1
-value = 5.0
+value = 10.0
 nine_patch_stretch = true
-texture_under = ExtResource("2_x5jof")
-texture_progress = ExtResource("3_8cexo")
+texture_under = ExtResource("2_4l3db")
+texture_over = ExtResource("4_gb32j")
+texture_progress = ExtResource("3_gb32j")
+
+[node name="HP_2" type="Label" parent="Health_P2" unique_id=43322684]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -23.0
+offset_right = 37.0
+text = "HP: "
 
 [node name="Ammo_P1" type="Label" parent="." unique_id=953698113]
 layout_mode = 0
-offset_left = 97.0
-offset_top = 151.0
-offset_right = 137.0
-offset_bottom = 174.0
+offset_left = 79.0
+offset_top = 131.0
+offset_right = 130.0
+offset_bottom = 154.0
 text = "Ammo"
 
 [node name="Ammo_P2" type="Label" parent="." unique_id=688124327]
 layout_mode = 0
-offset_left = 1631.0
-offset_top = 149.0
-offset_right = 1671.0
-offset_bottom = 172.0
+offset_left = 1604.0
+offset_top = 134.0
+offset_right = 1655.0
+offset_bottom = 157.0
 text = "Ammo"
 
 [node name="CardUI_P1" type="HBoxContainer" parent="." unique_id=1279755551]

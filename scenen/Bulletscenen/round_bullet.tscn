@@ -4,9 +4,15 @@
 [ext_resource type="Script" uid="uid://drcps6drgdvc7" path="res://scripts/Weapon/Hit_area_bullet.gd" id="2_ik7jq"]
 [ext_resource type="PackedScene" uid="uid://civ4kegxh8gap" path="res://scenen/Bulletscenen/bullet_smoke.tscn" id="2_rf34k"]
 [ext_resource type="Texture2D" uid="uid://qsedfju0gwr3" path="res://Texturen/Bullets/bullet_wrong export for test.png" id="4_ik7jq"]
+[ext_resource type="Shader" uid="uid://pw5g1hpuee4u" path="res://Shader/Outline.gdshader" id="4_rf34k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2j1n"]
 size = Vector2(15, 15)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hxv12"]
+shader = ExtResource("4_rf34k")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/corner_pixel = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5iau"]
 size = Vector2(11, 11)
@@ -27,6 +33,7 @@ shape = SubResource("RectangleShape2D_v2j1n")
 rect = Rect2(-66, -35, 140, 69)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bullet_area" unique_id=1736693349]
+material = SubResource("ShaderMaterial_hxv12")
 texture = ExtResource("4_ik7jq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=90874543]
