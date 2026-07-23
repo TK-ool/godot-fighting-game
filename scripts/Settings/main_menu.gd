@@ -38,7 +38,7 @@ func _on_start_pressed() -> void:
 func _on_options_pressed() -> void:
 	main_buttons.visible = false
 	options.visible = true
-	music_control.grab_focus()
+	$Options/MasterControl.grab_focus()
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

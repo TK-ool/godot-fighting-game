@@ -36,10 +36,10 @@ text = "Score 999"
 
 [node name="Health_P1" type="TextureProgressBar" parent="." unique_id=1412551810]
 layout_mode = 0
-offset_left = 75.0
-offset_top = 100.0
-offset_right = 331.0
-offset_bottom = 132.0
+offset_left = 69.0
+offset_top = 53.0
+offset_right = 325.0
+offset_bottom = 85.0
 max_value = 20.0
 step = 0.1
 value = 10.0
@@ -58,9 +58,9 @@ text = "HP: "
 [node name="Health_P2" type="TextureProgressBar" parent="." unique_id=383990046]
 layout_mode = 0
 offset_left = 1598.0
-offset_top = 100.0
+offset_top = 53.0
 offset_right = 1854.0
-offset_bottom = 132.0
+offset_bottom = 84.99983
 max_value = 20.0
 step = 0.1
 value = 10.0
@@ -78,18 +78,18 @@ text = "HP: "
 
 [node name="Ammo_P1" type="Label" parent="." unique_id=953698113]
 layout_mode = 0
-offset_left = 79.0
-offset_top = 131.0
-offset_right = 130.0
-offset_bottom = 154.0
+offset_left = 73.0
+offset_top = 84.0
+offset_right = 124.0
+offset_bottom = 107.0
 text = "Ammo"
 
 [node name="Ammo_P2" type="Label" parent="." unique_id=688124327]
 layout_mode = 0
 offset_left = 1604.0
-offset_top = 134.0
+offset_top = 87.0
 offset_right = 1655.0
-offset_bottom = 157.0
+offset_bottom = 110.0
 text = "Ammo"
 
 [node name="CardUI_P1" type="HBoxContainer" parent="." unique_id=1279755551]

@@ -249,6 +249,7 @@ layer = 2
 visible = false
 
 [node name="DebugMenu" parent="SubViewport/Level" unique_id=1068167939 instance=ExtResource("8_sp14u")]
+visible = false
 
 [node name="HUD" type="CanvasLayer" parent="SubViewport/Level" unique_id=608524436]
 
