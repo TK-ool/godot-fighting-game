@@ -5,11 +5,75 @@
 [ext_resource type="Shader" uid="uid://wtshj7e6amys" path="res://scenen/Menu_Scenes/BG_Main Menu.gdshader" id="3_mpy0y"]
 [ext_resource type="Theme" uid="uid://d08c63hb4yx8f" path="res://Texturen/Theme/New_Buttons.tres" id="4_fueuo"]
 [ext_resource type="Script" uid="uid://b5l743c0dlfon" path="res://scripts/Settings/audio_control.gd" id="4_je6qg"]
+[ext_resource type="Texture2D" uid="uid://t0s5xm8fj8d4" path="res://Texturen/Focus_pointer.png" id="5_4jv1t"]
+[ext_resource type="PackedScene" uid="uid://bb4v0irf1r6ex" path="res://scenen/Menu_Scenes/UI_sounds.tscn" id="7_ccoly"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fueuo"]
 shader = ExtResource("3_mpy0y")
 shader_parameter/tiling = Vector2(0.1, 0.1)
 shader_parameter/offset = Vector2(0.05, 0.05)
+
+[sub_resource type="Animation" id="Animation_4jv1t"]
+resource_name = "Focus_pointer_anim"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_4jv1t")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(45, 0), Vector2(0, 0), Vector2(-45, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ccoly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_4jv1t")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5.83, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ixh3"]
+_data = {
+&"Focus_pointer_anim": SubResource("Animation_4jv1t"),
+&"RESET": SubResource("Animation_ccoly")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fueuo"]
 bg_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
@@ -216,6 +280,16 @@ bbcode_enabled = true
 text = "[center]Exit"
 fit_content = true
 
+[node name="Focus_pointer" type="Sprite2D" parent="Main Buttons" unique_id=920907324]
+position = Vector2(-33, 34.83499)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_4jv1t")
+offset = Vector2(5.83, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main Buttons/Focus_pointer" unique_id=1594421549]
+libraries/ = SubResource("AnimationLibrary_2ixh3")
+autoplay = &"Focus_pointer_anim"
+
 [node name="Options" type="Panel" parent="." unique_id=425879159]
 visible = false
 layout_mode = 1
@@ -391,9 +465,15 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="UiSounds" parent="." unique_id=1326474061 instance=ExtResource("7_ccoly")]
+
+[connection signal="focus_entered" from="Main Buttons/MarginContainer/VBoxContainer/start" to="." method="_on_start_focus_entered"]
 [connection signal="pressed" from="Main Buttons/MarginContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="focus_entered" from="Main Buttons/MarginContainer/VBoxContainer/Test_Area" to="." method="_on_test_area_focus_entered"]
 [connection signal="pressed" from="Main Buttons/MarginContainer/VBoxContainer/Test_Area" to="." method="_on_test_area_pressed"]
+[connection signal="focus_entered" from="Main Buttons/MarginContainer/VBoxContainer/options" to="." method="_on_options_focus_entered"]
 [connection signal="pressed" from="Main Buttons/MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="focus_entered" from="Main Buttons/MarginContainer/VBoxContainer/exit" to="." method="_on_exit_focus_entered"]
 [connection signal="pressed" from="Main Buttons/MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="Options/MusicControl" to="." method="_on_music_control_value_changed"]

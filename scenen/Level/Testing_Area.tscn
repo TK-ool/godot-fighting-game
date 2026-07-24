@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://gu7nauh677fi" path="res://Texturen/Bullets/Shuriken.png" id="9_t341e"]
 [ext_resource type="PackedScene" uid="uid://b7ahxxkwviekr" path="res://scenen/Water.tscn" id="10_mnt3t"]
 [ext_resource type="PackedScene" uid="uid://bdqibo2iwj2yb" path="res://scenen/Hazards/Laser.tscn" id="11_4v223"]
+[ext_resource type="PackedScene" uid="uid://bb4v0irf1r6ex" path="res://scenen/Menu_Scenes/UI_sounds.tscn" id="18_4qurw"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_34gfm"]
 viewport_path = NodePath("SubViewport")
@@ -258,6 +259,8 @@ mouse_filter = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Level" unique_id=833870957]
 environment = SubResource("Environment_4v223")
+
+[node name="UiSounds" parent="SubViewport/Level" unique_id=1326474061 instance=ExtResource("18_4qurw")]
 
 [connection signal="player_spawned" from="SubViewport/Level/Player_2 Spawner" to="SubViewport/Level/HUD/Score" method="player_2_spawned"]
 [connection signal="player_spawned" from="SubViewport/Level/Player_1 Spawner" to="SubViewport/Level/HUD/Score" method="player_1_spawned"]
