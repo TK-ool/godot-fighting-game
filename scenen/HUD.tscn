@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ckdfglkmtwi0o"]
 
 [ext_resource type="Script" uid="uid://cdhntnen0l5i8" path="res://scripts/HUD.gd" id="1_vmfms"]
-[ext_resource type="Texture2D" uid="uid://dvtr15w11bsms" path="res://Texturen/Healthbar_EMPTY.png" id="2_4l3db"]
-[ext_resource type="Texture2D" uid="uid://do5mte4onspuo" path="res://Texturen/Healthbar_FULL.png" id="3_gb32j"]
+[ext_resource type="Texture2D" uid="uid://dvtr15w11bsms" path="res://Texturen/UI/Healthbar_EMPTY.png" id="2_4l3db"]
+[ext_resource type="Texture2D" uid="uid://do5mte4onspuo" path="res://Texturen/UI/Healthbar_FULL.png" id="3_gb32j"]
 [ext_resource type="PackedScene" uid="uid://bsepwrui1t41v" path="res://scenen/card_ui.tscn" id="4_8cexo"]
-[ext_resource type="Texture2D" uid="uid://c1sdtdu6j6n34" path="res://Texturen/Healthbar_OVERLAY.png" id="4_gb32j"]
+[ext_resource type="Texture2D" uid="uid://c1sdtdu6j6n34" path="res://Texturen/UI/Healthbar_OVERLAY.png" id="4_gb32j"]
 [ext_resource type="Texture2D" uid="uid://b24bvwgjt1ar4" path="res://Texturen/Point.png" id="5_4l3db"]
 
 [node name="Score" type="Control" unique_id=1181961140]

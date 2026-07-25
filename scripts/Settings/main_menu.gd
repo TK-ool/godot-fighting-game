@@ -37,7 +37,7 @@ func settingsChanged():
 func _on_start_pressed() -> void:
 	ScreenTransition.transition()
 	await ScreenTransition.on_transition_finished
-	Global.random_level()
+	get_tree().change_scene_to_file("uid://bvn5wf5gvr2lm") # Color selection Screen
 	
 
 

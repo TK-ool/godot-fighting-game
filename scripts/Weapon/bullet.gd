@@ -24,7 +24,10 @@ func _ready() -> void:
 	bullet_col.add_to_group("bullet") # für queue free nach runden ende
 	bullet.add_to_group("bullet") # für hit detect
 	bullet.add_to_group("Player_%d" % device)
-	sprite_2d.material.set_shader_parameter("outline_color", Vector4(211, 0.0, 203, 1.0))
+	if device == 0:
+		sprite_2d.material.set_shader_parameter("outline_color", Global.P1_Color)
+	if device == 1:
+		sprite_2d.material.set_shader_parameter("outline_color", Global.P2_Color)
 	if behaviours:
 		for b in behaviours:
 			b.on_ready(self)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bb4v0irf1r6ex"]
 
-[ext_resource type="Script" uid="uid://ch38w0vhkiqh" path="res://scenen/Menu_Scenes/ui_sounds.gd" id="1_38egy"]
+[ext_resource type="Script" uid="uid://ch38w0vhkiqh" path="res://scripts/ui_sounds.gd" id="1_38egy"]
 
 [node name="UiSounds" type="Node" unique_id=1326474061]
 script = ExtResource("1_38egy")

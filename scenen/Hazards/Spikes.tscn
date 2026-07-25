@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://h7pws40hayex"]
 
-[ext_resource type="Texture2D" uid="uid://4cfqucbytio5" path="res://Texturen/test spikes.png" id="1_4nh30"]
+[ext_resource type="Texture2D" uid="uid://4cfqucbytio5" path="res://Texturen/Tileset/test spikes.png" id="1_4nh30"]
 [ext_resource type="Script" uid="uid://x3n4fjmulocl" path="res://scripts/hazards.gd" id="1_hqxlf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqxlf"]

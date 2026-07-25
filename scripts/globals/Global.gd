@@ -1,10 +1,17 @@
 extends Node
 
+#Player Farbe für Outlines
+var P1_Color: Color = Color(211, 0.0, 203, 1.0)
+var P2_Color: Color = Color(0.0, 0.0, 203, 1.0)
+
+#Punkte zum gewinnen
 var Win_points_amount := 3
 
+#Gesamt Pubnktzahl
 var Score_P1 := 0
 var Score_P2 := 0
 
+#Punkte innerhalb der Rundew
 var Round_points_P1 := 0
 var Round_points_P2 := 0
 
@@ -31,7 +38,6 @@ func random_level():
 	get_tree().change_scene_to_file(selected_scene)
 	
 func round_points_reset():
-
 	Round_points_P1 = 0
 	Round_points_P2 = 0
 	

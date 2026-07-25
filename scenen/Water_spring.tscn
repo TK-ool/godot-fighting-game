@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsy8wy24gqc4c"]
 
-[ext_resource type="Script" uid="uid://bjw7celu1lhet" path="res://scenen/water_spring.gd" id="1_s8yex"]
+[ext_resource type="Script" uid="uid://bjw7celu1lhet" path="res://scripts/water_spring.gd" id="1_s8yex"]
 [ext_resource type="Texture2D" uid="uid://ccylu3vwvew2y" path="res://Texturen/Bullets/bullet.png" id="2_i2ik6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8yex"]

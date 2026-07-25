@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://bvn5wf5gvr2lm"]
+
+[ext_resource type="PackedScene" uid="uid://bdfykk5ybwj07" path="res://scenen/Cursor.tscn" id="1_1necn"]
+[ext_resource type="Script" uid="uid://ci4wtqqssgumt" path="res://scenen/Menu_Scenes/color_select_screen.gd" id="1_ksvq1"]
+[ext_resource type="PackedScene" uid="uid://6uhn23iwdi2h" path="res://scenen/Menu_Scenes/Color.tscn" id="3_8r36i"]
+[ext_resource type="Shader" uid="uid://wtshj7e6amys" path="res://Shader/BG_Main Menu.gdshader" id="4_fbbi8"]
+[ext_resource type="Texture2D" uid="uid://35awwleu6mvg" path="res://Texturen/Tileset/BG repeat Texture.png" id="5_vr1if"]
+[ext_resource type="Theme" uid="uid://d08c63hb4yx8f" path="res://Texturen/Theme/New_Buttons.tres" id="5_xnafq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fueuo"]
+shader = ExtResource("4_fbbi8")
+shader_parameter/tiling = Vector2(0.1, 0.1)
+shader_parameter/offset = Vector2(0.05, 0.05)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kep1u"]
+bg_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="ColorSelectScreen" type="Node2D" unique_id=517030527]
+script = ExtResource("1_ksvq1")
+
+[node name="Cursor Player 1" parent="." unique_id=706305829 instance=ExtResource("1_1necn")]
+position = Vector2(723, 357)
+
+[node name="Cursor Player 2" parent="." unique_id=512311817 instance=ExtResource("1_1necn")]
+position = Vector2(1396, 368)
+device = 1
+
+[node name="AspectRatioContainer BG" type="AspectRatioContainer" parent="." unique_id=292610393]
+offset_left = -51.0
+offset_right = 1954.0
+offset_bottom = 1132.0
+stretch_mode = 3
+
+[node name="BG" type="TextureRect" parent="AspectRatioContainer BG" unique_id=1074909018]
+z_index = -1
+material = SubResource("ShaderMaterial_fueuo")
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_vr1if")
+stretch_mode = 1
+
+[node name="Start_Label" type="Label" parent="." unique_id=1301114779]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 856.0
+offset_top = 102.0
+offset_right = 1106.0
+offset_bottom = 178.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 92
+text = "Press Start to beginn"
+
+[node name="Color_section" type="Panel" parent="." unique_id=1485151770]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 127.0
+offset_top = 541.0
+offset_right = 1795.0
+offset_bottom = 1039.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_xnafq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_kep1u")
+
+[node name="Label" type="Label" parent="Color_section" unique_id=1607573063]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 35
+text = "Color selection"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Color_section" unique_id=1004657159]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 200.0
+offset_right = 1052.0
+offset_bottom = 280.0
+
+[node name="Color" parent="Color_section/HBoxContainer" unique_id=1292030343 instance=ExtResource("3_8r36i")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+color = Color(1, 0, 0.14901961, 1)
+
+[node name="VSeparator" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=41907459]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Color2" parent="Color_section/HBoxContainer" unique_id=429941957 instance=ExtResource("3_8r36i")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=1976753395]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Color3" parent="Color_section/HBoxContainer" unique_id=764449496 instance=ExtResource("3_8r36i")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+color = Color(0, 0.38252515, 0.8922372, 1)
+
+[node name="VSeparator3" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=957910568]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Color4" parent="Color_section/HBoxContainer" unique_id=2106355209 instance=ExtResource("3_8r36i")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+color = Color(0.8813061, 0.0003717619, 0.82598525, 1)
+
+[node name="VSeparator4" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=1664450418]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Color5" parent="Color_section/HBoxContainer" unique_id=795153610 instance=ExtResource("3_8r36i")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+color = Color(0, 1, 1, 1)
+
+[node name="VSeparator5" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=1524312550]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Color6" parent="Color_section/HBoxContainer" unique_id=505701722 instance=ExtResource("3_8r36i")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+color = Color(0, 0.38431373, 0, 1)
+
+[node name="VSeparator6" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=1962642422]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Color7" parent="Color_section/HBoxContainer" unique_id=1787235463 instance=ExtResource("3_8r36i")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+color = Color(0.81960785, 0.8784314, 0, 1)
+
+[node name="VSeparator7" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=361883843]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Color8" parent="Color_section/HBoxContainer" unique_id=399429776 instance=ExtResource("3_8r36i")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+color = Color(0.36078432, 0, 0.7019608, 1)
+
+[node name="VSeparator8" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=456138527]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Color9" parent="Color_section/HBoxContainer" unique_id=1607823079 instance=ExtResource("3_8r36i")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+color = Color(0, 0, 0, 1)

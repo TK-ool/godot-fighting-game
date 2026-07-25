@@ -13,6 +13,7 @@ size = Vector2(24, 23)
 size = Vector2(21.5, 23.25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufmf5"]
+resource_local_to_scene = true
 shader = ExtResource("4_pfqjh")
 shader_parameter/outline_color = Color(0.7607843, 0, 0, 1)
 shader_parameter/corner_pixel = false

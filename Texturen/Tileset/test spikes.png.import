@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1i7x2v6cgfc7"
-path="res://.godot/imported/temp_item_pillar.png-88e8cedbb073e6282a219b41762c0c3c.ctex"
+uid="uid://4cfqucbytio5"
+path="res://.godot/imported/test spikes.png-1757dfdf1fafbe9e50017e9c9f30dbc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texturen/temp_item_pillar.png"
-dest_files=["res://.godot/imported/temp_item_pillar.png-88e8cedbb073e6282a219b41762c0c3c.ctex"]
+source_file="res://Texturen/Tileset/test spikes.png"
+dest_files=["res://.godot/imported/test spikes.png-1757dfdf1fafbe9e50017e9c9f30dbc1.ctex"]
 
 [params]
 

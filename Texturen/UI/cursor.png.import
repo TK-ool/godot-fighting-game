@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1sdtdu6j6n34"
-path="res://.godot/imported/Healthbar_OVERLAY.png-4a9fa1d8e815614fee39ea5fd637acd2.ctex"
+uid="uid://cwgeab8mravp8"
+path="res://.godot/imported/cursor.png-f2ecd5cf25710e8d195bf2143aae4755.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texturen/Healthbar_OVERLAY.png"
-dest_files=["res://.godot/imported/Healthbar_OVERLAY.png-4a9fa1d8e815614fee39ea5fd637acd2.ctex"]
+source_file="res://Texturen/UI/cursor.png"
+dest_files=["res://.godot/imported/cursor.png-f2ecd5cf25710e8d195bf2143aae4755.ctex"]
 
 [params]
 

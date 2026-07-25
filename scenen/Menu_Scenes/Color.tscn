@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://6uhn23iwdi2h"]
+
+[ext_resource type="Script" uid="uid://dc7jgal42cg85" path="res://scripts/color.gd" id="1_qdf8e"]
+[ext_resource type="Texture2D" uid="uid://dwsmk2380iuix" path="res://Texturen/Color_selected.png" id="2_2el1j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2el1j"]
+size = Vector2(79.5, 79)
+
+[node name="Color" type="ColorRect" unique_id=1292030343]
+custom_minimum_size = Vector2(7.745, 9.385)
+anchors_preset = -1
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(40, 40)
+size_flags_horizontal = 4
+script = ExtResource("1_qdf8e")
+
+[node name="Color_zone" type="Area2D" parent="." unique_id=576185884]
+z_index = -5
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Color_zone" unique_id=311563636]
+position = Vector2(40.25, 39.5)
+shape = SubResource("RectangleShape2D_2el1j")
+
+[node name="ColorSelected" type="Sprite2D" parent="." unique_id=1505984614]
+visible = false
+position = Vector2(40, 40)
+texture = ExtResource("2_2el1j")
+
+[connection signal="body_entered" from="Color_zone" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Color_zone" to="." method="_on_area_2d_body_exited"]

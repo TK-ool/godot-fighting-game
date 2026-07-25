@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bdqibo2iwj2yb"]
 
 [ext_resource type="Script" uid="uid://bkf3mpu24vhja" path="res://scenen/Hazards/laser.gd" id="1_sonep"]
-[ext_resource type="Texture2D" uid="uid://b1i7x2v6cgfc7" path="res://Texturen/temp_item_pillar.png" id="2_s5i33"]
+[ext_resource type="Texture2D" uid="uid://b1i7x2v6cgfc7" path="res://Texturen/Tileset/temp_item_pillar.png" id="2_s5i33"]
 [ext_resource type="Texture2D" uid="uid://cjei71m18xq6b" path="res://Texturen/Laser particle.png" id="3_gnp4m"]
 
 [sub_resource type="Curve" id="Curve_gnp4m"]

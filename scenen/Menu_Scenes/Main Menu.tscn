@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bi2nmmbvx00ww"]
 
 [ext_resource type="Script" uid="uid://bdituen0rh8fa" path="res://scripts/Settings/main_menu.gd" id="1_77m4q"]
-[ext_resource type="Texture2D" uid="uid://35awwleu6mvg" path="res://Texturen/BG repeat Texture.png" id="3_j57x4"]
-[ext_resource type="Shader" uid="uid://wtshj7e6amys" path="res://scenen/Menu_Scenes/BG_Main Menu.gdshader" id="3_mpy0y"]
+[ext_resource type="Texture2D" uid="uid://35awwleu6mvg" path="res://Texturen/Tileset/BG repeat Texture.png" id="3_j57x4"]
+[ext_resource type="Shader" uid="uid://wtshj7e6amys" path="res://Shader/BG_Main Menu.gdshader" id="3_mpy0y"]
 [ext_resource type="Theme" uid="uid://d08c63hb4yx8f" path="res://Texturen/Theme/New_Buttons.tres" id="4_fueuo"]
 [ext_resource type="Script" uid="uid://b5l743c0dlfon" path="res://scripts/Settings/audio_control.gd" id="4_je6qg"]
-[ext_resource type="Texture2D" uid="uid://t0s5xm8fj8d4" path="res://Texturen/Focus_pointer.png" id="5_4jv1t"]
+[ext_resource type="Texture2D" uid="uid://t0s5xm8fj8d4" path="res://Texturen/UI/Focus_pointer.png" id="5_4jv1t"]
 [ext_resource type="PackedScene" uid="uid://bb4v0irf1r6ex" path="res://scenen/Menu_Scenes/UI_sounds.tscn" id="7_ccoly"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fueuo"]

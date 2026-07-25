@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvtr15w11bsms"
-path="res://.godot/imported/Healthbar_EMPTY.png-6b3f118e1be49f94d21f28f23f361806.ctex"
+uid="uid://c30f7e0yq7cw3"
+path="res://.godot/imported/Brick wall collection-Sheet.png-5212171549501edcc3628108396c75a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texturen/Healthbar_EMPTY.png"
-dest_files=["res://.godot/imported/Healthbar_EMPTY.png-6b3f118e1be49f94d21f28f23f361806.ctex"]
+source_file="res://Texturen/Tileset/Brick wall collection-Sheet.png"
+dest_files=["res://.godot/imported/Brick wall collection-Sheet.png-5212171549501edcc3628108396c75a1.ctex"]
 
 [params]
 

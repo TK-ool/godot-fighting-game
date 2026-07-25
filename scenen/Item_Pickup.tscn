@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://baopceebiratl" path="res://scripts/item_pickup.gd" id="1_8pmev"]
 [ext_resource type="Texture2D" uid="uid://05tj4ugwqpab" path="res://Texturen/Weapon/Split Weapon.png" id="2_f6oa0"]
-[ext_resource type="Texture2D" uid="uid://wrpq7qrlk5c1" path="res://Texturen/Temp_item_pillar2.png" id="3_f6oa0"]
+[ext_resource type="Texture2D" uid="uid://wrpq7qrlk5c1" path="res://Texturen/Tileset/Temp_item_pillar2.png" id="3_f6oa0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrp6h"]
 size = Vector2(58, 25)

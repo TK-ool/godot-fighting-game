@@ -13,9 +13,10 @@ size = Vector2(15, 11.25)
 size = Vector2(17, 11)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mvaif"]
+resource_local_to_scene = true
 shader = ExtResource("4_03ebb")
 shader_parameter/outline_color = Color(0.79607844, 0, 0, 1)
-shader_parameter/corner_pixel = false
+shader_parameter/corner_pixel = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=810977238]
 process_mode = 1

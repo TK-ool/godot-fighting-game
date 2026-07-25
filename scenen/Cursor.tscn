@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bdfykk5ybwj07"]
+
+[ext_resource type="Script" uid="uid://bwb6m54llubvt" path="res://scripts/cursor.gd" id="1_u4bcx"]
+[ext_resource type="Texture2D" uid="uid://cwgeab8mravp8" path="res://Texturen/UI/cursor.png" id="2_taxwh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50lti"]
+size = Vector2(3, 3)
+
+[node name="Cursor" type="CharacterBody2D" unique_id=706305829]
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("1_u4bcx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=683712523]
+position = Vector2(-22.5, -22.5)
+shape = SubResource("RectangleShape2D_50lti")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1052874288]
+z_index = 5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_taxwh")
+
+[node name="Player_name" type="Label" parent="." unique_id=1862839646]
+z_index = 5
+offset_left = -31.0
+offset_top = 15.0
+offset_right = 31.0
+offset_bottom = 38.0
+text = "Player 0"

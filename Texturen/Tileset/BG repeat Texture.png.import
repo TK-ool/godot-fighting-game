@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t0s5xm8fj8d4"
-path="res://.godot/imported/Focus_pointer.png-64657cd29aaf446c10f4f0ec7fd55f35.ctex"
+uid="uid://35awwleu6mvg"
+path="res://.godot/imported/BG repeat Texture.png-29ec3fb4ebf182c6255d2c245eb11774.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texturen/Focus_pointer.png"
-dest_files=["res://.godot/imported/Focus_pointer.png-64657cd29aaf446c10f4f0ec7fd55f35.ctex"]
+source_file="res://Texturen/Tileset/BG repeat Texture.png"
+dest_files=["res://.godot/imported/BG repeat Texture.png-29ec3fb4ebf182c6255d2c245eb11774.ctex"]
 
 [params]
 
