@@ -25,7 +25,7 @@ func install_sounds(node: Node) -> void:
 		if i is HSlider:
 			i.mouse_entered.connect(func(): ui_sfx_play("UI_Hover"))
 			i.focus_entered.connect(func(): ui_sfx_play("UI_Hover"))
-			
+
 		#recoursion for children
 		install_sounds(i)
 			

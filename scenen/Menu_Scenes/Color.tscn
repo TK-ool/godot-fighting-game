@@ -2,9 +2,25 @@
 
 [ext_resource type="Script" uid="uid://dc7jgal42cg85" path="res://scripts/color.gd" id="1_qdf8e"]
 [ext_resource type="Texture2D" uid="uid://dwsmk2380iuix" path="res://Texturen/Color_selected.png" id="2_2el1j"]
+[ext_resource type="AudioStream" uid="uid://b0feyjhowd5ju" path="res://Sounds/UI_Sounds/UI_Hover.wav" id="3_6grwa"]
+[ext_resource type="AudioStream" uid="uid://brjeie6cyonk4" path="res://Sounds/UI_Sounds/UI_Click.wav" id="4_tu0gr"]
+[ext_resource type="AudioStream" uid="uid://dcg6gf8istnge" path="res://Sounds/platzhalter.wav" id="5_bnqmu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2el1j"]
 size = Vector2(79.5, 79)
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_tu0gr"]
+clip_count = 3
+clip_0/name = &"click"
+clip_0/stream = ExtResource("4_tu0gr")
+clip_0/auto_advance = 0
+clip_1/name = &"hover"
+clip_1/stream = ExtResource("3_6grwa")
+clip_1/auto_advance = 0
+clip_2/name = &"platzhalter"
+clip_2/stream = ExtResource("5_bnqmu")
+clip_2/auto_advance = 0
+initial_clip = 2
 
 [node name="Color" type="ColorRect" unique_id=1292030343 groups=["Color"]]
 custom_minimum_size = Vector2(7.745, 9.385)
@@ -40,6 +56,10 @@ offset_right = 13.727264
 offset_bottom = -160.45453
 theme_override_font_sizes/font_size = 47
 text = "Player 1"
+
+[node name="Color_sounds" type="AudioStreamPlayer" parent="." unique_id=907499757]
+stream = SubResource("AudioStreamInteractive_tu0gr")
+bus = &"UI"
 
 [connection signal="body_entered" from="Color_zone" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Color_zone" to="." method="_on_area_2d_body_exited"]

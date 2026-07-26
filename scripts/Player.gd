@@ -363,9 +363,9 @@ func Knockback_other_player(body: Node2D) -> void:  #knockback on player touch
 		body.apply_knockback(knockback_direction_enemy,knockback_force_enemy,knockback_time_enemy)
 		
 func update_audio_player(audio_name:String):
-	if audio_name == "none": # wird derzeit nicht benutzt
-		movement_sounds.stop()
+	#if audio_name == "none": # wird derzeit nicht benutzt
+		#movement_sounds.stop()
 	if audio_name:
-		movement_sounds.play()
 		movement_sounds["parameters/switch_to_clip"] = audio_name
+		movement_sounds.play()
 		

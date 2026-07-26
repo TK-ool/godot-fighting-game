@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://g64rmryrtbx8" path="res://scenen/gun.tscn" id="3_kne1u"]
 [ext_resource type="AudioStream" uid="uid://17ah2lt624ue" path="res://Sounds/jump.wav" id="6_q6j04"]
 [ext_resource type="AudioStream" uid="uid://otf4di3tjnhj" path="res://Sounds/Dash.wav" id="7_05xd2"]
+[ext_resource type="AudioStream" uid="uid://dcg6gf8istnge" path="res://Sounds/platzhalter.wav" id="8_05xd2"]
 
 [sub_resource type="Resource" id="Resource_q6j04"]
 script = ExtResource("2_a36lp")
@@ -65,13 +66,17 @@ size = Vector2(55, 51)
 size = Vector2(57, 53)
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_q6j04"]
-clip_count = 2
+clip_count = 3
 clip_0/name = &"jump"
 clip_0/stream = ExtResource("6_q6j04")
 clip_0/auto_advance = 0
 clip_1/name = &"dash"
 clip_1/stream = ExtResource("7_05xd2")
 clip_1/auto_advance = 0
+clip_2/name = &"platzhalter"
+clip_2/stream = ExtResource("8_05xd2")
+clip_2/auto_advance = 0
+initial_clip = 2
 
 [node name="Player" type="CharacterBody2D" unique_id=1404308864]
 process_mode = 1

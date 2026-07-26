@@ -2,6 +2,7 @@ extends ColorRect
 # Called when the node enters the scene tree for the first time.
 @onready var selected_player_label: Label = $ColorSelected/selected_player_label
 @onready var color_selected: Sprite2D = $ColorSelected
+@onready var color_sounds: AudioStreamPlayer = $Color_sounds
 
 signal player_selected_color
 
@@ -37,6 +38,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			body.is_in_colorrect = true
 			body.player_color = self.color
 			self.scale = Vector2(1.2,1.2)
+			update_audio_player("hover")
 
 
 
@@ -62,6 +64,7 @@ func select_color(device: int)-> void:
 		selected_player_label.text = "Player %d" %player_number
 		self.scale = Vector2(1.0,1.0)
 		player_selected_color.emit(device) # schickt signal an den Colorselect screen das ausgewäjlt wurde und an andere Colorrecs das reselected wurde falls notwendig
+		update_audio_player("click")
 		
 	if player_inside.has("Cursor Player 2") and device == 1 and !is_selected:
 		is_selected = true
@@ -72,6 +75,7 @@ func select_color(device: int)-> void:
 		selected_player_label.text = "Player %d" %player_number
 		self.scale = Vector2(1.0,1.0)
 		player_selected_color.emit(device) # schickt signal an den Colorselect screen das ausgewäjlt wurde und an andere Colorrecs das reselected wurde falls notwendig
+		update_audio_player("click")
 		
 		
 func reselect_color(device: int) -> void:
@@ -89,4 +93,13 @@ func reselect_color(device: int) -> void:
 		color_selected.visible = false
 		player_number = device +1
 		selected_player_label.text = "Player %d" %player_number
+		
+		
+		
+func update_audio_player(audio_name:String):
+	if audio_name == "none": # wird derzeit nicht benutzt
+		color_sounds.stop()
+	if audio_name:
+		color_sounds.play()
+		color_sounds["parameters/switch_to_clip"] = audio_name
 		

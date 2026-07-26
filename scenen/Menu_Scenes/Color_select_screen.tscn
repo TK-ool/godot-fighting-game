@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://wtshj7e6amys" path="res://Shader/BG_Main Menu.gdshader" id="4_fbbi8"]
 [ext_resource type="Texture2D" uid="uid://35awwleu6mvg" path="res://Texturen/Tileset/BG repeat Texture.png" id="5_vr1if"]
 [ext_resource type="Theme" uid="uid://d08c63hb4yx8f" path="res://Texturen/Theme/New_Buttons.tres" id="5_xnafq"]
+[ext_resource type="PackedScene" uid="uid://bb4v0irf1r6ex" path="res://scenen/Menu_Scenes/UI_sounds.tscn" id="7_xnafq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fueuo"]
 shader = ExtResource("4_fbbi8")
@@ -169,3 +170,5 @@ theme_override_constants/separation = 20
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+
+[node name="UiSounds" parent="." unique_id=1326474061 instance=ExtResource("7_xnafq")]
