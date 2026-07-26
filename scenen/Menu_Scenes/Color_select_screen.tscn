@@ -89,13 +89,13 @@ vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Color_section" unique_id=1004657159]
 layout_mode = 0
-offset_left = 395.0
-offset_top = 200.0
-offset_right = 1052.0
-offset_bottom = 280.0
+offset_left = 291.0
+offset_top = 204.0
+offset_right = 1415.0
+offset_bottom = 304.0
 
 [node name="Color" parent="Color_section/HBoxContainer" unique_id=1292030343 instance=ExtResource("3_8r36i")]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(1, 0, 0.14901961, 1)
 
@@ -104,7 +104,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Color2" parent="Color_section/HBoxContainer" unique_id=429941957 instance=ExtResource("3_8r36i")]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
 [node name="VSeparator2" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=1976753395]
@@ -112,7 +112,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Color3" parent="Color_section/HBoxContainer" unique_id=764449496 instance=ExtResource("3_8r36i")]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0, 0.38252515, 0.8922372, 1)
 
@@ -121,7 +121,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Color4" parent="Color_section/HBoxContainer" unique_id=2106355209 instance=ExtResource("3_8r36i")]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.8813061, 0.0003717619, 0.82598525, 1)
 
@@ -130,7 +130,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Color5" parent="Color_section/HBoxContainer" unique_id=795153610 instance=ExtResource("3_8r36i")]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0, 1, 1, 1)
 
@@ -139,7 +139,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Color6" parent="Color_section/HBoxContainer" unique_id=505701722 instance=ExtResource("3_8r36i")]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0, 0.38431373, 0, 1)
 
@@ -148,7 +148,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Color7" parent="Color_section/HBoxContainer" unique_id=1787235463 instance=ExtResource("3_8r36i")]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.81960785, 0.8784314, 0, 1)
 
@@ -157,7 +157,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Color8" parent="Color_section/HBoxContainer" unique_id=399429776 instance=ExtResource("3_8r36i")]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.36078432, 0, 0.7019608, 1)
 
@@ -166,6 +166,6 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Color9" parent="Color_section/HBoxContainer" unique_id=1607823079 instance=ExtResource("3_8r36i")]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
