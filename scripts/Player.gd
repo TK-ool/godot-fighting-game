@@ -92,6 +92,7 @@ func _physics_process(delta: float) -> void:
 
 	
 func _ready() -> void:
+	apply_skin()
 	device_id.emit(device)
 	health_data = health_data.duplicate()
 	health_data.died.connect(died_)
@@ -369,3 +370,9 @@ func update_audio_player(audio_name:String):
 		movement_sounds["parameters/switch_to_clip"] = audio_name
 		movement_sounds.play()
 		
+		
+func apply_skin()-> void:
+	if device == 0:
+		sprite_2d.texture = Global.P1_Skin
+	if device == 1:
+		sprite_2d.texture = Global.P2_Skin

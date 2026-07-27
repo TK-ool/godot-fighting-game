@@ -6,7 +6,17 @@
 [ext_resource type="Shader" uid="uid://wtshj7e6amys" path="res://Shader/BG_Main Menu.gdshader" id="4_fbbi8"]
 [ext_resource type="Texture2D" uid="uid://35awwleu6mvg" path="res://Texturen/Tileset/BG repeat Texture.png" id="5_vr1if"]
 [ext_resource type="Theme" uid="uid://d08c63hb4yx8f" path="res://Texturen/Theme/New_Buttons.tres" id="5_xnafq"]
+[ext_resource type="PackedScene" uid="uid://dks0auonii7oo" path="res://scenen/Menu_Scenes/Skin.tscn" id="7_kep1u"]
 [ext_resource type="PackedScene" uid="uid://bb4v0irf1r6ex" path="res://scenen/Menu_Scenes/UI_sounds.tscn" id="7_xnafq"]
+[ext_resource type="Texture2D" uid="uid://do0gcihejgeyd" path="res://Texturen/Skins/Platzhalter/Godot_icon_import.png" id="8_wc3v4"]
+[ext_resource type="Texture2D" uid="uid://6aebhh6noafr" path="res://Texturen/Skins/Platzhalter/Godot_icon_import (1).png" id="9_sibyx"]
+[ext_resource type="Texture2D" uid="uid://blnpiplbe1w02" path="res://Texturen/Skins/Platzhalter/Godot_icon_import (2).png" id="10_sdhle"]
+[ext_resource type="Texture2D" uid="uid://cvtqjrkfdtwyk" path="res://Texturen/Skins/Platzhalter/Godot_icon_import (3).png" id="11_ipcen"]
+[ext_resource type="Texture2D" uid="uid://ptvshs84wokg" path="res://Texturen/Skins/Platzhalter/Godot_icon_import (4).png" id="12_mh04j"]
+[ext_resource type="Texture2D" uid="uid://dgj0yyyx063cx" path="res://Texturen/Skins/Platzhalter/Godot_icon_import (6).png" id="13_b5f5d"]
+[ext_resource type="Texture2D" uid="uid://bfeasdsvkjfxq" path="res://Texturen/Skins/Platzhalter/Godot_icon_import (7).png" id="14_lss38"]
+[ext_resource type="Texture2D" uid="uid://b623tk5q32o7q" path="res://Texturen/Skins/Platzhalter/Godot_icon_import (8).png" id="15_nqpb7"]
+[ext_resource type="Texture2D" uid="uid://dokyo26gchovf" path="res://Texturen/Skins/Platzhalter/Godot_icon_import (9).png" id="16_a2f8t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fueuo"]
 shader = ExtResource("4_fbbi8")
@@ -24,7 +34,7 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[node name="ColorSelectScreen" type="Node2D" unique_id=517030527]
+[node name="CharackterSelectScreen" type="Node2D" unique_id=517030527]
 script = ExtResource("1_ksvq1")
 
 [node name="Cursor Player 1" parent="." unique_id=706305829 instance=ExtResource("1_1necn")]
@@ -88,87 +98,187 @@ text = "Color selection"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Color_section" unique_id=1004657159]
+[node name="ColorContainer" type="HBoxContainer" parent="Color_section" unique_id=1004657159]
 layout_mode = 0
 offset_left = 291.0
-offset_top = 204.0
+offset_top = 279.645
 offset_right = 1415.0
-offset_bottom = 304.0
+offset_bottom = 379.64505
 
-[node name="Color" parent="Color_section/HBoxContainer" unique_id=1292030343 instance=ExtResource("3_8r36i")]
+[node name="Color" parent="Color_section/ColorContainer" unique_id=1292030343 instance=ExtResource("3_8r36i")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(1, 0, 0.14901961, 1)
 
-[node name="VSeparator" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=41907459]
+[node name="VSeparator" type="VSeparator" parent="Color_section/ColorContainer" unique_id=41907459]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Color2" parent="Color_section/HBoxContainer" unique_id=429941957 instance=ExtResource("3_8r36i")]
+[node name="Color2" parent="Color_section/ColorContainer" unique_id=429941957 instance=ExtResource("3_8r36i")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="VSeparator2" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=1976753395]
+[node name="VSeparator2" type="VSeparator" parent="Color_section/ColorContainer" unique_id=1976753395]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Color3" parent="Color_section/HBoxContainer" unique_id=764449496 instance=ExtResource("3_8r36i")]
+[node name="Color3" parent="Color_section/ColorContainer" unique_id=764449496 instance=ExtResource("3_8r36i")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0, 0.38252515, 0.8922372, 1)
 
-[node name="VSeparator3" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=957910568]
+[node name="VSeparator3" type="VSeparator" parent="Color_section/ColorContainer" unique_id=957910568]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Color4" parent="Color_section/HBoxContainer" unique_id=2106355209 instance=ExtResource("3_8r36i")]
+[node name="Color4" parent="Color_section/ColorContainer" unique_id=2106355209 instance=ExtResource("3_8r36i")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.8813061, 0.0003717619, 0.82598525, 1)
 
-[node name="VSeparator4" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=1664450418]
+[node name="VSeparator4" type="VSeparator" parent="Color_section/ColorContainer" unique_id=1664450418]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Color5" parent="Color_section/HBoxContainer" unique_id=795153610 instance=ExtResource("3_8r36i")]
+[node name="Color5" parent="Color_section/ColorContainer" unique_id=795153610 instance=ExtResource("3_8r36i")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0, 1, 1, 1)
 
-[node name="VSeparator5" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=1524312550]
+[node name="VSeparator5" type="VSeparator" parent="Color_section/ColorContainer" unique_id=1524312550]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Color6" parent="Color_section/HBoxContainer" unique_id=505701722 instance=ExtResource("3_8r36i")]
+[node name="Color6" parent="Color_section/ColorContainer" unique_id=505701722 instance=ExtResource("3_8r36i")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0, 0.38431373, 0, 1)
 
-[node name="VSeparator6" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=1962642422]
+[node name="VSeparator6" type="VSeparator" parent="Color_section/ColorContainer" unique_id=1962642422]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Color7" parent="Color_section/HBoxContainer" unique_id=1787235463 instance=ExtResource("3_8r36i")]
+[node name="Color7" parent="Color_section/ColorContainer" unique_id=1787235463 instance=ExtResource("3_8r36i")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.81960785, 0.8784314, 0, 1)
 
-[node name="VSeparator7" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=361883843]
+[node name="VSeparator7" type="VSeparator" parent="Color_section/ColorContainer" unique_id=361883843]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Color8" parent="Color_section/HBoxContainer" unique_id=399429776 instance=ExtResource("3_8r36i")]
+[node name="Color8" parent="Color_section/ColorContainer" unique_id=399429776 instance=ExtResource("3_8r36i")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.36078432, 0, 0.7019608, 1)
 
-[node name="VSeparator8" type="VSeparator" parent="Color_section/HBoxContainer" unique_id=456138527]
+[node name="VSeparator8" type="VSeparator" parent="Color_section/ColorContainer" unique_id=456138527]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Color9" parent="Color_section/HBoxContainer" unique_id=1607823079 instance=ExtResource("3_8r36i")]
+[node name="Color9" parent="Color_section/ColorContainer" unique_id=1607823079 instance=ExtResource("3_8r36i")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+
+[node name="SkinContainer" type="HBoxContainer" parent="Color_section" unique_id=227669622]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 130.02
+offset_right = 1415.0
+offset_bottom = 230.02017
+
+[node name="Skin" parent="Color_section/SkinContainer" unique_id=642611753 instance=ExtResource("7_kep1u")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_wc3v4")
+
+[node name="VSeparator" type="VSeparator" parent="Color_section/SkinContainer" unique_id=1034631938]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Skin2" parent="Color_section/SkinContainer" unique_id=119479243 instance=ExtResource("7_kep1u")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("9_sibyx")
+
+[node name="VSeparator2" type="VSeparator" parent="Color_section/SkinContainer" unique_id=1926467978]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Skin3" parent="Color_section/SkinContainer" unique_id=894185594 instance=ExtResource("7_kep1u")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("10_sdhle")
+
+[node name="VSeparator3" type="VSeparator" parent="Color_section/SkinContainer" unique_id=444128271]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Skin4" parent="Color_section/SkinContainer" unique_id=82967737 instance=ExtResource("7_kep1u")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("11_ipcen")
+
+[node name="VSeparator4" type="VSeparator" parent="Color_section/SkinContainer" unique_id=1975737865]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Skin5" parent="Color_section/SkinContainer" unique_id=929327956 instance=ExtResource("7_kep1u")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("12_mh04j")
+
+[node name="VSeparator5" type="VSeparator" parent="Color_section/SkinContainer" unique_id=765113508]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Skin6" parent="Color_section/SkinContainer" unique_id=2010594098 instance=ExtResource("7_kep1u")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("13_b5f5d")
+
+[node name="VSeparator6" type="VSeparator" parent="Color_section/SkinContainer" unique_id=830719929]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Skin7" parent="Color_section/SkinContainer" unique_id=419616448 instance=ExtResource("7_kep1u")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("14_lss38")
+
+[node name="VSeparator7" type="VSeparator" parent="Color_section/SkinContainer" unique_id=309527551]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Skin8" parent="Color_section/SkinContainer" unique_id=1369492387 instance=ExtResource("7_kep1u")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("15_nqpb7")
+
+[node name="VSeparator8" type="VSeparator" parent="Color_section/SkinContainer" unique_id=1008852275]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Skin9" parent="Color_section/SkinContainer" unique_id=1911178349 instance=ExtResource("7_kep1u")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("16_a2f8t")
+
+[node name="Player1_preview" type="TextureRect" parent="Color_section" unique_id=1504580581]
+layout_mode = 0
+offset_left = 128.0
+offset_top = -355.0
+offset_right = 384.0
+offset_bottom = -99.0
+texture = ExtResource("8_wc3v4")
+
+[node name="Player2_preview" type="TextureRect" parent="Color_section" unique_id=1247069278]
+layout_mode = 0
+offset_left = 1218.0
+offset_top = -355.0
+offset_right = 1474.0
+offset_bottom = -99.0
+texture = ExtResource("8_wc3v4")
 
 [node name="UiSounds" parent="." unique_id=1326474061 instance=ExtResource("7_xnafq")]

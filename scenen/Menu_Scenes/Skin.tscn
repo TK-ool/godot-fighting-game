@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dks0auonii7oo"]
+
+[ext_resource type="Texture2D" uid="uid://2pbnskmf7qj7" path="res://Texturen/icon.svg" id="1_307tw"]
+[ext_resource type="Script" uid="uid://biklhmue74ty5" path="res://scenen/Menu_Scenes/skin_select.gd" id="1_a182b"]
+[ext_resource type="Texture2D" uid="uid://dwsmk2380iuix" path="res://Texturen/Color_selected.png" id="2_307tw"]
+[ext_resource type="AudioStream" uid="uid://brjeie6cyonk4" path="res://Sounds/UI_Sounds/UI_Click.wav" id="3_rnplm"]
+[ext_resource type="AudioStream" uid="uid://b0feyjhowd5ju" path="res://Sounds/UI_Sounds/UI_Hover.wav" id="4_y0mhl"]
+[ext_resource type="AudioStream" uid="uid://dcg6gf8istnge" path="res://Sounds/platzhalter.wav" id="5_6axsq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2el1j"]
+size = Vector2(79.5, 79)
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_tu0gr"]
+clip_count = 3
+clip_0/name = &"click"
+clip_0/stream = ExtResource("3_rnplm")
+clip_0/auto_advance = 0
+clip_1/name = &"hover"
+clip_1/stream = ExtResource("4_y0mhl")
+clip_1/auto_advance = 0
+clip_2/name = &"platzhalter"
+clip_2/stream = ExtResource("5_6axsq")
+clip_2/auto_advance = 0
+initial_clip = 2
+
+[node name="Skin" type="TextureRect" unique_id=642611753 groups=["Skin"]]
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("1_307tw")
+expand_mode = 1
+script = ExtResource("1_a182b")
+
+[node name="Skin_zone" type="Area2D" parent="." unique_id=576185884]
+z_index = -5
+position = Vector2(-50, -50)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skin_zone" unique_id=311563636]
+position = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_2el1j")
+
+[node name="SkinSelected" type="Sprite2D" parent="." unique_id=1505984614]
+visible = false
+position = Vector2(50, 37)
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("2_307tw")
+
+[node name="selected_player_label" type="Label" parent="SkinSelected" unique_id=726577789]
+offset_left = -167.27274
+offset_top = -225.45453
+offset_right = 13.727264
+offset_bottom = -160.45453
+theme_override_font_sizes/font_size = 47
+text = "Player 1"
+
+[node name="Skin_sounds" type="AudioStreamPlayer" parent="." unique_id=907499757]
+stream = SubResource("AudioStreamInteractive_tu0gr")
+max_polyphony = 2
+bus = &"UI"
+
+[connection signal="body_entered" from="Skin_zone" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Skin_zone" to="." method="_on_area_2d_body_exited"]

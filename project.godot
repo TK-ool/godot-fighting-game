@@ -38,6 +38,7 @@ Player_1="Spieler Nr.2"
 bullet=""
 Players=""
 Color="auswahl der Farben"
+Skin="auswahl des Skins"
 
 [input]
 

@@ -1,8 +1,12 @@
 extends Node
 
-#Player Farbe für Outlines
+#Player Farbe für Outlines wird derzeit nur direkt in dem bullet script benutzt
 var P1_Color: Color = Color(211, 0.0, 203, 1.0)
 var P2_Color: Color = Color(0.0, 0.0, 203, 1.0)
+
+#setzt standartskins hier
+var P1_Skin: Texture2D = preload("uid://b623tk5q32o7q")
+var P2_Skin: Texture2D = preload("uid://dokyo26gchovf")
 
 #Punkte zum gewinnen
 var Win_points_amount := 3

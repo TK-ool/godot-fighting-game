@@ -2,12 +2,14 @@ class_name Cursor
 extends CharacterBody2D
 
 signal player_clicked_color
+signal player_clicked_skin
 
 @onready var player_name: Label = $Player_name
 
 @export var device : int = 0
 var playernumber: int
 var is_in_colorrect: bool = false
+var is_in_skinrect: bool = false
 var player_color: Color
 const SPEED: float = 500.0
 
@@ -27,5 +29,10 @@ func _physics_process(_delta: float) -> void:
 	if is_in_colorrect:
 		if Input.is_action_just_pressed("P%d_accept" %device):
 			player_clicked_color.emit(device)
+			
+	if is_in_skinrect:
+		if Input.is_action_just_pressed("P%d_accept" %device):
+			player_clicked_skin.emit(device)
+
 
 	move_and_slide()
