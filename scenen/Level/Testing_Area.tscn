@@ -136,7 +136,6 @@ sources/1 = SubResource("TileSetAtlasSource_4qurw")
 
 [sub_resource type="Environment" id="Environment_4v223"]
 background_mode = 3
-glow_enabled = true
 glow_intensity = 2.15
 glow_strength = 1.58
 glow_blend_mode = 0

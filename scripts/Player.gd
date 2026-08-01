@@ -8,6 +8,10 @@ signal player_died(player_name: String)
 
 @onready var gun: Gun = $Gun
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var eye_left: Sprite2D = $Sprite2D/Eye_Left
+@onready var eye_right: Sprite2D = $Sprite2D/Eye_Right
+
+
 
 #Audio
 @onready var movement_sounds: AudioStreamPlayer = $Movement_sounds
@@ -89,6 +93,8 @@ func _physics_process(delta: float) -> void:
 	knocked_back()
 	drop_down()
 	scaling(delta)
+	eye_rotation()
+	flip_rotation()
 
 	
 func _ready() -> void:
@@ -376,3 +382,37 @@ func apply_skin()-> void:
 		sprite_2d.texture = Global.P1_Skin
 	if device == 1:
 		sprite_2d.texture = Global.P2_Skin
+
+
+func eye_rotation() -> void:
+	var target_angle: float
+	
+	var input_vec: Vector2 = Vector2(
+		Input.get_axis("P%d_links_rechts" % device, "P%d_rechts_rechts" % device),
+		Input.get_axis("P%d_oben_rechts" % device, "P%d_unten_rechts" % device)
+		)
+	
+	if input_vec.length() >= deadzone:
+		
+		
+		target_angle = input_vec.angle()
+	
+	if eye_left.rotation != target_angle:
+		eye_left.rotation = target_angle
+		eye_right.rotation = target_angle
+
+		#code für übergang zum endpunkt
+		#var rotation_lerp_weight: float = 1.0 - exp(-rotation_speed * delta)
+		#eye.rotation = lerp_angle(	eye.rotation, target_angle, rotation_lerp_weight)
+
+func flip_rotation():
+	eye_left.rotation_degrees = wrap(eye_left.rotation_degrees, 0, 360)
+	if eye_left.rotation_degrees > 90 and eye_left.rotation_degrees	< 270:
+		sprite_2d.flip_h = true
+		eye_right.position.x = 8.751
+		eye_left.position.x = -24.464
+	else:
+		sprite_2d.flip_h = false
+		eye_right.position.x = 25.406
+		eye_left.position.x = -9.239
+		

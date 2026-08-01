@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cw6rbeb0qe85y" path="res://scripts/Player.gd" id="1_kpjcp"]
 [ext_resource type="Script" uid="uid://bnuilhtjbnplk" path="res://Ressources/HealthRessource.gd" id="2_a36lp"]
-[ext_resource type="Texture2D" uid="uid://2pbnskmf7qj7" path="res://Texturen/icon.svg" id="2_kne1u"]
 [ext_resource type="Shader" uid="uid://bnmpcep16p3cr" path="res://Shader/Player_hit_shader.gdshader" id="3_57jcf"]
 [ext_resource type="PackedScene" uid="uid://g64rmryrtbx8" path="res://scenen/gun.tscn" id="3_kne1u"]
+[ext_resource type="Texture2D" uid="uid://b11n0r23f36ry" path="res://Texturen/Character/temp_char_no_eyes.png" id="4_05xd2"]
 [ext_resource type="AudioStream" uid="uid://17ah2lt624ue" path="res://Sounds/jump.wav" id="6_q6j04"]
 [ext_resource type="AudioStream" uid="uid://otf4di3tjnhj" path="res://Sounds/Dash.wav" id="7_05xd2"]
 [ext_resource type="AudioStream" uid="uid://dcg6gf8istnge" path="res://Sounds/platzhalter.wav" id="8_05xd2"]
+[ext_resource type="Texture2D" uid="uid://05i6a2yp2yd" path="res://Texturen/Character/temp_char_single_eye.png" id="9_3gtyk"]
 
 [sub_resource type="Resource" id="Resource_q6j04"]
 script = ExtResource("2_a36lp")
@@ -90,8 +91,20 @@ z_index = 1
 material = SubResource("ShaderMaterial_p16o4")
 position = Vector2(0, 25)
 scale = Vector2(0.43296874, 0.3984375)
-texture = ExtResource("2_kne1u")
+texture = ExtResource("4_05xd2")
 offset = Vector2(0, -65.39)
+
+[node name="Eye_Left" type="Sprite2D" parent="Sprite2D" unique_id=1330255765]
+z_index = 2
+position = Vector2(-9.238543, -75.29412)
+texture = ExtResource("9_3gtyk")
+offset = Vector2(5, 0)
+
+[node name="Eye_Right" type="Sprite2D" parent="Sprite2D" unique_id=910398302]
+z_index = 2
+position = Vector2(25.40599, -75.29411)
+texture = ExtResource("9_3gtyk")
+offset = Vector2(7, 0)
 
 [node name="Gun" parent="." unique_id=418450671 instance=ExtResource("3_kne1u")]
 

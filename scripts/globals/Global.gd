@@ -5,8 +5,8 @@ var P1_Color: Color = Color(211, 0.0, 203, 1.0)
 var P2_Color: Color = Color(0.0, 0.0, 203, 1.0)
 
 #setzt standartskins hier
-var P1_Skin: Texture2D = preload("uid://b623tk5q32o7q")
-var P2_Skin: Texture2D = preload("uid://dokyo26gchovf")
+var P1_Skin: Texture2D = preload("uid://b11n0r23f36ry")
+var P2_Skin: Texture2D = preload("uid://b11n0r23f36ry")
 
 #Punkte zum gewinnen
 var Win_points_amount := 3

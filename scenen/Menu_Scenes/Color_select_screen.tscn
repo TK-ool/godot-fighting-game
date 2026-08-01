@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://d08c63hb4yx8f" path="res://Texturen/Theme/New_Buttons.tres" id="5_xnafq"]
 [ext_resource type="PackedScene" uid="uid://dks0auonii7oo" path="res://scenen/Menu_Scenes/Skin.tscn" id="7_kep1u"]
 [ext_resource type="PackedScene" uid="uid://bb4v0irf1r6ex" path="res://scenen/Menu_Scenes/UI_sounds.tscn" id="7_xnafq"]
+[ext_resource type="Texture2D" uid="uid://hk3eyjk3lya" path="res://Texturen/Character/temp_char_4k.png" id="8_sdhle"]
 [ext_resource type="Texture2D" uid="uid://do0gcihejgeyd" path="res://Texturen/Skins/Platzhalter/Godot_icon_import.png" id="8_wc3v4"]
 [ext_resource type="Texture2D" uid="uid://6aebhh6noafr" path="res://Texturen/Skins/Platzhalter/Godot_icon_import (1).png" id="9_sibyx"]
 [ext_resource type="Texture2D" uid="uid://blnpiplbe1w02" path="res://Texturen/Skins/Platzhalter/Godot_icon_import (2).png" id="10_sdhle"]
@@ -191,7 +192,7 @@ offset_bottom = 230.02017
 [node name="Skin" parent="Color_section/SkinContainer" unique_id=642611753 instance=ExtResource("7_kep1u")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("8_wc3v4")
+texture = ExtResource("8_sdhle")
 
 [node name="VSeparator" type="VSeparator" parent="Color_section/SkinContainer" unique_id=1034631938]
 layout_mode = 2
